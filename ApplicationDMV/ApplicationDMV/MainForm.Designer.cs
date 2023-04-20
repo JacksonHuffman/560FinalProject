@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.uxInsertRdButton = new System.Windows.Forms.Button();
-            this.uxInsertLicenseButton = new System.Windows.Forms.Button();
-            this.uxInsertVehicleButton = new System.Windows.Forms.Button();
+            this.uxInsertVehiclesLIButton = new System.Windows.Forms.Button();
             this.uxInsertButton = new System.Windows.Forms.Label();
             this.uxSearchLabel = new System.Windows.Forms.Label();
             this.uxSearchRDButton = new System.Windows.Forms.Button();
@@ -43,7 +42,7 @@
             // 
             this.uxInsertRdButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.uxInsertRdButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.uxInsertRdButton.Location = new System.Drawing.Point(321, 319);
+            this.uxInsertRdButton.Location = new System.Drawing.Point(134, 319);
             this.uxInsertRdButton.Name = "uxInsertRdButton";
             this.uxInsertRdButton.Size = new System.Drawing.Size(146, 84);
             this.uxInsertRdButton.TabIndex = 18;
@@ -51,29 +50,17 @@
             this.uxInsertRdButton.UseVisualStyleBackColor = false;
             this.uxInsertRdButton.Click += new System.EventHandler(this.uxInsertRdButton_Click);
             // 
-            // uxInsertLicenseButton
+            // uxInsertVehiclesLIButton
             // 
-            this.uxInsertLicenseButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxInsertLicenseButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.uxInsertLicenseButton.Location = new System.Drawing.Point(507, 319);
-            this.uxInsertLicenseButton.Name = "uxInsertLicenseButton";
-            this.uxInsertLicenseButton.Size = new System.Drawing.Size(142, 84);
-            this.uxInsertLicenseButton.TabIndex = 17;
-            this.uxInsertLicenseButton.Text = "License Infomation";
-            this.uxInsertLicenseButton.UseVisualStyleBackColor = false;
-            this.uxInsertLicenseButton.Click += new System.EventHandler(this.uxInsertLicenseButton_Click);
-            // 
-            // uxInsertVehicleButton
-            // 
-            this.uxInsertVehicleButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxInsertVehicleButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.uxInsertVehicleButton.Location = new System.Drawing.Point(134, 319);
-            this.uxInsertVehicleButton.Name = "uxInsertVehicleButton";
-            this.uxInsertVehicleButton.Size = new System.Drawing.Size(144, 84);
-            this.uxInsertVehicleButton.TabIndex = 16;
-            this.uxInsertVehicleButton.Text = "Vehicles";
-            this.uxInsertVehicleButton.UseVisualStyleBackColor = false;
-            this.uxInsertVehicleButton.Click += new System.EventHandler(this.uxInsertVehicleButton_Click);
+            this.uxInsertVehiclesLIButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.uxInsertVehiclesLIButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.uxInsertVehiclesLIButton.Location = new System.Drawing.Point(326, 319);
+            this.uxInsertVehiclesLIButton.Name = "uxInsertVehiclesLIButton";
+            this.uxInsertVehiclesLIButton.Size = new System.Drawing.Size(332, 84);
+            this.uxInsertVehiclesLIButton.TabIndex = 16;
+            this.uxInsertVehiclesLIButton.Text = "Vehicles/License Information";
+            this.uxInsertVehiclesLIButton.UseVisualStyleBackColor = false;
+            this.uxInsertVehiclesLIButton.Click += new System.EventHandler(this.uxInsertVehicleButton_Click);
             // 
             // uxInsertButton
             // 
@@ -101,7 +88,7 @@
             // 
             this.uxSearchRDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.uxSearchRDButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.uxSearchRDButton.Location = new System.Drawing.Point(321, 154);
+            this.uxSearchRDButton.Location = new System.Drawing.Point(134, 154);
             this.uxSearchRDButton.Name = "uxSearchRDButton";
             this.uxSearchRDButton.Size = new System.Drawing.Size(146, 84);
             this.uxSearchRDButton.TabIndex = 13;
@@ -125,7 +112,7 @@
             // 
             this.uxSearchVehiclesButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.uxSearchVehiclesButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.uxSearchVehiclesButton.Location = new System.Drawing.Point(134, 154);
+            this.uxSearchVehiclesButton.Location = new System.Drawing.Point(326, 154);
             this.uxSearchVehiclesButton.Name = "uxSearchVehiclesButton";
             this.uxSearchVehiclesButton.Size = new System.Drawing.Size(144, 84);
             this.uxSearchVehiclesButton.TabIndex = 11;
@@ -152,8 +139,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.uxInsertRdButton);
-            this.Controls.Add(this.uxInsertLicenseButton);
-            this.Controls.Add(this.uxInsertVehicleButton);
+            this.Controls.Add(this.uxInsertVehiclesLIButton);
             this.Controls.Add(this.uxInsertButton);
             this.Controls.Add(this.uxSearchLabel);
             this.Controls.Add(this.uxSearchRDButton);
@@ -170,8 +156,7 @@
         #endregion
 
         private Button uxInsertRdButton;
-        private Button uxInsertLicenseButton;
-        private Button uxInsertVehicleButton;
+        private Button uxInsertVehiclesLIButton;
         private Label uxInsertButton;
         private Label uxSearchLabel;
         private Button uxSearchRDButton;

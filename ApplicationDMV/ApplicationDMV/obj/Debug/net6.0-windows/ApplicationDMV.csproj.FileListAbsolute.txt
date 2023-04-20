@@ -22,3 +22,4 @@ C:\Users\JakeS\OneDrive\Desktop\560Final\ApplicationDMV\ApplicationDMV\obj\Debug
 C:\Users\JakeS\OneDrive\Desktop\560Final\ApplicationDMV\ApplicationDMV\obj\Debug\net6.0-windows\ApplicationDMV.pdb
 C:\Users\JakeS\OneDrive\Desktop\560Final\ApplicationDMV\ApplicationDMV\obj\Debug\net6.0-windows\ApplicationDMV.genruntimeconfig.cache
 C:\Users\JakeS\OneDrive\Desktop\560Final\ApplicationDMV\ApplicationDMV\obj\Debug\net6.0-windows\ref\ApplicationDMV.dll
+C:\Users\JakeS\OneDrive\Desktop\560Final\ApplicationDMV\ApplicationDMV\obj\Debug\net6.0-windows\ApplicationDMV.InsertForms.IntermediateForm.resources
