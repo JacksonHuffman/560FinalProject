@@ -1,5 +1,9 @@
+using System.ComponentModel;
+using ApplicationDMV.Search_Forms;
+using ApplicationDMV.InsertForms;
 namespace ApplicationDMV
 {
+
     internal static class Program
     {
         /// <summary>
@@ -8,10 +12,11 @@ namespace ApplicationDMV
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new VehicleSearchForm());
+            Application.EnableVisualStyles();
+            ViewController c = new ViewController();
+            MainForm mainWindow = new MainForm();
+            Application.Run(mainWindow);
         }
     }
 }
