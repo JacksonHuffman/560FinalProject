@@ -1,0 +1,174 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="uxWelcomeLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="uxWelcomeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 27</value>
+  </data>
+  <data name="uxWelcomeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>768, 25</value>
+  </data>
+  <data name="uxWelcomeLabel.Text" xml:space="preserve">
+    <value>Welcome to the DMV database. Selecting a search option will allow the ability to update.</value>
+  </data>
+  <data name="uxSearchVehiclesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 134</value>
+  </data>
+  <data name="uxSearchLIButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>503, 134</value>
+  </data>
+  <data name="uxSearchRDButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 134</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="uxSearchLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uxSearchLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="uxSearchLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 88</value>
+  </data>
+  <data name="uxSearchLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 25</value>
+  </data>
+  <data name="uxSearchLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="uxSearchLabel.Text" xml:space="preserve">
+    <value>Search:</value>
+  </data>
+  <data name="uxInsertButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uxInsertButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="uxInsertButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="uxInsertButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 253</value>
+  </data>
+  <data name="uxInsertButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 25</value>
+  </data>
+  <data name="uxInsertButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="uxInsertButton.Text" xml:space="preserve">
+    <value>Insert:</value>
+  </data>
+  <data name="uxInsertRdButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="uxInsertRdButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 299</value>
+  </data>
+  <data name="uxInsertRdButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 84</value>
+  </data>
+  <data name="uxInsertRdButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="uxInsertRdButton.Text" xml:space="preserve">
+    <value>Registered Drivers</value>
+  </data>
+  <data name="uxInsertLicenseButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="uxInsertLicenseButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>503, 299</value>
+  </data>
+  <data name="uxInsertLicenseButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 84</value>
+  </data>
+  <data name="uxInsertLicenseButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="uxInsertLicenseButton.Text" xml:space="preserve">
+    <value>License Infomation</value>
+  </data>
+  <data name="uxInsertVehicleButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="uxInsertVehicleButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 299</value>
+  </data>
+  <data name="uxInsertVehicleButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 84</value>
+  </data>
+  <data name="uxInsertVehicleButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="uxInsertVehicleButton.Text" xml:space="preserve">
+    <value>Vehicles</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 424</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>DMV Home</value>
+  </data>
+</root>
