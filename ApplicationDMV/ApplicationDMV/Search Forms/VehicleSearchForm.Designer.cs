@@ -222,6 +222,7 @@
             this.uxBackButton.TabIndex = 40;
             this.uxBackButton.Text = "Back";
             this.uxBackButton.UseVisualStyleBackColor = false;
+            this.uxBackButton.Click += new System.EventHandler(this.uxBackButton_Click);
             // 
             // uxSearchButton
             // 

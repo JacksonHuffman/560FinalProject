@@ -16,5 +16,12 @@ namespace ApplicationDMV.Search_Forms
         {
             InitializeComponent();
         }
+
+        private void uxBackButton_Click(object sender, EventArgs e)
+        {
+            MainForm m = new MainForm();
+            m.Show();
+            this.Hide();
+        }
     }
 }

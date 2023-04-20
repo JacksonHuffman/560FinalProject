@@ -71,6 +71,7 @@
             this.uxBackButton.TabIndex = 62;
             this.uxBackButton.Text = "Back";
             this.uxBackButton.UseVisualStyleBackColor = false;
+            this.uxBackButton.Click += new System.EventHandler(this.uxBackButton_Click);
             // 
             // uxColorTB
             // 

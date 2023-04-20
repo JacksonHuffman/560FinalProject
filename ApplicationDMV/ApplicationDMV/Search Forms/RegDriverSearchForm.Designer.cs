@@ -159,6 +159,7 @@
             this.uxBackButton.TabIndex = 14;
             this.uxBackButton.Text = "Back";
             this.uxBackButton.UseVisualStyleBackColor = false;
+            this.uxBackButton.Click += new System.EventHandler(this.uxBackButton_Click);
             // 
             // RegDriverSearchForm
             // 
