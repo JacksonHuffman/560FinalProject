@@ -1,0 +1,404 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="uxSerachLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 25</value>
+  </data>
+  <data name="&gt;&gt;uxInsertRdButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="uxUpdateLIButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;uxSearchLIButton.Name" xml:space="preserve">
+    <value>uxSearchLIButton</value>
+  </data>
+  <data name="&gt;&gt;uxInsertButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateVehicleButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;uxSerachLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uxUpdateLIButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 318</value>
+  </data>
+  <data name="uxSearchRDButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>316, 149</value>
+  </data>
+  <data name="&gt;&gt;uxWelcomeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uxSerachLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxSearchVehiclesButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 149</value>
+  </data>
+  <data name="uxInsertButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 253</value>
+  </data>
+  <data name="&gt;&gt;uxInsertLicenseButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="uxSearchRDButton.Text" xml:space="preserve">
+    <value>Registered Drivers</value>
+  </data>
+  <data name="uxUpdateRDButton.Text" xml:space="preserve">
+    <value>Registered Drivers</value>
+  </data>
+  <data name="uxInsertVehicleButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 299</value>
+  </data>
+  <data name="uxSearchLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>10, 25</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateInsertLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="uxUpdateInsertLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateVehicleButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uxUpdateInsertLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 268</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateLIButton.Name" xml:space="preserve">
+    <value>uxUpdateLIButton</value>
+  </data>
+  <data name="uxUpdateRDButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateInsertLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateRDButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxSearchLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 88</value>
+  </data>
+  <data name="&gt;&gt;uxInsertButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxInsertRdButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 299</value>
+  </data>
+  <data name="&gt;&gt;uxInsertLicenseButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxInsertLicenseButton.Name" xml:space="preserve">
+    <value>uxInsertLicenseButton</value>
+  </data>
+  <data name="&gt;&gt;uxSearchVehiclesButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxInsertLicenseButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxInsertRdButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;uxSearchRDButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uxInsertVehicleButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxSearchVehiclesButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="uxSearchLIButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 149</value>
+  </data>
+  <data name="uxSerachLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="uxWelcomeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>487, 25</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="uxInsertLicenseButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateVehicleButton.Name" xml:space="preserve">
+    <value>uxUpdateVehicleButton</value>
+  </data>
+  <data name="&gt;&gt;uxInsertRdButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxSearchLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxUpdateRDButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>316, 318</value>
+  </data>
+  <data name="uxSerachLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="uxSearchRDButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 84</value>
+  </data>
+  <data name="uxUpdateVehicleButton.Text" xml:space="preserve">
+    <value>Vehicles</value>
+  </data>
+  <data name="uxUpdateInsertLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 25</value>
+  </data>
+  <data name="uxWelcomeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 38</value>
+  </data>
+  <data name="&gt;&gt;uxSerachLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateInsertLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxWelcomeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="uxSearchLIButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;uxSearchLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;uxSearchRDButton.Name" xml:space="preserve">
+    <value>uxSearchRDButton</value>
+  </data>
+  <data name="&gt;&gt;uxSearchLIButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxWelcomeLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateRDButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;uxInsertButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxInsertRdButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="uxUpdateVehicleButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 84</value>
+  </data>
+  <data name="uxUpdateRDButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 84</value>
+  </data>
+  <data name="&gt;&gt;uxSearchVehiclesButton.Name" xml:space="preserve">
+    <value>uxSearchVehiclesButton</value>
+  </data>
+  <data name="uxUpdateInsertLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateRDButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxSearchLIButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxUpdateInsertLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="uxSearchRDButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="uxSerachLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;uxSearchLIButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="uxInsertVehicleButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="uxUpdateInsertLabel.Text" xml:space="preserve">
+    <value>Update/Insert:</value>
+  </data>
+  <data name="&gt;&gt;uxSearchRDButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;uxSearchRDButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateLIButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxInsertButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="uxSerachLabel.Text" xml:space="preserve">
+    <value>Search:</value>
+  </data>
+  <data name="uxWelcomeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="uxInsertLicenseButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>503, 299</value>
+  </data>
+  <data name="&gt;&gt;uxInsertButton.Name" xml:space="preserve">
+    <value>uxInsertButton</value>
+  </data>
+  <data name="uxSearchVehiclesButton.Text" xml:space="preserve">
+    <value>Vehicles</value>
+  </data>
+  <data name="uxUpdateVehicleButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;uxInsertVehicleButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;uxWelcomeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="uxSearchLIButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 84</value>
+  </data>
+  <data name="uxUpdateLIButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 84</value>
+  </data>
+  <data name="&gt;&gt;uxInsertVehicleButton.Name" xml:space="preserve">
+    <value>uxInsertVehicleButton</value>
+  </data>
+  <data name="&gt;&gt;uxSearchVehiclesButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateRDButton.Name" xml:space="preserve">
+    <value>uxUpdateRDButton</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateLIButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;uxInsertVehicleButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;uxSearchLabel.Name" xml:space="preserve">
+    <value>uxSearchLabel</value>
+  </data>
+  <data name="uxWelcomeLabel.Text" xml:space="preserve">
+    <value>Welcome to the DMV database. What would you like to do?</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="uxSearchVehiclesButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 84</value>
+  </data>
+  <data name="&gt;&gt;uxInsertRdButton.Name" xml:space="preserve">
+    <value>uxInsertRdButton</value>
+  </data>
+  <data name="&gt;&gt;uxWelcomeLabel.Name" xml:space="preserve">
+    <value>uxWelcomeLabel</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateLIButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxSerachLabel.Name" xml:space="preserve">
+    <value>uxSerachLabel</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateInsertLabel.Name" xml:space="preserve">
+    <value>uxUpdateInsertLabel</value>
+  </data>
+  <data name="&gt;&gt;uxSearchLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;uxUpdateVehicleButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="uxSearchVehiclesButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 450</value>
+  </data>
+  <data name="uxUpdateLIButton.Text" xml:space="preserve">
+    <value>License Infomation</value>
+  </data>
+  <data name="uxUpdateVehicleButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 318</value>
+  </data>
+  <data name="uxSearchLIButton.Text" xml:space="preserve">
+    <value>License Infomation</value>
+  </data>
+  <data name="uxSerachLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 91</value>
+  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>aa</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
