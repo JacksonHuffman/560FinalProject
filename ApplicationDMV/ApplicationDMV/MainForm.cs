@@ -14,8 +14,6 @@ namespace ApplicationDMV
 {
     public partial class MainForm : Form
     {
-
-
         public MainForm()
         {
             InitializeComponent();
@@ -44,7 +42,7 @@ namespace ApplicationDMV
 
         private void uxInsertVehicleButton_Click(object sender, EventArgs e)
         {
-            VehicleInsertForm v = new VehicleInsertForm();
+            IntermediateForm v = new IntermediateForm();
             v.Show();
             this.Hide();
         }
@@ -52,13 +50,6 @@ namespace ApplicationDMV
         private void uxInsertRdButton_Click(object sender, EventArgs e)
         {
             RegDriverInsertForm v = new RegDriverInsertForm();
-            v.Show();
-            this.Hide();
-        }
-
-        private void uxInsertLicenseButton_Click(object sender, EventArgs e)
-        {
-            LicenseInformationInsertForm v = new LicenseInformationInsertForm();
             v.Show();
             this.Hide();
         }
