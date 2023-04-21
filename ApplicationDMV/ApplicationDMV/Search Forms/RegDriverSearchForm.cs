@@ -21,7 +21,14 @@ namespace ApplicationDMV
         {
             MainForm m = new MainForm();
             m.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void uxSearchButton_Click(object sender, EventArgs e)
+        {
+            QueryResultForm q = new QueryResultForm();
+            q.Show();
+            this.Close();
         }
     }
 }
