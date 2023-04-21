@@ -22,14 +22,21 @@ namespace ApplicationDMV.InsertForms
         {
             VehicleInsertForm v = new VehicleInsertForm();
             v.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void uxLIButton_Click(object sender, EventArgs e)
         {
             LicenseInformationInsertForm v = new LicenseInformationInsertForm();
             v.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void uxHomeButton_Click(object sender, EventArgs e)
+        {
+            MainForm v = new MainForm();
+            v.Show();
+            this.Close();
         }
     }
 }

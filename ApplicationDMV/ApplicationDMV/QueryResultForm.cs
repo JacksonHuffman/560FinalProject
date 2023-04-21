@@ -16,5 +16,12 @@ namespace ApplicationDMV
         {
             InitializeComponent();
         }
+
+        private void uxHomeButton_Click(object sender, EventArgs e)
+        {
+            MainForm frm = new MainForm();
+            frm.Show();
+            this.Close();
+        }
     }
 }
