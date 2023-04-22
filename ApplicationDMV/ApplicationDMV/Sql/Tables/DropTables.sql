@@ -1,0 +1,7 @@
+﻿DROP TABLE IF EXISTS DMV.VehicleInformation;
+DROP TABLE IF EXISTS DMV.VehicleModel;
+DROP TABLE IF EXISTS DMV.VehicleManufacturer;
+DROP TABLE IF EXISTS DMV.LicenseInformation;
+DROP TABLE IF EXISTS DMV.RegisteredDriversState;
+DROP TABLE IF EXISTS DMV.States;
+DROP TABLE IF EXISTS DMV.RegisteredDrivers;
