@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationDMV
+namespace ApplicationDMV.Models
 {
-    internal class VehicleInfo
+    public class VehicleInfo
     {
         public int VIN { get; }
 

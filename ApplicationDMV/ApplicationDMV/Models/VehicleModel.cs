@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationDMV
+namespace ApplicationDMV.Models
 {
-    internal class VehicleModel
+    public class VehicleModel
     {
         public int ModelID { get; }
 

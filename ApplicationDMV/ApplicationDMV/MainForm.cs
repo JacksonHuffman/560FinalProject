@@ -49,7 +49,8 @@ namespace ApplicationDMV
 
         private void uxInsertRdButton_Click(object sender, EventArgs e)
         {
-            RegDriverInsertForm v = new RegDriverInsertForm();
+            SqlRegisteredDriverRepository driverRepo = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=master;Integrated Security=SSPI;");
+            RegDriverInsertForm v = new RegDriverInsertForm(driverRepo);
             v.Show();
             this.Hide();
         }

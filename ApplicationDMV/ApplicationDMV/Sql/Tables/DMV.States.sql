@@ -3,6 +3,6 @@ BEGIN
 	CREATE TABLE DMV.States
 	(
 		StateCode NCHAR(2) NOT NULL PRIMARY KEY,
-		[Name] NVARCHAR(12) NOT NULL CHECK([Name] > N'')
+		[Name] NVARCHAR(15) NOT NULL CHECK([Name] > N'')
 	);
 END;
