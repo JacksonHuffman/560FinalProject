@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\huffm\\Source\\Repos\\560FinalProject\\ApplicationDMV\\ApplicationDMV\\ApplicationDMV.csproj": {}
+    "C:\\Users\\huffm\\Source\\Repos\\560FinalProjectTest\\ApplicationDMV\\ApplicationDMV\\ApplicationDMV.csproj": {}
   },
   "projects": {
-    "C:\\Users\\huffm\\Source\\Repos\\560FinalProject\\ApplicationDMV\\ApplicationDMV\\ApplicationDMV.csproj": {
+    "C:\\Users\\huffm\\Source\\Repos\\560FinalProjectTest\\ApplicationDMV\\ApplicationDMV\\ApplicationDMV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\huffm\\Source\\Repos\\560FinalProject\\ApplicationDMV\\ApplicationDMV\\ApplicationDMV.csproj",
+        "projectUniqueName": "C:\\Users\\huffm\\Source\\Repos\\560FinalProjectTest\\ApplicationDMV\\ApplicationDMV\\ApplicationDMV.csproj",
         "projectName": "ApplicationDMV",
-        "projectPath": "C:\\Users\\huffm\\Source\\Repos\\560FinalProject\\ApplicationDMV\\ApplicationDMV\\ApplicationDMV.csproj",
+        "projectPath": "C:\\Users\\huffm\\Source\\Repos\\560FinalProjectTest\\ApplicationDMV\\ApplicationDMV\\ApplicationDMV.csproj",
         "packagesPath": "C:\\Users\\huffm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\huffm\\Source\\Repos\\560FinalProject\\ApplicationDMV\\ApplicationDMV\\obj\\",
+        "outputPath": "C:\\Users\\huffm\\Source\\Repos\\560FinalProjectTest\\ApplicationDMV\\ApplicationDMV\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\huffm\\AppData\\Roaming\\NuGet\\NuGet.Config",
