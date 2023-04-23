@@ -32,6 +32,17 @@ namespace ApplicationDMV
         RegisteredDrivers CreateDriver(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex);
 
         /// <summary>
+        /// Gets the correct ID for the given qualities
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="middleName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <param name="sex"></param>
+        /// <returns></returns>
+        int GetRegisteredDriverID(string firstName, string middleName, string lastName, DateTime dateOfBirth);
+
+        /// <summary>
         /// updates the target driver
         /// </summary>
         /// <param name="firstName"></param>

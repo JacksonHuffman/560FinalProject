@@ -51,7 +51,7 @@ namespace ApplicationDMV
 
         private void uxInsertRdButton_Click(object sender, EventArgs e)
         {
-            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo);
+            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, this);
             v.Show();
             this.Hide();
         }

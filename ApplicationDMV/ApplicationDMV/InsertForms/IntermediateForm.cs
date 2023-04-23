@@ -13,7 +13,9 @@ namespace ApplicationDMV.InsertForms
 {
     public partial class IntermediateForm : Form
     {
-        SqlRegisteredDriverRepository _driverRepo;
+        private SqlRegisteredDriverRepository _driverRepo;
+
+        private SqlRegisteredDriversStateRepository _driverStateRepo = new SqlRegisteredDriversStateRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
 
         /// <summary>
         /// a flag that signifies whether the user has enetered valid information
@@ -38,7 +40,6 @@ namespace ApplicationDMV.InsertForms
         private void uxLIButton_Click(object sender, EventArgs e)
         {
             _flag = true;
-            InsertDLNumberStateCode v = new InsertDLNumberStateCode();
 
             try
             {
@@ -46,31 +47,12 @@ namespace ApplicationDMV.InsertForms
             }
             catch
             {
-                MessageBox.Show("Please enter a valid date(mm/dd/yyyy)");
+                MessageBox.Show("Please enter a valid date (MM/DD/YYYY)");
                 _flag = false;
-            }
-
-            try
-            {
-                if (uxSexTB.Text == "M" || uxSexTB.Text == "m" || uxSexTB.Text == "F" || uxSexTB.Text == "f")
-                {
-                    _sex = Convert.ToChar(uxSexTB.Text);
-                }
-                else
-                {
-                    _flag = false;
-                    MessageBox.Show("Please enter M for 'Male' or F for 'Female'.");
-                }
-            }
-            catch
-            {
-                _flag = false;
-                MessageBox.Show("Please enter M for 'Male' or F for 'Female'.");
             }
 
             if (string.IsNullOrWhiteSpace(uxDOBTargetTB.Text) || string.IsNullOrWhiteSpace(uxFNTargetTB.Text)
-                || string.IsNullOrWhiteSpace(uxMDTargetTB.Text) || string.IsNullOrWhiteSpace(uxLNTargetTB.Text)
-                || string.IsNullOrEmpty(uxSexTB.Text))
+                || string.IsNullOrWhiteSpace(uxMDTargetTB.Text) || string.IsNullOrWhiteSpace(uxLNTargetTB.Text))
             {
                 MessageBox.Show("Please fill all fields.");
                 _flag = false;
@@ -78,12 +60,12 @@ namespace ApplicationDMV.InsertForms
 
             if (_flag)
             {
-                int driverID = _driverRepo.GetRegisteredDriverID(uxFNTargetTB.Text, uxMDTargetTB.Text, uxLNTargetTB.Text, Convert.ToDateTime(uxDOBTargetTB.Text), Convert.ToChar(uxSexTB.Text));
+                int driverID = _driverRepo.GetRegisteredDriverID(uxFNTargetTB.Text, uxMDTargetTB.Text, uxLNTargetTB.Text, Convert.ToDateTime(uxDOBTargetTB.Text));
                 bool realDriver = _driverRepo.FetchDriverToBool(driverID);
                 if (realDriver)
                 {
-                    MessageBox.Show(Convert.ToString(driverID));
-                    //v.Show();
+                    InsertDLNumberStateCode v = new InsertDLNumberStateCode(_driverStateRepo, driverID);
+                    v.Show();
                     this.Close();
                 }
                 else

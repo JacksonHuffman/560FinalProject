@@ -13,22 +13,25 @@ namespace ApplicationDMV
 {
     public class SqlRegisteredDriverRepository : IRegisteredDriversRepository
     {
+        /// <summary>
+        /// Connection string
+        /// </summary>
         private readonly string _connectionString;
 
+        /// <summary>
+        /// Constructor setting up connection
+        /// </summary>
+        /// <param name="connectionString"></param>
         public SqlRegisteredDriverRepository(string connectionString)
         {
             _connectionString = connectionString;
         } 
 
         /// <summary>
-        /// retrieves a driver based on criteria
+        /// Checks if there is an existing driver according the the ID
         /// </summary>
-        /// <param name="firstName"></param>
-        /// <param name="middleName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="dateOfBirth"></param>
-        /// <param name="sex"></param>
-        /// <returns>the driver(s) matching criteria</returns>
+        /// <param name="registeredDriverID">ID to look for</param>
+        /// <returns></returns>
         public bool FetchDriverToBool(int registeredDriverID)
         {
             bool flag = false;
@@ -40,8 +43,16 @@ namespace ApplicationDMV
             return flag;
         }
 
-        
-        public int GetRegisteredDriverID(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex)
+        /// <summary>
+        /// Retrieve the ID according to multiple attributes of a driver
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="middleName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dateOfBirth"></param>
+        /// <param name="sex"></param>
+        /// <returns></returns>
+        public int GetRegisteredDriverID(string firstName, string middleName, string lastName, DateTime dateOfBirth)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -53,7 +64,6 @@ namespace ApplicationDMV
                     command.Parameters.AddWithValue("MiddleName", middleName);
                     command.Parameters.AddWithValue("LastName", lastName);
                     command.Parameters.AddWithValue("DateOfBirth", dateOfBirth);
-                    command.Parameters.AddWithValue("Sex", sex);
 
                     connection.Open();
 

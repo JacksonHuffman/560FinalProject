@@ -13,6 +13,8 @@ namespace ApplicationDMV.InsertForms
 {
     public partial class RegDriverInsertForm : Form
     {
+        MainForm m = new MainForm();
+
         private SqlRegisteredDriverRepository _driverRepo;
 
         private DateTime _dateOfBirth;
@@ -24,15 +26,16 @@ namespace ApplicationDMV.InsertForms
         /// </summary>
         private bool flag = true;
 
-        public RegDriverInsertForm(SqlRegisteredDriverRepository driverRepo)
+        public RegDriverInsertForm(SqlRegisteredDriverRepository driverRepo, MainForm mf)
         {
             _driverRepo = driverRepo;
             InitializeComponent();
+            m = mf;
         }
 
         private void uxBackButton_Click(object sender, EventArgs e)
         {
-            MainForm m = new MainForm();
+            //MainForm m = new MainForm();
             m.Show();
             this.Hide();
         }
@@ -40,10 +43,10 @@ namespace ApplicationDMV.InsertForms
         private void uxInsertButton_Click(object sender, EventArgs e)
         {
             flag = true;
-            
-            if(string.IsNullOrWhiteSpace(uxFNTB.Text) || string.IsNullOrWhiteSpace(uxLNTB.Text) || string.IsNullOrWhiteSpace(uxMNTB.Text) || string.IsNullOrWhiteSpace(uxDOBTB.Text) || string.IsNullOrWhiteSpace(uxSexTB.Text))
+
+            if (string.IsNullOrWhiteSpace(uxFNTB.Text) || string.IsNullOrWhiteSpace(uxLNTB.Text) || string.IsNullOrWhiteSpace(uxMNTB.Text) || string.IsNullOrWhiteSpace(uxDOBTB.Text) || string.IsNullOrWhiteSpace(uxSexTB.Text))
             {
-                MessageBox.Show("Please fill all fields!");
+                MessageBox.Show("Please fill all fields.");
                 flag = false;
             }
 
@@ -59,14 +62,14 @@ namespace ApplicationDMV.InsertForms
 
             try
             {
-                if(uxSexTB.Text == "M" || uxSexTB.Text == "m" || uxSexTB.Text == "F" || uxSexTB.Text == "f")
+                if (uxSexTB.Text == "M" || uxSexTB.Text == "m" || uxSexTB.Text == "F" || uxSexTB.Text == "f")
                 {
                     _sex = Convert.ToChar(uxSexTB.Text);
                 }
                 else
                 {
                     flag = false;
-                    MessageBox.Show("Please enter M for 'Male' or F for 'Female'.") ;
+                    MessageBox.Show("Please enter M for 'Male' or F for 'Female'.");
                 }
             }
             catch
@@ -78,6 +81,8 @@ namespace ApplicationDMV.InsertForms
             if (flag)
             {
                 _driverRepo.CreateDriver(uxFNTB.Text, uxMNTB.Text, uxLNTB.Text, _dateOfBirth, _sex);
+                m.Show();
+                this.Hide();
                 MessageBox.Show("Successfuly inserted!");
             }
         }

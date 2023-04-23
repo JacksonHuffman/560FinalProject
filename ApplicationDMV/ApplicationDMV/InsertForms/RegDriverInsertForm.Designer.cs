@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             uxBackButton = new Button();
-            uxMNTB = new TextBox();
-            uxLNTB = new TextBox();
-            uxDOBTB = new TextBox();
-            uxSexTB = new TextBox();
-            uxFNTB = new TextBox();
             uxFNLabel = new Label();
             uxLNLabel = new Label();
             uxMNLabel = new Label();
@@ -41,59 +36,24 @@
             uxSexLabel = new Label();
             uxDLNLabel = new Label();
             uxInsertButton = new Button();
+            uxSexTB = new TextBox();
+            uxDOBTB = new TextBox();
+            uxLNTB = new TextBox();
+            uxMNTB = new TextBox();
+            uxFNTB = new TextBox();
             SuspendLayout();
             // 
             // uxBackButton
             // 
             uxBackButton.BackColor = SystemColors.GradientActiveCaption;
             uxBackButton.Location = new Point(57, 245);
-            uxBackButton.Margin = new Padding(2, 2, 2, 2);
+            uxBackButton.Margin = new Padding(2);
             uxBackButton.Name = "uxBackButton";
             uxBackButton.Size = new Size(101, 40);
             uxBackButton.TabIndex = 28;
             uxBackButton.Text = "Back";
             uxBackButton.UseVisualStyleBackColor = false;
             uxBackButton.Click += uxBackButton_Click;
-            // 
-            // uxMNTB
-            // 
-            uxMNTB.Location = new Point(197, 80);
-            uxMNTB.Margin = new Padding(2, 2, 2, 2);
-            uxMNTB.Name = "uxMNTB";
-            uxMNTB.Size = new Size(106, 23);
-            uxMNTB.TabIndex = 26;
-            // 
-            // uxLNTB
-            // 
-            uxLNTB.Location = new Point(197, 111);
-            uxLNTB.Margin = new Padding(2, 2, 2, 2);
-            uxLNTB.Name = "uxLNTB";
-            uxLNTB.Size = new Size(106, 23);
-            uxLNTB.TabIndex = 25;
-            // 
-            // uxDOBTB
-            // 
-            uxDOBTB.Location = new Point(197, 141);
-            uxDOBTB.Margin = new Padding(2, 2, 2, 2);
-            uxDOBTB.Name = "uxDOBTB";
-            uxDOBTB.Size = new Size(106, 23);
-            uxDOBTB.TabIndex = 24;
-            // 
-            // uxSexTB
-            // 
-            uxSexTB.Location = new Point(197, 173);
-            uxSexTB.Margin = new Padding(2, 2, 2, 2);
-            uxSexTB.Name = "uxSexTB";
-            uxSexTB.Size = new Size(106, 23);
-            uxSexTB.TabIndex = 23;
-            // 
-            // uxFNTB
-            // 
-            uxFNTB.Location = new Point(197, 44);
-            uxFNTB.Margin = new Padding(2, 2, 2, 2);
-            uxFNTB.Name = "uxFNTB";
-            uxFNTB.Size = new Size(106, 23);
-            uxFNTB.TabIndex = 22;
             // 
             // uxFNLabel
             // 
@@ -158,13 +118,53 @@
             // 
             uxInsertButton.BackColor = SystemColors.GradientActiveCaption;
             uxInsertButton.Location = new Point(229, 245);
-            uxInsertButton.Margin = new Padding(2, 2, 2, 2);
+            uxInsertButton.Margin = new Padding(2);
             uxInsertButton.Name = "uxInsertButton";
             uxInsertButton.Size = new Size(101, 40);
             uxInsertButton.TabIndex = 15;
             uxInsertButton.Text = "Insert";
             uxInsertButton.UseVisualStyleBackColor = false;
             uxInsertButton.Click += uxInsertButton_Click;
+            // 
+            // uxSexTB
+            // 
+            uxSexTB.Location = new Point(197, 173);
+            uxSexTB.Margin = new Padding(2);
+            uxSexTB.Name = "uxSexTB";
+            uxSexTB.Size = new Size(106, 23);
+            uxSexTB.TabIndex = 23;
+            // 
+            // uxDOBTB
+            // 
+            uxDOBTB.Location = new Point(197, 141);
+            uxDOBTB.Margin = new Padding(2);
+            uxDOBTB.Name = "uxDOBTB";
+            uxDOBTB.Size = new Size(106, 23);
+            uxDOBTB.TabIndex = 24;
+            // 
+            // uxLNTB
+            // 
+            uxLNTB.Location = new Point(197, 111);
+            uxLNTB.Margin = new Padding(2);
+            uxLNTB.Name = "uxLNTB";
+            uxLNTB.Size = new Size(106, 23);
+            uxLNTB.TabIndex = 25;
+            // 
+            // uxMNTB
+            // 
+            uxMNTB.Location = new Point(197, 80);
+            uxMNTB.Margin = new Padding(2);
+            uxMNTB.Name = "uxMNTB";
+            uxMNTB.Size = new Size(106, 23);
+            uxMNTB.TabIndex = 26;
+            // 
+            // uxFNTB
+            // 
+            uxFNTB.Location = new Point(197, 44);
+            uxFNTB.Margin = new Padding(2);
+            uxFNTB.Name = "uxFNTB";
+            uxFNTB.Size = new Size(106, 23);
+            uxFNTB.TabIndex = 22;
             // 
             // RegDriverInsertForm
             // 
@@ -185,7 +185,7 @@
             Controls.Add(uxSexLabel);
             Controls.Add(uxDLNLabel);
             Controls.Add(uxInsertButton);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "RegDriverInsertForm";
             Text = "Registered Driver Information";
             ResumeLayout(false);
@@ -196,11 +196,6 @@
 
         private Button uxBackButton;
         private TextBox uxDLNTB;
-        private TextBox uxMNTB;
-        private TextBox uxLNTB;
-        private TextBox uxDOBTB;
-        private TextBox uxSexTB;
-        private TextBox uxFNTB;
         private Label uxFNLabel;
         private Label uxLNLabel;
         private Label uxMNLabel;
@@ -208,5 +203,10 @@
         private Label uxSexLabel;
         private Label uxDLNLabel;
         private Button uxInsertButton;
+        private TextBox uxSexTB;
+        private TextBox uxDOBTB;
+        private TextBox uxLNTB;
+        private TextBox uxMNTB;
+        private TextBox uxFNTB;
     }
 }

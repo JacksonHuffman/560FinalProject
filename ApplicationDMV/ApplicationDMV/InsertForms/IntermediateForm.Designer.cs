@@ -41,14 +41,12 @@
             uxMDTargetTB = new TextBox();
             uxLNTargetTB = new TextBox();
             uxDOBTargetTB = new TextBox();
-            uxSexTargetLB = new Label();
-            uxSexTB = new TextBox();
             SuspendLayout();
             // 
             // uxVehicleButton
             // 
             uxVehicleButton.BackColor = SystemColors.GradientActiveCaption;
-            uxVehicleButton.Location = new Point(28, 212);
+            uxVehicleButton.Location = new Point(30, 191);
             uxVehicleButton.Margin = new Padding(2);
             uxVehicleButton.Name = "uxVehicleButton";
             uxVehicleButton.Size = new Size(99, 37);
@@ -76,7 +74,7 @@
             // uxLIButton
             // 
             uxLIButton.BackColor = SystemColors.GradientActiveCaption;
-            uxLIButton.Location = new Point(310, 212);
+            uxLIButton.Location = new Point(317, 186);
             uxLIButton.Margin = new Padding(2);
             uxLIButton.Name = "uxLIButton";
             uxLIButton.Size = new Size(99, 37);
@@ -88,7 +86,7 @@
             // uxHomeButton
             // 
             uxHomeButton.BackColor = SystemColors.GradientActiveCaption;
-            uxHomeButton.Location = new Point(166, 207);
+            uxHomeButton.Location = new Point(175, 181);
             uxHomeButton.Margin = new Padding(2);
             uxHomeButton.Name = "uxHomeButton";
             uxHomeButton.Size = new Size(99, 47);
@@ -155,31 +153,12 @@
             uxDOBTargetTB.Size = new Size(155, 23);
             uxDOBTargetTB.TabIndex = 12;
             // 
-            // uxSexTargetLB
-            // 
-            uxSexTargetLB.AutoSize = true;
-            uxSexTargetLB.Location = new Point(64, 144);
-            uxSexTargetLB.Margin = new Padding(2, 0, 2, 0);
-            uxSexTargetLB.Name = "uxSexTargetLB";
-            uxSexTargetLB.Size = new Size(201, 15);
-            uxSexTargetLB.TabIndex = 13;
-            uxSexTargetLB.Text = "Please enter the targeted driver's sex:";
-            // 
-            // uxSexTB
-            // 
-            uxSexTB.Location = new Point(270, 141);
-            uxSexTB.Name = "uxSexTB";
-            uxSexTB.Size = new Size(35, 23);
-            uxSexTB.TabIndex = 14;
-            // 
             // IntermediateForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(437, 270);
-            Controls.Add(uxSexTB);
-            Controls.Add(uxSexTargetLB);
             Controls.Add(uxDOBTargetTB);
             Controls.Add(uxLNTargetTB);
             Controls.Add(uxMDTargetTB);
@@ -212,7 +191,5 @@
         private TextBox uxMDTargetTB;
         private TextBox uxLNTargetTB;
         private TextBox uxDOBTargetTB;
-        private Label uxSexTargetLB;
-        private TextBox uxSexTB;
     }
 }

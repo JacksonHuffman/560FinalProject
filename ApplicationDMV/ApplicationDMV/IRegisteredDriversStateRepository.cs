@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using ApplicationDMV.Models;
@@ -15,6 +16,6 @@ namespace ApplicationDMV
         /// </summary>
         /// <param name="dlNumber">DL number for driver</param>
         /// <returns></returns>
-        public RegisteredDriversState CreateDriverState(int dlNumber);
+        public RegisteredDriversState CreateDriverState(int registeredDriverID, string dlNumber, string stateCode);
     }
 }
