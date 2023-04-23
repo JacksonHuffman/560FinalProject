@@ -8,7 +8,7 @@ namespace ApplicationDMV.Models
 {
     public class RegisteredDrivers
     {
-        public int DLNumber { get; }
+        public int DriverID { get; }
 
         public string FirstName { get; }
 
@@ -20,9 +20,9 @@ namespace ApplicationDMV.Models
 
         public char Sex { get; }
 
-        public RegisteredDrivers(int dln, string fn, string mn, string ln, DateTime dob, char s)
+        public RegisteredDrivers(int dID, string fn, string mn, string ln, DateTime dob, char s)
         {
-            DLNumber = dln;
+            DriverID = dID;
             FirstName = fn;
             MiddleName = mn;
             LastName = ln;

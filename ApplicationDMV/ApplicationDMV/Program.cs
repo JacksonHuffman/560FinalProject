@@ -14,7 +14,6 @@ namespace ApplicationDMV
         {
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
-            ViewController c = new ViewController();
             MainForm mainWindow = new MainForm();
             Application.Run(mainWindow);
         }

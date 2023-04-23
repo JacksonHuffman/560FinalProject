@@ -19,6 +19,9 @@ namespace ApplicationDMV.InsertForms
 
         private char _sex;
 
+        /// <summary>
+        /// a flag that signifies whether the user has enetered valid information
+        /// </summary>
         private bool flag = true;
 
         public RegDriverInsertForm(SqlRegisteredDriverRepository driverRepo)
@@ -37,6 +40,7 @@ namespace ApplicationDMV.InsertForms
         private void uxInsertButton_Click(object sender, EventArgs e)
         {
             flag = true;
+            
             if(string.IsNullOrWhiteSpace(uxFNTB.Text) || string.IsNullOrWhiteSpace(uxLNTB.Text) || string.IsNullOrWhiteSpace(uxMNTB.Text) || string.IsNullOrWhiteSpace(uxDOBTB.Text) || string.IsNullOrWhiteSpace(uxSexTB.Text))
             {
                 MessageBox.Show("Please fill all fields!");

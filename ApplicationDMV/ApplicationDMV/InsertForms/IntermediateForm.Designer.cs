@@ -28,103 +28,191 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.uxVehicleButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.uxDLNumberTB = new System.Windows.Forms.MaskedTextBox();
-            this.uxLIButton = new System.Windows.Forms.Button();
-            this.uxHomeButton = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            uxVehicleButton = new Button();
+            uxFNTargetLB = new Label();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            uxLIButton = new Button();
+            uxHomeButton = new Button();
+            uxMDTargetLB = new Label();
+            uxLNTargetLB = new Label();
+            uxDOBTargetLB = new Label();
+            uxFNTargetTB = new TextBox();
+            uxMDTargetTB = new TextBox();
+            uxLNTargetTB = new TextBox();
+            uxDOBTargetTB = new TextBox();
+            uxSexTargetLB = new Label();
+            uxSexTB = new TextBox();
+            SuspendLayout();
             // 
             // uxVehicleButton
             // 
-            this.uxVehicleButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxVehicleButton.Enabled = false;
-            this.uxVehicleButton.Location = new System.Drawing.Point(98, 214);
-            this.uxVehicleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.uxVehicleButton.Name = "uxVehicleButton";
-            this.uxVehicleButton.Size = new System.Drawing.Size(113, 49);
-            this.uxVehicleButton.TabIndex = 0;
-            this.uxVehicleButton.Text = "Add Vehicle";
-            this.uxVehicleButton.UseVisualStyleBackColor = false;
-            this.uxVehicleButton.Click += new System.EventHandler(this.uxSearchButton_Click);
+            uxVehicleButton.BackColor = SystemColors.GradientActiveCaption;
+            uxVehicleButton.Location = new Point(28, 212);
+            uxVehicleButton.Margin = new Padding(2);
+            uxVehicleButton.Name = "uxVehicleButton";
+            uxVehicleButton.Size = new Size(99, 37);
+            uxVehicleButton.TabIndex = 0;
+            uxVehicleButton.Text = "Add Vehicle";
+            uxVehicleButton.UseVisualStyleBackColor = false;
+            uxVehicleButton.Click += uxSearchButton_Click;
             // 
-            // label1
+            // uxFNTargetLB
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 94);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(408, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Please enter the driver\'s license number of the target person:";
+            uxFNTargetLB.AutoSize = true;
+            uxFNTargetLB.Location = new Point(28, 34);
+            uxFNTargetLB.Margin = new Padding(2, 0, 2, 0);
+            uxFNTargetLB.Name = "uxFNTargetLB";
+            uxFNTargetLB.Size = new Size(237, 15);
+            uxFNTargetLB.TabIndex = 1;
+            uxFNTargetLB.Text = "Please enter the targeted driver's first name:";
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // uxDLNumberTB
-            // 
-            this.uxDLNumberTB.Location = new System.Drawing.Point(137, 130);
-            this.uxDLNumberTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.uxDLNumberTB.Name = "uxDLNumberTB";
-            this.uxDLNumberTB.Size = new System.Drawing.Size(200, 27);
-            this.uxDLNumberTB.TabIndex = 3;
+            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // uxLIButton
             // 
-            this.uxLIButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxLIButton.Enabled = false;
-            this.uxLIButton.Location = new System.Drawing.Point(266, 214);
-            this.uxLIButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.uxLIButton.Name = "uxLIButton";
-            this.uxLIButton.Size = new System.Drawing.Size(113, 49);
-            this.uxLIButton.TabIndex = 4;
-            this.uxLIButton.Text = "Add License Information";
-            this.uxLIButton.UseVisualStyleBackColor = false;
-            this.uxLIButton.Click += new System.EventHandler(this.uxLIButton_Click);
+            uxLIButton.BackColor = SystemColors.GradientActiveCaption;
+            uxLIButton.Location = new Point(310, 212);
+            uxLIButton.Margin = new Padding(2);
+            uxLIButton.Name = "uxLIButton";
+            uxLIButton.Size = new Size(99, 37);
+            uxLIButton.TabIndex = 4;
+            uxLIButton.Text = "Add License Information";
+            uxLIButton.UseVisualStyleBackColor = false;
+            uxLIButton.Click += uxLIButton_Click;
             // 
             // uxHomeButton
             // 
-            this.uxHomeButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxHomeButton.Location = new System.Drawing.Point(182, 282);
-            this.uxHomeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.uxHomeButton.Name = "uxHomeButton";
-            this.uxHomeButton.Size = new System.Drawing.Size(113, 49);
-            this.uxHomeButton.TabIndex = 5;
-            this.uxHomeButton.Text = "Return to Home";
-            this.uxHomeButton.UseVisualStyleBackColor = false;
-            this.uxHomeButton.Click += new System.EventHandler(this.uxHomeButton_Click);
+            uxHomeButton.BackColor = SystemColors.GradientActiveCaption;
+            uxHomeButton.Location = new Point(166, 207);
+            uxHomeButton.Margin = new Padding(2);
+            uxHomeButton.Name = "uxHomeButton";
+            uxHomeButton.Size = new Size(99, 47);
+            uxHomeButton.TabIndex = 5;
+            uxHomeButton.Text = "Return to Home";
+            uxHomeButton.UseVisualStyleBackColor = false;
+            uxHomeButton.Click += uxHomeButton_Click;
+            // 
+            // uxMDTargetLB
+            // 
+            uxMDTargetLB.AutoSize = true;
+            uxMDTargetLB.Location = new Point(11, 61);
+            uxMDTargetLB.Margin = new Padding(2, 0, 2, 0);
+            uxMDTargetLB.Name = "uxMDTargetLB";
+            uxMDTargetLB.Size = new Size(254, 15);
+            uxMDTargetLB.TabIndex = 6;
+            uxMDTargetLB.Text = "Please enter the targeted driver's middle name:";
+            // 
+            // uxLNTargetLB
+            // 
+            uxLNTargetLB.AutoSize = true;
+            uxLNTargetLB.Location = new Point(30, 88);
+            uxLNTargetLB.Margin = new Padding(2, 0, 2, 0);
+            uxLNTargetLB.Name = "uxLNTargetLB";
+            uxLNTargetLB.Size = new Size(235, 15);
+            uxLNTargetLB.TabIndex = 7;
+            uxLNTargetLB.Text = "Please enter the targeted driver's last name:";
+            // 
+            // uxDOBTargetLB
+            // 
+            uxDOBTargetLB.AutoSize = true;
+            uxDOBTargetLB.Location = new Point(16, 116);
+            uxDOBTargetLB.Margin = new Padding(2, 0, 2, 0);
+            uxDOBTargetLB.Name = "uxDOBTargetLB";
+            uxDOBTargetLB.Size = new Size(249, 15);
+            uxDOBTargetLB.TabIndex = 8;
+            uxDOBTargetLB.Text = "Please enter the targeted driver's date of birth:";
+            // 
+            // uxFNTargetTB
+            // 
+            uxFNTargetTB.Location = new Point(270, 26);
+            uxFNTargetTB.Name = "uxFNTargetTB";
+            uxFNTargetTB.Size = new Size(155, 23);
+            uxFNTargetTB.TabIndex = 9;
+            // 
+            // uxMDTargetTB
+            // 
+            uxMDTargetTB.Location = new Point(270, 55);
+            uxMDTargetTB.Name = "uxMDTargetTB";
+            uxMDTargetTB.Size = new Size(155, 23);
+            uxMDTargetTB.TabIndex = 10;
+            // 
+            // uxLNTargetTB
+            // 
+            uxLNTargetTB.Location = new Point(270, 85);
+            uxLNTargetTB.Name = "uxLNTargetTB";
+            uxLNTargetTB.Size = new Size(155, 23);
+            uxLNTargetTB.TabIndex = 11;
+            // 
+            // uxDOBTargetTB
+            // 
+            uxDOBTargetTB.Location = new Point(270, 113);
+            uxDOBTargetTB.Name = "uxDOBTargetTB";
+            uxDOBTargetTB.Size = new Size(155, 23);
+            uxDOBTargetTB.TabIndex = 12;
+            // 
+            // uxSexTargetLB
+            // 
+            uxSexTargetLB.AutoSize = true;
+            uxSexTargetLB.Location = new Point(64, 144);
+            uxSexTargetLB.Margin = new Padding(2, 0, 2, 0);
+            uxSexTargetLB.Name = "uxSexTargetLB";
+            uxSexTargetLB.Size = new Size(201, 15);
+            uxSexTargetLB.TabIndex = 13;
+            uxSexTargetLB.Text = "Please enter the targeted driver's sex:";
+            // 
+            // uxSexTB
+            // 
+            uxSexTB.Location = new Point(270, 141);
+            uxSexTB.Name = "uxSexTB";
+            uxSexTB.Size = new Size(35, 23);
+            uxSexTB.TabIndex = 14;
             // 
             // IntermediateForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(499, 360);
-            this.Controls.Add(this.uxHomeButton);
-            this.Controls.Add(this.uxLIButton);
-            this.Controls.Add(this.uxDLNumberTB);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.uxVehicleButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "IntermediateForm";
-            this.Text = "Associated Driver";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(437, 270);
+            Controls.Add(uxSexTB);
+            Controls.Add(uxSexTargetLB);
+            Controls.Add(uxDOBTargetTB);
+            Controls.Add(uxLNTargetTB);
+            Controls.Add(uxMDTargetTB);
+            Controls.Add(uxFNTargetTB);
+            Controls.Add(uxDOBTargetLB);
+            Controls.Add(uxLNTargetLB);
+            Controls.Add(uxMDTargetLB);
+            Controls.Add(uxHomeButton);
+            Controls.Add(uxLIButton);
+            Controls.Add(uxFNTargetLB);
+            Controls.Add(uxVehicleButton);
+            Margin = new Padding(2);
+            Name = "IntermediateForm";
+            Text = "Associated Driver";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button uxVehicleButton;
-        private Label label1;
+        private Label uxFNTargetLB;
         private ContextMenuStrip contextMenuStrip1;
-        private MaskedTextBox uxDLNumberTB;
         private Button uxLIButton;
         private Button uxHomeButton;
+        private Label uxMDTargetLB;
+        private Label uxLNTargetLB;
+        private Label uxDOBTargetLB;
+        private TextBox uxFNTargetTB;
+        private TextBox uxMDTargetTB;
+        private TextBox uxLNTargetTB;
+        private TextBox uxDOBTargetTB;
+        private Label uxSexTargetLB;
+        private TextBox uxSexTB;
     }
 }

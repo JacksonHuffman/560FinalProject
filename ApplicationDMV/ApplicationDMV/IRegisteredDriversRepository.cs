@@ -18,7 +18,7 @@ namespace ApplicationDMV
         /// <param name="dateOfBirth"></param>
         /// <param name="sex"></param>
         /// <returns>the driver(s) matching criteria</returns>
-        //List<RegisteredDrivers> FetchDriver(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex);
+        bool FetchDriverToBool(int registeredDriverID);
 
         /// <summary>
         /// creates a new driver in the repository 

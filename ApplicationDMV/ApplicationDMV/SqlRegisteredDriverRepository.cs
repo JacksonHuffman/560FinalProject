@@ -18,7 +18,7 @@ namespace ApplicationDMV
         public SqlRegisteredDriverRepository(string connectionString)
         {
             _connectionString = connectionString;
-        }
+        } 
 
         /// <summary>
         /// retrieves a driver based on criteria
@@ -29,10 +29,48 @@ namespace ApplicationDMV
         /// <param name="dateOfBirth"></param>
         /// <param name="sex"></param>
         /// <returns>the driver(s) matching criteria</returns>
-        //public List<RegisteredDrivers> FetchDriver(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex)
-        //{
-            
-        //}
+        public bool FetchDriverToBool(int registeredDriverID)
+        {
+            bool flag = false;
+            if(registeredDriverID > 0)
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
+
+        
+        public int GetRegisteredDriverID(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("DMV.GetRegisteredDriverID", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("FirstName", firstName);
+                    command.Parameters.AddWithValue("MiddleName", middleName);
+                    command.Parameters.AddWithValue("LastName", lastName);
+                    command.Parameters.AddWithValue("DateOfBirth", dateOfBirth);
+                    command.Parameters.AddWithValue("Sex", sex);
+
+                    connection.Open();
+
+                    int driverID = 0;
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            driverID = Convert.ToInt32(reader["RegisteredDriverID"]);
+                        }
+                    }
+
+                    return driverID;
+                }
+            }
+        }
 
         /// <summary>
         /// creates a new driver in the repository 

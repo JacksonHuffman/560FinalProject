@@ -14,6 +14,8 @@ namespace ApplicationDMV
 {
     public partial class MainForm : Form
     {
+        private SqlRegisteredDriverRepository _driverRepo = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=master;Integrated Security=SSPI;");
+
         public MainForm()
         {
             InitializeComponent();
@@ -42,15 +44,14 @@ namespace ApplicationDMV
 
         private void uxInsertVehicleButton_Click(object sender, EventArgs e)
         {
-            IntermediateForm v = new IntermediateForm();
+            IntermediateForm v = new IntermediateForm(_driverRepo);
             v.Show();
             this.Hide();
         }
 
         private void uxInsertRdButton_Click(object sender, EventArgs e)
         {
-            SqlRegisteredDriverRepository driverRepo = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=master;Integrated Security=SSPI;");
-            RegDriverInsertForm v = new RegDriverInsertForm(driverRepo);
+            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo);
             v.Show();
             this.Hide();
         }
