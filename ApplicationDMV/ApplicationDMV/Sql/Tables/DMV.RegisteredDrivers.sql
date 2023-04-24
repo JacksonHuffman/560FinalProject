@@ -10,3 +10,4 @@ BEGIN
 		Sex NCHAR(1) NOT NULL
 	);
 END;
+

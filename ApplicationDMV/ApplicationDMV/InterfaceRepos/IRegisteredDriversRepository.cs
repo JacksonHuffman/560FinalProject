@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ApplicationDMV.Models;
 
-namespace ApplicationDMV
+namespace ApplicationDMV.InterfaceRepos
 {
     public interface IRegisteredDriversRepository
     {
@@ -29,7 +29,7 @@ namespace ApplicationDMV
         /// <param name="dateOfBirth"></param>
         /// <param name="sex"></param>
         /// <returns></returns>
-        RegisteredDrivers CreateDriver(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex);
+        RegisteredDrivers AddRegisteredDriverID(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex);
 
         /// <summary>
         /// Gets the correct ID for the given qualities

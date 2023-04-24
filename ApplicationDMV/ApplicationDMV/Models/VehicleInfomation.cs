@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace ApplicationDMV.Models
 {
-    public class VehicleInfo
+    public class VehicleInfomation
     {
-        public int VIN { get; }
+        public int VehicleID { get; }
 
-        public int DLNumber { get; }
+        public string VIN { get; }
+
+        public int DriverID { get; }
+
+        public int ModelID { get; }
 
         public string Color { get; }
 
@@ -24,10 +29,12 @@ namespace ApplicationDMV.Models
 
         public string InsuranceProvider { get; }
 
-        public VehicleInfo(int vin, int dln, string c, string platen, string policyn, DateTime plateex, DateTime policyex, string ip)
+        public VehicleInfomation(int vehicleID, string vin, int driverID, int modelID, string c, string platen, string policyn, DateTime policyex, DateTime plateex, string ip)
         {
+            VehicleID = vehicleID;
             VIN = vin;
-            DLNumber = dln;
+            DriverID = driverID;
+            ModelID = modelID;
             Color = c;
             PlateNumber = platen;
             PolicyNumber = policyn;

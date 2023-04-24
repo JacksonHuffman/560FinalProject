@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE DMV.CreateDriver
+﻿CREATE OR ALTER PROCEDURE DMV.AddRegisteredDriver
 	@FirstName NVARCHAR(32),
 	@MiddleName NVARCHAR(32),
 	@LastName NVARCHAR(32),

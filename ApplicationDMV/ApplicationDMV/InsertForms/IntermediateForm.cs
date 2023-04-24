@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationDMV.InsertForms;
+using ApplicationDMV.SqlRepos;
 
 namespace ApplicationDMV.InsertForms
 {
@@ -22,19 +23,52 @@ namespace ApplicationDMV.InsertForms
         /// </summary>
         private bool _flag = true;
 
-        private char _sex;
-
         public IntermediateForm(SqlRegisteredDriverRepository driverRepo)
         {
             InitializeComponent();
             _driverRepo = driverRepo;
         }
 
-        private void uxSearchButton_Click(object sender, EventArgs e)
+        private void uxVehicleButton_Click(object sender, EventArgs e)
         {
-            VehicleInsertForm v = new VehicleInsertForm();
-            v.Show();
-            this.Close();
+            _flag = true;
+
+            try
+            {
+                Convert.ToDateTime(uxDOBTargetTB.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid date (MM/DD/YYYY)");
+                _flag = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(uxDOBTargetTB.Text) || string.IsNullOrWhiteSpace(uxFNTargetTB.Text)
+                || string.IsNullOrWhiteSpace(uxMDTargetTB.Text) || string.IsNullOrWhiteSpace(uxLNTargetTB.Text))
+            {
+                MessageBox.Show("Please fill all fields.");
+                _flag = false;
+            }
+
+            if (_flag)
+            {
+                int driverID = _driverRepo.GetRegisteredDriverID(uxFNTargetTB.Text, uxMDTargetTB.Text, uxLNTargetTB.Text, Convert.ToDateTime(uxDOBTargetTB.Text));
+                bool realDriver = _driverRepo.FetchDriverToBool(driverID);
+                if (realDriver)
+                {
+                    InsertVehicleInformation v = new InsertVehicleInformation(this, driverID);
+                    v.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    NavigateToRegisteredDriverInsertForm v = new NavigateToRegisteredDriverInsertForm(this, uxFNTargetTB.Text, uxMDTargetTB.Text, uxLNTargetTB.Text, uxDOBTargetTB.Text);
+                    v.Show();
+                }
+            }
+            //InsertVehicleInformation v = new InsertVehicleInformation(this);
+            //v.Show();
+            //this.Hide();
         }
 
         private void uxLIButton_Click(object sender, EventArgs e)
@@ -64,13 +98,14 @@ namespace ApplicationDMV.InsertForms
                 bool realDriver = _driverRepo.FetchDriverToBool(driverID);
                 if (realDriver)
                 {
-                    InsertDLNumberStateCode v = new InsertDLNumberStateCode(_driverStateRepo, driverID);
+                    InsertDLNumberStateCode v = new InsertDLNumberStateCode(_driverStateRepo, driverID, this);
                     v.Show();
-                    this.Close();
+                    this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("The driver you are trying to insert license information for doesn't exists. Please return to the home screen to create a new driver!");
+                    NavigateToRegisteredDriverInsertForm v = new NavigateToRegisteredDriverInsertForm(this, uxFNTargetTB.Text, uxMDTargetTB.Text, uxLNTargetTB.Text, uxDOBTargetTB.Text);
+                    v.Show();
                 }
             }
         }

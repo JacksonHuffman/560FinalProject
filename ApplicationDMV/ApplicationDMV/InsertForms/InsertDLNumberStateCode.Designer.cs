@@ -33,6 +33,7 @@
             uxStateCodeLB = new Label();
             uxStateCodeTB = new TextBox();
             uxGoToLicenseInfoBT = new Button();
+            uxBackBT = new Button();
             SuspendLayout();
             // 
             // uxDLNumberLB
@@ -70,7 +71,7 @@
             // uxGoToLicenseInfoBT
             // 
             uxGoToLicenseInfoBT.BackColor = SystemColors.GradientActiveCaption;
-            uxGoToLicenseInfoBT.Location = new Point(140, 150);
+            uxGoToLicenseInfoBT.Location = new Point(245, 150);
             uxGoToLicenseInfoBT.Name = "uxGoToLicenseInfoBT";
             uxGoToLicenseInfoBT.Size = new Size(121, 37);
             uxGoToLicenseInfoBT.TabIndex = 4;
@@ -78,12 +79,24 @@
             uxGoToLicenseInfoBT.UseVisualStyleBackColor = false;
             uxGoToLicenseInfoBT.Click += uxGoToLicenseInfoBT_Click;
             // 
+            // uxBackBT
+            // 
+            uxBackBT.BackColor = SystemColors.GradientActiveCaption;
+            uxBackBT.Location = new Point(31, 150);
+            uxBackBT.Name = "uxBackBT";
+            uxBackBT.Size = new Size(121, 37);
+            uxBackBT.TabIndex = 5;
+            uxBackBT.Text = "Back";
+            uxBackBT.UseVisualStyleBackColor = false;
+            uxBackBT.Click += uxBackBT_Click;
+            // 
             // InsertDLNumberStateCode
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(401, 199);
+            Controls.Add(uxBackBT);
             Controls.Add(uxGoToLicenseInfoBT);
             Controls.Add(uxStateCodeTB);
             Controls.Add(uxStateCodeLB);
@@ -102,5 +115,6 @@
         private Label uxStateCodeLB;
         private TextBox uxStateCodeTB;
         private Button uxGoToLicenseInfoBT;
+        private Button uxBackBT;
     }
 }

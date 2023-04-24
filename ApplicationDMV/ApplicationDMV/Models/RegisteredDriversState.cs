@@ -8,7 +8,7 @@ namespace ApplicationDMV.Models
 {
     public class RegisteredDriversState
     {
-        //public int RegisteredDriversStateID { get; }
+        public int RegisteredDriversStateID { get; }
 
         public int RegisteredDriverID { get; }
 
@@ -16,9 +16,9 @@ namespace ApplicationDMV.Models
 
         public string StateCode { get; }
 
-        public RegisteredDriversState(/*int registeredDriversStateID,*/ int registeredDriverID, string dln, string stateCode)
+        public RegisteredDriversState(int registeredDriversStateID, int registeredDriverID, string dln, string stateCode)
         {
-            //RegisteredDriversStateID = registeredDriversStateID;
+            RegisteredDriversStateID = registeredDriversStateID;
             RegisteredDriverID = registeredDriverID;
             DLNumber = dln;
             StateCode = stateCode;

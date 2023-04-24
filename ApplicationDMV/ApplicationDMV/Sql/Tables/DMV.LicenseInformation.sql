@@ -7,7 +7,7 @@ BEGIN
 		City NVARCHAR(30) NOT NULL CHECK(City > N''),
 		ZIP NCHAR(6) NOT NULL CHECK(ZIP > N''),
 		AddressLine1 NVARCHAR(32) NOT NULL CHECK(AddressLine1 > N''),
-		AddressLine2 NVARCHAR(32) NULL,
+		AddressLine2 NVARCHAR(32) NOT NULL,
 		FeetHeight INT NOT NULL,
 		InchesHeight INT NOT NULL,
 		[Weight] INT NOT NULL,

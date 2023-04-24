@@ -36,11 +36,11 @@
             uxSexLabel = new Label();
             uxDLNLabel = new Label();
             uxInsertButton = new Button();
-            uxSexTB = new TextBox();
-            uxDOBTB = new TextBox();
-            uxLNTB = new TextBox();
-            uxMNTB = new TextBox();
             uxFNTB = new TextBox();
+            uxMNTB = new TextBox();
+            uxLNTB = new TextBox();
+            uxDOBTB = new TextBox();
+            uxSexTB = new TextBox();
             SuspendLayout();
             // 
             // uxBackButton
@@ -126,45 +126,40 @@
             uxInsertButton.UseVisualStyleBackColor = false;
             uxInsertButton.Click += uxInsertButton_Click;
             // 
-            // uxSexTB
+            // uxFNTB
             // 
-            uxSexTB.Location = new Point(197, 173);
-            uxSexTB.Margin = new Padding(2);
-            uxSexTB.Name = "uxSexTB";
-            uxSexTB.Size = new Size(106, 23);
-            uxSexTB.TabIndex = 23;
-            // 
-            // uxDOBTB
-            // 
-            uxDOBTB.Location = new Point(197, 141);
-            uxDOBTB.Margin = new Padding(2);
-            uxDOBTB.Name = "uxDOBTB";
-            uxDOBTB.Size = new Size(106, 23);
-            uxDOBTB.TabIndex = 24;
-            // 
-            // uxLNTB
-            // 
-            uxLNTB.Location = new Point(197, 111);
-            uxLNTB.Margin = new Padding(2);
-            uxLNTB.Name = "uxLNTB";
-            uxLNTB.Size = new Size(106, 23);
-            uxLNTB.TabIndex = 25;
+            uxFNTB.Location = new Point(192, 48);
+            uxFNTB.Name = "uxFNTB";
+            uxFNTB.Size = new Size(138, 23);
+            uxFNTB.TabIndex = 29;
             // 
             // uxMNTB
             // 
-            uxMNTB.Location = new Point(197, 80);
-            uxMNTB.Margin = new Padding(2);
+            uxMNTB.Location = new Point(192, 80);
             uxMNTB.Name = "uxMNTB";
-            uxMNTB.Size = new Size(106, 23);
-            uxMNTB.TabIndex = 26;
+            uxMNTB.Size = new Size(138, 23);
+            uxMNTB.TabIndex = 30;
             // 
-            // uxFNTB
+            // uxLNTB
             // 
-            uxFNTB.Location = new Point(197, 44);
-            uxFNTB.Margin = new Padding(2);
-            uxFNTB.Name = "uxFNTB";
-            uxFNTB.Size = new Size(106, 23);
-            uxFNTB.TabIndex = 22;
+            uxLNTB.Location = new Point(192, 114);
+            uxLNTB.Name = "uxLNTB";
+            uxLNTB.Size = new Size(138, 23);
+            uxLNTB.TabIndex = 31;
+            // 
+            // uxDOBTB
+            // 
+            uxDOBTB.Location = new Point(192, 144);
+            uxDOBTB.Name = "uxDOBTB";
+            uxDOBTB.Size = new Size(138, 23);
+            uxDOBTB.TabIndex = 32;
+            // 
+            // uxSexTB
+            // 
+            uxSexTB.Location = new Point(192, 173);
+            uxSexTB.Name = "uxSexTB";
+            uxSexTB.Size = new Size(34, 23);
+            uxSexTB.TabIndex = 33;
             // 
             // RegDriverInsertForm
             // 
@@ -172,12 +167,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(387, 309);
-            Controls.Add(uxBackButton);
-            Controls.Add(uxMNTB);
-            Controls.Add(uxLNTB);
-            Controls.Add(uxDOBTB);
             Controls.Add(uxSexTB);
+            Controls.Add(uxDOBTB);
+            Controls.Add(uxLNTB);
+            Controls.Add(uxMNTB);
             Controls.Add(uxFNTB);
+            Controls.Add(uxBackButton);
             Controls.Add(uxFNLabel);
             Controls.Add(uxLNLabel);
             Controls.Add(uxMNLabel);
@@ -203,10 +198,10 @@
         private Label uxSexLabel;
         private Label uxDLNLabel;
         private Button uxInsertButton;
-        private TextBox uxSexTB;
-        private TextBox uxDOBTB;
-        private TextBox uxLNTB;
-        private TextBox uxMNTB;
         private TextBox uxFNTB;
+        private TextBox uxMNTB;
+        private TextBox uxLNTB;
+        private TextBox uxDOBTB;
+        private TextBox uxSexTB;
     }
 }

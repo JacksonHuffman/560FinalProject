@@ -53,7 +53,7 @@
             uxVehicleButton.TabIndex = 0;
             uxVehicleButton.Text = "Add Vehicle";
             uxVehicleButton.UseVisualStyleBackColor = false;
-            uxVehicleButton.Click += uxSearchButton_Click;
+            uxVehicleButton.Click += uxVehicleButton_Click;
             // 
             // uxFNTargetLB
             // 

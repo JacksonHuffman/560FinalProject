@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationDMV.Models;
+using ApplicationDMV.SqlRepos;
 
 namespace ApplicationDMV.InsertForms
 {
@@ -17,8 +18,13 @@ namespace ApplicationDMV.InsertForms
 
         private int _derivedDriverID;
 
-        public InsertDLNumberStateCode(SqlRegisteredDriversStateRepository driversStateRepo, int derivedDriverID)
+        private IntermediateForm _interForm;
+
+        private SqlLicenseInformationRepository _licenseRepo = new SqlLicenseInformationRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+
+        public InsertDLNumberStateCode(SqlRegisteredDriversStateRepository driversStateRepo, int derivedDriverID, IntermediateForm interForm)
         {
+            _interForm = interForm; 
             _derivedDriverID = derivedDriverID;
             _driverStateRepo = driversStateRepo;
             InitializeComponent();
@@ -43,19 +49,37 @@ namespace ApplicationDMV.InsertForms
                 }
             }
 
-            if (!statesFlag) 
+            if (!statesFlag)
             {
                 MessageBox.Show("Please enter a valid state code ('AL' for Alabama).");
             }
 
-            if(statesFlag && generalFlag)
+            if (statesFlag && generalFlag)
             {
-                _driverStateRepo.CreateDriverState(_derivedDriverID, uxDLNumberTB.Text, uxStateCodeTB.Text);
-                LicenseInformationInsertForm v = new LicenseInformationInsertForm();
-                v.Show();
-                this.Close();
-                MessageBox.Show("Success!");
+                if (_driverStateRepo.FetchDriverStateIDToBool(_driverStateRepo.GetRegisteredDriversStateID(_derivedDriverID, uxStateCodeTB.Text)))
+                {
+                    MessageBox.Show("A registered driver in this state already exists! THIS SHOULD BE FILLED IN W/ A FORM TO GO TO UPDATE!");
+                }
+                else
+                {
+                    RegisteredDriversState rgs = _driverStateRepo.AddRegisteredDriversState(_derivedDriverID, uxDLNumberTB.Text, uxStateCodeTB.Text);
+                    LicenseInformationInsertForm v = new LicenseInformationInsertForm(rgs.RegisteredDriversStateID, _licenseRepo);
+                    v.Show();
+                    this.Close();
+                    MessageBox.Show("Success!");
+                }
             }
+        }
+
+        /// <summary>
+        /// Handles clicking the back button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxBackBT_Click(object sender, EventArgs e)
+        {
+            _interForm.Show();
+            this.Close();
         }
     }
 }

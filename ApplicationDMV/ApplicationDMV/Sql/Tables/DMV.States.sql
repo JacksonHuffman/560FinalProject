@@ -6,6 +6,3 @@ BEGIN
 		[Name] NVARCHAR(15) NOT NULL CHECK([Name] > N'')
 	);
 END;
-
-SELECT *
-FROM DMV.States

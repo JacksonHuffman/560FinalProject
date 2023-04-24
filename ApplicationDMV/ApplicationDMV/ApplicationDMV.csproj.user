@@ -4,16 +4,22 @@
     <Compile Update="InsertForms\InsertDLNumberStateCode.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="InsertForms\InsertNewManufacturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="InsertForms\IntermediateForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="InsertForms\LicenseInformationInsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="InsertForms\NavigateToRegisteredDriverInsertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="InsertForms\RegDriverInsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="InsertForms\VehicleInsertForm.cs">
+    <Compile Update="InsertForms\InsertVehicleInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="QueryResultForm.cs">
@@ -33,10 +39,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Update="Sql\Procedures\DMV.FetchDriver.sql">
+    <None Update="Sql\Procedures\DMV.AddVehicleModel.sql">
       <SubType>Form</SubType>
     </None>
-    <None Update="Sql\Procedures\GetRegisteredDriverID.sql">
+    <None Update="Sql\Procedures\DMV.GetRegisteredDriverID.sql">
       <SubType>Form</SubType>
     </None>
   </ItemGroup>

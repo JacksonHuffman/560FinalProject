@@ -9,8 +9,9 @@ using System.Data.SqlClient;
 using System.Transactions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using ApplicationDMV.InterfaceRepos;
 
-namespace ApplicationDMV
+namespace ApplicationDMV.SqlRepos
 {
     public class SqlRegisteredDriversStateRepository : IRegisteredDriversStateRepository
     {
@@ -35,7 +36,7 @@ namespace ApplicationDMV
         /// <param name="dlNumber"></param>
         /// <param name="stateCode"></param>
         /// <returns></returns>
-        public RegisteredDriversState CreateDriverState(int registeredDriverID, string dlNumber, string stateCode)
+        public RegisteredDriversState AddRegisteredDriversState(int registeredDriverID, string dlNumber, string stateCode)
         {
             using (var transaction = new TransactionScope())
             {
@@ -60,12 +61,61 @@ namespace ApplicationDMV
 
                         var registeredDriversStateID = (int)command.Parameters["RegisteredDriversStateID"].Value;
 
-                        return new RegisteredDriversState(registeredDriverID, dlNumber, stateCode);
+                        return new RegisteredDriversState(registeredDriversStateID, registeredDriverID, dlNumber, stateCode);
                     }
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Gets RegDriversStateID based on RegDriverID and StateCode
+        /// </summary>
+        /// <param name="registeredDriverID"></param>
+        /// <param name="stateCode"></param>
+        /// <returns></returns>
+        public int GetRegisteredDriversStateID(int registeredDriverID, string stateCode)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("DMV.GetRegisteredDriversStateID", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("RegisteredDriverID", registeredDriverID);
+                    command.Parameters.AddWithValue("StateCode", stateCode);
+
+                    connection.Open();
+
+                    int driverStateID = 0;
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            driverStateID = Convert.ToInt32(reader["RegisteredDriversStateID"]);
+                        }
+                    }
+
+                    return driverStateID;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks to see if a RegDriversStateID already exists
+        /// </summary>
+        /// <param name="registeredDriversStateID"></param>
+        /// <returns></returns>
+        public bool FetchDriverStateIDToBool(int registeredDriversStateID)
+        {
+            bool flag = false;
+            if (registeredDriversStateID > 0)
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
     }
 }
 

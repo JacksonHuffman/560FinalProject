@@ -28,328 +28,253 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.uxExpDateLabel = new System.Windows.Forms.Label();
-            this.uxClassLabel = new System.Windows.Forms.Label();
-            this.uxDonorStatusLabel = new System.Windows.Forms.Label();
-            this.uxSearchButton = new System.Windows.Forms.Button();
-            this.uxBackButton = new System.Windows.Forms.Button();
-            this.uxColorTB = new System.Windows.Forms.TextBox();
-            this.uxPlateTB = new System.Windows.Forms.TextBox();
-            this.uxPolicyTB = new System.Windows.Forms.TextBox();
-            this.uxPlateExTB = new System.Windows.Forms.TextBox();
-            this.uxYearTB = new System.Windows.Forms.TextBox();
-            this.uxModelTB = new System.Windows.Forms.TextBox();
-            this.uxMakeTB = new System.Windows.Forms.TextBox();
-            this.uxPolicyExTB = new System.Windows.Forms.TextBox();
-            this.uxInsuranceTB = new System.Windows.Forms.TextBox();
-            this.uxVINTB = new System.Windows.Forms.TextBox();
-            this.uxStateLabel = new System.Windows.Forms.Label();
-            this.uxCityLabel = new System.Windows.Forms.Label();
-            this.uxZipLabel = new System.Windows.Forms.Label();
-            this.uxAddress1Label = new System.Windows.Forms.Label();
-            this.uxAddress2Label = new System.Windows.Forms.Label();
-            this.uxHeightFeetLabel = new System.Windows.Forms.Label();
-            this.uxHeightInchesLabel = new System.Windows.Forms.Label();
-            this.uxWeightLabel = new System.Windows.Forms.Label();
-            this.uxYearLabel = new System.Windows.Forms.Label();
-            this.uxLNLabel = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(304, 617);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 31);
-            this.textBox1.TabIndex = 97;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(304, 576);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 31);
-            this.textBox2.TabIndex = 96;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(304, 535);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 31);
-            this.textBox3.TabIndex = 95;
+            uxExpDateLabel = new Label();
+            uxClassLabel = new Label();
+            uxDonorStatusLabel = new Label();
+            uxInsertBT = new Button();
+            uxCityLabel = new Label();
+            uxZipLabel = new Label();
+            uxAddress1Label = new Label();
+            uxAddress2Label = new Label();
+            uxHeightFeetLabel = new Label();
+            uxHeightInchesLabel = new Label();
+            uxWeightLabel = new Label();
+            uxDonorCB = new CheckBox();
+            uxCityTB = new TextBox();
+            uxZIPTB = new TextBox();
+            uxADL1TB = new TextBox();
+            uxADL2TB = new TextBox();
+            uxHeightFeetTB = new TextBox();
+            uxHeightInchesTB = new TextBox();
+            uxWeightTB = new TextBox();
+            uxExpDateTB = new TextBox();
+            uxClassTB = new TextBox();
+            SuspendLayout();
             // 
             // uxExpDateLabel
             // 
-            this.uxExpDateLabel.AutoSize = true;
-            this.uxExpDateLabel.Location = new System.Drawing.Point(137, 541);
-            this.uxExpDateLabel.Name = "uxExpDateLabel";
-            this.uxExpDateLabel.Size = new System.Drawing.Size(136, 25);
-            this.uxExpDateLabel.TabIndex = 94;
-            this.uxExpDateLabel.Text = "Expiration Date:";
+            uxExpDateLabel.AutoSize = true;
+            uxExpDateLabel.Location = new Point(96, 329);
+            uxExpDateLabel.Margin = new Padding(2, 0, 2, 0);
+            uxExpDateLabel.Name = "uxExpDateLabel";
+            uxExpDateLabel.Size = new Size(90, 15);
+            uxExpDateLabel.TabIndex = 94;
+            uxExpDateLabel.Text = "Expiration Date:";
             // 
             // uxClassLabel
             // 
-            this.uxClassLabel.AutoSize = true;
-            this.uxClassLabel.Location = new System.Drawing.Point(217, 579);
-            this.uxClassLabel.Name = "uxClassLabel";
-            this.uxClassLabel.Size = new System.Drawing.Size(56, 25);
-            this.uxClassLabel.TabIndex = 93;
-            this.uxClassLabel.Text = "Class:";
+            uxClassLabel.AutoSize = true;
+            uxClassLabel.Location = new Point(153, 360);
+            uxClassLabel.Margin = new Padding(2, 0, 2, 0);
+            uxClassLabel.Name = "uxClassLabel";
+            uxClassLabel.Size = new Size(37, 15);
+            uxClassLabel.TabIndex = 93;
+            uxClassLabel.Text = "Class:";
             // 
             // uxDonorStatusLabel
             // 
-            this.uxDonorStatusLabel.AutoSize = true;
-            this.uxDonorStatusLabel.Location = new System.Drawing.Point(122, 620);
-            this.uxDonorStatusLabel.Name = "uxDonorStatusLabel";
-            this.uxDonorStatusLabel.Size = new System.Drawing.Size(151, 25);
-            this.uxDonorStatusLabel.TabIndex = 92;
-            this.uxDonorStatusLabel.Text = "DonorStatus(y/n):";
+            uxDonorStatusLabel.AutoSize = true;
+            uxDonorStatusLabel.Location = new Point(140, 392);
+            uxDonorStatusLabel.Margin = new Padding(2, 0, 2, 0);
+            uxDonorStatusLabel.Name = "uxDonorStatusLabel";
+            uxDonorStatusLabel.Size = new Size(45, 15);
+            uxDonorStatusLabel.TabIndex = 92;
+            uxDonorStatusLabel.Text = "Donor?";
             // 
-            // uxSearchButton
+            // uxInsertBT
             // 
-            this.uxSearchButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxSearchButton.Location = new System.Drawing.Point(310, 669);
-            this.uxSearchButton.Name = "uxSearchButton";
-            this.uxSearchButton.Size = new System.Drawing.Size(144, 67);
-            this.uxSearchButton.TabIndex = 91;
-            this.uxSearchButton.Text = "Search";
-            this.uxSearchButton.UseVisualStyleBackColor = false;
-            // 
-            // uxBackButton
-            // 
-            this.uxBackButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxBackButton.Location = new System.Drawing.Point(122, 669);
-            this.uxBackButton.Name = "uxBackButton";
-            this.uxBackButton.Size = new System.Drawing.Size(144, 67);
-            this.uxBackButton.TabIndex = 90;
-            this.uxBackButton.Text = "Back";
-            this.uxBackButton.UseVisualStyleBackColor = false;
-            this.uxBackButton.Click += new System.EventHandler(this.uxBackButton_Click);
-            // 
-            // uxColorTB
-            // 
-            this.uxColorTB.Location = new System.Drawing.Point(304, 166);
-            this.uxColorTB.Name = "uxColorTB";
-            this.uxColorTB.Size = new System.Drawing.Size(150, 31);
-            this.uxColorTB.TabIndex = 89;
-            // 
-            // uxPlateTB
-            // 
-            this.uxPlateTB.Location = new System.Drawing.Point(304, 207);
-            this.uxPlateTB.Name = "uxPlateTB";
-            this.uxPlateTB.Size = new System.Drawing.Size(150, 31);
-            this.uxPlateTB.TabIndex = 88;
-            // 
-            // uxPolicyTB
-            // 
-            this.uxPolicyTB.Location = new System.Drawing.Point(304, 248);
-            this.uxPolicyTB.Name = "uxPolicyTB";
-            this.uxPolicyTB.Size = new System.Drawing.Size(150, 31);
-            this.uxPolicyTB.TabIndex = 87;
-            // 
-            // uxPlateExTB
-            // 
-            this.uxPlateExTB.Location = new System.Drawing.Point(304, 290);
-            this.uxPlateExTB.Name = "uxPlateExTB";
-            this.uxPlateExTB.Size = new System.Drawing.Size(150, 31);
-            this.uxPlateExTB.TabIndex = 86;
-            // 
-            // uxYearTB
-            // 
-            this.uxYearTB.Location = new System.Drawing.Point(304, 498);
-            this.uxYearTB.Name = "uxYearTB";
-            this.uxYearTB.Size = new System.Drawing.Size(150, 31);
-            this.uxYearTB.TabIndex = 85;
-            // 
-            // uxModelTB
-            // 
-            this.uxModelTB.Location = new System.Drawing.Point(304, 457);
-            this.uxModelTB.Name = "uxModelTB";
-            this.uxModelTB.Size = new System.Drawing.Size(150, 31);
-            this.uxModelTB.TabIndex = 84;
-            // 
-            // uxMakeTB
-            // 
-            this.uxMakeTB.Location = new System.Drawing.Point(304, 416);
-            this.uxMakeTB.Name = "uxMakeTB";
-            this.uxMakeTB.Size = new System.Drawing.Size(150, 31);
-            this.uxMakeTB.TabIndex = 83;
-            // 
-            // uxPolicyExTB
-            // 
-            this.uxPolicyExTB.Location = new System.Drawing.Point(304, 335);
-            this.uxPolicyExTB.Name = "uxPolicyExTB";
-            this.uxPolicyExTB.Size = new System.Drawing.Size(150, 31);
-            this.uxPolicyExTB.TabIndex = 82;
-            // 
-            // uxInsuranceTB
-            // 
-            this.uxInsuranceTB.Location = new System.Drawing.Point(304, 375);
-            this.uxInsuranceTB.Name = "uxInsuranceTB";
-            this.uxInsuranceTB.Size = new System.Drawing.Size(150, 31);
-            this.uxInsuranceTB.TabIndex = 81;
-            // 
-            // uxVINTB
-            // 
-            this.uxVINTB.Location = new System.Drawing.Point(304, 128);
-            this.uxVINTB.Name = "uxVINTB";
-            this.uxVINTB.Size = new System.Drawing.Size(150, 31);
-            this.uxVINTB.TabIndex = 80;
-            // 
-            // uxStateLabel
-            // 
-            this.uxStateLabel.AutoSize = true;
-            this.uxStateLabel.Location = new System.Drawing.Point(218, 172);
-            this.uxStateLabel.Name = "uxStateLabel";
-            this.uxStateLabel.Size = new System.Drawing.Size(55, 25);
-            this.uxStateLabel.TabIndex = 79;
-            this.uxStateLabel.Text = "State:";
-            this.uxStateLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            uxInsertBT.BackColor = SystemColors.GradientActiveCaption;
+            uxInsertBT.Location = new Point(141, 427);
+            uxInsertBT.Margin = new Padding(2);
+            uxInsertBT.Name = "uxInsertBT";
+            uxInsertBT.Size = new Size(101, 40);
+            uxInsertBT.TabIndex = 91;
+            uxInsertBT.Text = "Insert";
+            uxInsertBT.UseVisualStyleBackColor = false;
+            uxInsertBT.Click += uxInsertBT_Click;
             // 
             // uxCityLabel
             // 
-            this.uxCityLabel.AutoSize = true;
-            this.uxCityLabel.Location = new System.Drawing.Point(227, 213);
-            this.uxCityLabel.Name = "uxCityLabel";
-            this.uxCityLabel.Size = new System.Drawing.Size(46, 25);
-            this.uxCityLabel.TabIndex = 78;
-            this.uxCityLabel.Text = "City:";
+            uxCityLabel.AutoSize = true;
+            uxCityLabel.Location = new Point(155, 123);
+            uxCityLabel.Margin = new Padding(2, 0, 2, 0);
+            uxCityLabel.Name = "uxCityLabel";
+            uxCityLabel.Size = new Size(31, 15);
+            uxCityLabel.TabIndex = 78;
+            uxCityLabel.Text = "City:";
             // 
             // uxZipLabel
             // 
-            this.uxZipLabel.AutoSize = true;
-            this.uxZipLabel.Location = new System.Drawing.Point(185, 254);
-            this.uxZipLabel.Name = "uxZipLabel";
-            this.uxZipLabel.Size = new System.Drawing.Size(88, 25);
-            this.uxZipLabel.TabIndex = 77;
-            this.uxZipLabel.Text = "Zip Code:";
+            uxZipLabel.AutoSize = true;
+            uxZipLabel.Location = new Point(127, 152);
+            uxZipLabel.Margin = new Padding(2, 0, 2, 0);
+            uxZipLabel.Name = "uxZipLabel";
+            uxZipLabel.Size = new Size(58, 15);
+            uxZipLabel.TabIndex = 77;
+            uxZipLabel.Text = "Zip Code:";
             // 
             // uxAddress1Label
             // 
-            this.uxAddress1Label.AutoSize = true;
-            this.uxAddress1Label.Location = new System.Drawing.Point(141, 296);
-            this.uxAddress1Label.Name = "uxAddress1Label";
-            this.uxAddress1Label.Size = new System.Drawing.Size(132, 25);
-            this.uxAddress1Label.TabIndex = 76;
-            this.uxAddress1Label.Text = "Address Line 1:";
+            uxAddress1Label.AutoSize = true;
+            uxAddress1Label.Location = new Point(99, 186);
+            uxAddress1Label.Margin = new Padding(2, 0, 2, 0);
+            uxAddress1Label.Name = "uxAddress1Label";
+            uxAddress1Label.Size = new Size(86, 15);
+            uxAddress1Label.TabIndex = 76;
+            uxAddress1Label.Text = "Address Line 1:";
             // 
             // uxAddress2Label
             // 
-            this.uxAddress2Label.AutoSize = true;
-            this.uxAddress2Label.Location = new System.Drawing.Point(142, 341);
-            this.uxAddress2Label.Name = "uxAddress2Label";
-            this.uxAddress2Label.Size = new System.Drawing.Size(132, 25);
-            this.uxAddress2Label.TabIndex = 75;
-            this.uxAddress2Label.Text = "Address Line 2:";
+            uxAddress2Label.AutoSize = true;
+            uxAddress2Label.Location = new Point(99, 210);
+            uxAddress2Label.Margin = new Padding(2, 0, 2, 0);
+            uxAddress2Label.Name = "uxAddress2Label";
+            uxAddress2Label.Size = new Size(86, 15);
+            uxAddress2Label.TabIndex = 75;
+            uxAddress2Label.Text = "Address Line 2:";
             // 
             // uxHeightFeetLabel
             // 
-            this.uxHeightFeetLabel.AutoSize = true;
-            this.uxHeightFeetLabel.Location = new System.Drawing.Point(164, 381);
-            this.uxHeightFeetLabel.Name = "uxHeightFeetLabel";
-            this.uxHeightFeetLabel.Size = new System.Drawing.Size(109, 25);
-            this.uxHeightFeetLabel.TabIndex = 74;
-            this.uxHeightFeetLabel.Text = "Height(feet):";
+            uxHeightFeetLabel.AutoSize = true;
+            uxHeightFeetLabel.Location = new Point(112, 239);
+            uxHeightFeetLabel.Margin = new Padding(2, 0, 2, 0);
+            uxHeightFeetLabel.Name = "uxHeightFeetLabel";
+            uxHeightFeetLabel.Size = new Size(74, 15);
+            uxHeightFeetLabel.TabIndex = 74;
+            uxHeightFeetLabel.Text = "Height(feet):";
             // 
             // uxHeightInchesLabel
             // 
-            this.uxHeightInchesLabel.AutoSize = true;
-            this.uxHeightInchesLabel.Location = new System.Drawing.Point(145, 422);
-            this.uxHeightInchesLabel.Name = "uxHeightInchesLabel";
-            this.uxHeightInchesLabel.Size = new System.Drawing.Size(128, 25);
-            this.uxHeightInchesLabel.TabIndex = 73;
-            this.uxHeightInchesLabel.Text = "Height(inches):";
+            uxHeightInchesLabel.AutoSize = true;
+            uxHeightInchesLabel.Location = new Point(102, 268);
+            uxHeightInchesLabel.Margin = new Padding(2, 0, 2, 0);
+            uxHeightInchesLabel.Name = "uxHeightInchesLabel";
+            uxHeightInchesLabel.Size = new Size(88, 15);
+            uxHeightInchesLabel.TabIndex = 73;
+            uxHeightInchesLabel.Text = "Height(inches):";
             // 
             // uxWeightLabel
             // 
-            this.uxWeightLabel.AutoSize = true;
-            this.uxWeightLabel.Location = new System.Drawing.Point(201, 463);
-            this.uxWeightLabel.Name = "uxWeightLabel";
-            this.uxWeightLabel.Size = new System.Drawing.Size(72, 25);
-            this.uxWeightLabel.TabIndex = 72;
-            this.uxWeightLabel.Text = "Weight:";
+            uxWeightLabel.AutoSize = true;
+            uxWeightLabel.Location = new Point(138, 305);
+            uxWeightLabel.Margin = new Padding(2, 0, 2, 0);
+            uxWeightLabel.Name = "uxWeightLabel";
+            uxWeightLabel.Size = new Size(48, 15);
+            uxWeightLabel.TabIndex = 72;
+            uxWeightLabel.Text = "Weight:";
             // 
-            // uxYearLabel
+            // uxDonorCB
             // 
-            this.uxYearLabel.AutoSize = true;
-            this.uxYearLabel.Location = new System.Drawing.Point(175, 501);
-            this.uxYearLabel.Name = "uxYearLabel";
-            this.uxYearLabel.Size = new System.Drawing.Size(98, 25);
-            this.uxYearLabel.TabIndex = 71;
-            this.uxYearLabel.Text = "Issue Date:";
+            uxDonorCB.AutoSize = true;
+            uxDonorCB.Location = new Point(213, 391);
+            uxDonorCB.Name = "uxDonorCB";
+            uxDonorCB.Size = new Size(45, 19);
+            uxDonorCB.TabIndex = 97;
+            uxDonorCB.Text = "YES";
+            uxDonorCB.UseVisualStyleBackColor = true;
             // 
-            // uxLNLabel
+            // uxCityTB
             // 
-            this.uxLNLabel.AutoSize = true;
-            this.uxLNLabel.Location = new System.Drawing.Point(131, 128);
-            this.uxLNLabel.Name = "uxLNLabel";
-            this.uxLNLabel.Size = new System.Drawing.Size(142, 25);
-            this.uxLNLabel.TabIndex = 70;
-            this.uxLNLabel.Text = "License Number:";
+            uxCityTB.Location = new Point(213, 120);
+            uxCityTB.Name = "uxCityTB";
+            uxCityTB.Size = new Size(136, 23);
+            uxCityTB.TabIndex = 98;
+            // 
+            // uxZIPTB
+            // 
+            uxZIPTB.Location = new Point(213, 149);
+            uxZIPTB.Name = "uxZIPTB";
+            uxZIPTB.Size = new Size(136, 23);
+            uxZIPTB.TabIndex = 99;
+            // 
+            // uxADL1TB
+            // 
+            uxADL1TB.Location = new Point(213, 178);
+            uxADL1TB.Name = "uxADL1TB";
+            uxADL1TB.Size = new Size(136, 23);
+            uxADL1TB.TabIndex = 100;
+            // 
+            // uxADL2TB
+            // 
+            uxADL2TB.Location = new Point(213, 207);
+            uxADL2TB.Name = "uxADL2TB";
+            uxADL2TB.Size = new Size(136, 23);
+            uxADL2TB.TabIndex = 101;
+            // 
+            // uxHeightFeetTB
+            // 
+            uxHeightFeetTB.Location = new Point(213, 236);
+            uxHeightFeetTB.Name = "uxHeightFeetTB";
+            uxHeightFeetTB.Size = new Size(136, 23);
+            uxHeightFeetTB.TabIndex = 102;
+            // 
+            // uxHeightInchesTB
+            // 
+            uxHeightInchesTB.Location = new Point(213, 268);
+            uxHeightInchesTB.Name = "uxHeightInchesTB";
+            uxHeightInchesTB.Size = new Size(136, 23);
+            uxHeightInchesTB.TabIndex = 103;
+            // 
+            // uxWeightTB
+            // 
+            uxWeightTB.Location = new Point(213, 297);
+            uxWeightTB.Name = "uxWeightTB";
+            uxWeightTB.Size = new Size(136, 23);
+            uxWeightTB.TabIndex = 104;
+            // 
+            // uxExpDateTB
+            // 
+            uxExpDateTB.Location = new Point(213, 326);
+            uxExpDateTB.Name = "uxExpDateTB";
+            uxExpDateTB.Size = new Size(136, 23);
+            uxExpDateTB.TabIndex = 105;
+            // 
+            // uxClassTB
+            // 
+            uxClassTB.Location = new Point(213, 357);
+            uxClassTB.Name = "uxClassTB";
+            uxClassTB.Size = new Size(136, 23);
+            uxClassTB.TabIndex = 106;
             // 
             // LicenseInformationInsertForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(575, 820);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.uxExpDateLabel);
-            this.Controls.Add(this.uxClassLabel);
-            this.Controls.Add(this.uxDonorStatusLabel);
-            this.Controls.Add(this.uxSearchButton);
-            this.Controls.Add(this.uxBackButton);
-            this.Controls.Add(this.uxColorTB);
-            this.Controls.Add(this.uxPlateTB);
-            this.Controls.Add(this.uxPolicyTB);
-            this.Controls.Add(this.uxPlateExTB);
-            this.Controls.Add(this.uxYearTB);
-            this.Controls.Add(this.uxModelTB);
-            this.Controls.Add(this.uxMakeTB);
-            this.Controls.Add(this.uxPolicyExTB);
-            this.Controls.Add(this.uxInsuranceTB);
-            this.Controls.Add(this.uxVINTB);
-            this.Controls.Add(this.uxStateLabel);
-            this.Controls.Add(this.uxCityLabel);
-            this.Controls.Add(this.uxZipLabel);
-            this.Controls.Add(this.uxAddress1Label);
-            this.Controls.Add(this.uxAddress2Label);
-            this.Controls.Add(this.uxHeightFeetLabel);
-            this.Controls.Add(this.uxHeightInchesLabel);
-            this.Controls.Add(this.uxWeightLabel);
-            this.Controls.Add(this.uxYearLabel);
-            this.Controls.Add(this.uxLNLabel);
-            this.Name = "LicenseInformationInsertForm";
-            this.Text = "License Information";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(402, 492);
+            Controls.Add(uxClassTB);
+            Controls.Add(uxExpDateTB);
+            Controls.Add(uxWeightTB);
+            Controls.Add(uxHeightInchesTB);
+            Controls.Add(uxHeightFeetTB);
+            Controls.Add(uxADL2TB);
+            Controls.Add(uxADL1TB);
+            Controls.Add(uxZIPTB);
+            Controls.Add(uxCityTB);
+            Controls.Add(uxDonorCB);
+            Controls.Add(uxExpDateLabel);
+            Controls.Add(uxClassLabel);
+            Controls.Add(uxDonorStatusLabel);
+            Controls.Add(uxInsertBT);
+            Controls.Add(uxCityLabel);
+            Controls.Add(uxZipLabel);
+            Controls.Add(uxAddress1Label);
+            Controls.Add(uxAddress2Label);
+            Controls.Add(uxHeightFeetLabel);
+            Controls.Add(uxHeightInchesLabel);
+            Controls.Add(uxWeightLabel);
+            Margin = new Padding(2);
+            Name = "LicenseInformationInsertForm";
+            Text = "License Information";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
         private Label uxExpDateLabel;
         private Label uxClassLabel;
         private Label uxDonorStatusLabel;
-        private Button uxSearchButton;
-        private Button uxBackButton;
-        private TextBox uxColorTB;
-        private TextBox uxPlateTB;
-        private TextBox uxPolicyTB;
-        private TextBox uxPlateExTB;
-        private TextBox uxYearTB;
-        private TextBox uxModelTB;
-        private TextBox uxMakeTB;
-        private TextBox uxPolicyExTB;
-        private TextBox uxInsuranceTB;
-        private TextBox uxVINTB;
-        private Label uxStateLabel;
+        private Button uxInsertBT;
         private Label uxCityLabel;
         private Label uxZipLabel;
         private Label uxAddress1Label;
@@ -357,7 +282,15 @@
         private Label uxHeightFeetLabel;
         private Label uxHeightInchesLabel;
         private Label uxWeightLabel;
-        private Label uxYearLabel;
-        private Label uxLNLabel;
+        private CheckBox uxDonorCB;
+        private TextBox uxCityTB;
+        private TextBox uxZIPTB;
+        private TextBox uxADL1TB;
+        private TextBox uxADL2TB;
+        private TextBox uxHeightFeetTB;
+        private TextBox uxHeightInchesTB;
+        private TextBox uxWeightTB;
+        private TextBox uxExpDateTB;
+        private TextBox uxClassTB;
     }
 }

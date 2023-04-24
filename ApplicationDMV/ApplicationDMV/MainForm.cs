@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationDMV.Search_Forms;
 using ApplicationDMV.InsertForms;
+using ApplicationDMV.SqlRepos;
 
 namespace ApplicationDMV
 {
@@ -51,7 +52,8 @@ namespace ApplicationDMV
 
         private void uxInsertRdButton_Click(object sender, EventArgs e)
         {
-            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, this);
+            IntermediateForm interForm = new IntermediateForm(_driverRepo);
+            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, this, false, interForm, "", "", "", "");
             v.Show();
             this.Hide();
         }

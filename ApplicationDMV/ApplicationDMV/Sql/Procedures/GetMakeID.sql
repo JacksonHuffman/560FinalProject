@@ -1,0 +1,7 @@
+﻿CREATE OR ALTER PROCEDURE DMV.GetMakeID
+	@Name NVARCHAR(32)
+AS 
+
+SELECT VMF.MakeID
+FROM DMV.VehicleManufacturer VMF
+WHERE VMF.[Name] = @Name

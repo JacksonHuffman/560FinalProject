@@ -8,8 +8,9 @@ using System.Transactions;
 using System.Data;
 using ApplicationDMV.Models;
 using Microsoft.Data.SqlClient;
+using ApplicationDMV.InterfaceRepos;
 
-namespace ApplicationDMV
+namespace ApplicationDMV.SqlRepos
 {
     public class SqlRegisteredDriverRepository : IRegisteredDriversRepository
     {
@@ -25,7 +26,7 @@ namespace ApplicationDMV
         public SqlRegisteredDriverRepository(string connectionString)
         {
             _connectionString = connectionString;
-        } 
+        }
 
         /// <summary>
         /// Checks if there is an existing driver according the the ID
@@ -35,7 +36,7 @@ namespace ApplicationDMV
         public bool FetchDriverToBool(int registeredDriverID)
         {
             bool flag = false;
-            if(registeredDriverID > 0)
+            if (registeredDriverID > 0)
             {
                 flag = true;
             }
@@ -71,7 +72,7 @@ namespace ApplicationDMV
 
                     using (var reader = command.ExecuteReader())
                     {
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             driverID = Convert.ToInt32(reader["RegisteredDriverID"]);
                         }
@@ -91,14 +92,14 @@ namespace ApplicationDMV
         /// <param name="dateOfBirth"></param>
         /// <param name="sex"></param>
         /// <returns></returns>
-        public RegisteredDrivers CreateDriver(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex)
+        public RegisteredDrivers AddRegisteredDriverID(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex)
         {
             // Save to database.
             using (var transaction = new TransactionScope())
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    using (var command = new SqlCommand("DMV.CreateDriver", connection))
+                    using (var command = new SqlCommand("DMV.AddRegisteredDriver", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
@@ -119,7 +120,7 @@ namespace ApplicationDMV
 
                         var registeredDriverID = (int)command.Parameters["RegisteredDriverID"].Value;
 
-                        return new RegisteredDrivers(registeredDriverID, firstName, middleName, lastName, dateOfBirth, sex);    
+                        return new RegisteredDrivers(registeredDriverID, firstName, middleName, lastName, dateOfBirth, sex);
                     }
                 }
             }
@@ -136,7 +137,7 @@ namespace ApplicationDMV
         /// <returns></returns>
         //public RegisteredDrivers UpdateDriver(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex)
         //{
-            
+
         //}
     }
 }
