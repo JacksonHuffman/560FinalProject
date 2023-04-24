@@ -57,5 +57,10 @@ namespace ApplicationDMV
             v.Show();
             this.Hide();
         }
+
+        private void uxAggregatedButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

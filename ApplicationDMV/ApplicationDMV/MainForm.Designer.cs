@@ -36,6 +36,8 @@
             this.uxSearchLIButton = new System.Windows.Forms.Button();
             this.uxSearchVehiclesButton = new System.Windows.Forms.Button();
             this.uxWelcomeLabel = new System.Windows.Forms.Label();
+            this.uxAggregatedButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // uxInsertRdButton
@@ -56,7 +58,7 @@
             this.uxInsertVehiclesLIButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.uxInsertVehiclesLIButton.Location = new System.Drawing.Point(326, 319);
             this.uxInsertVehiclesLIButton.Name = "uxInsertVehiclesLIButton";
-            this.uxInsertVehiclesLIButton.Size = new System.Drawing.Size(332, 84);
+            this.uxInsertVehiclesLIButton.Size = new System.Drawing.Size(323, 84);
             this.uxInsertVehiclesLIButton.TabIndex = 16;
             this.uxInsertVehiclesLIButton.Text = "Vehicles/License Information";
             this.uxInsertVehiclesLIButton.UseVisualStyleBackColor = false;
@@ -132,12 +134,37 @@
             this.uxWelcomeLabel.Text = "Welcome to the DMV database. Selecting a search option will allow the ability to " +
     "update.";
             // 
+            // uxAggregatedButton
+            // 
+            this.uxAggregatedButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.uxAggregatedButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.uxAggregatedButton.Location = new System.Drawing.Point(134, 489);
+            this.uxAggregatedButton.Name = "uxAggregatedButton";
+            this.uxAggregatedButton.Size = new System.Drawing.Size(515, 84);
+            this.uxAggregatedButton.TabIndex = 20;
+            this.uxAggregatedButton.Text = "Aggregated queries";
+            this.uxAggregatedButton.UseVisualStyleBackColor = false;
+            this.uxAggregatedButton.Click += new System.EventHandler(this.uxAggregatedButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(132, 443);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 25);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Insert:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(790, 754);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.uxAggregatedButton);
             this.Controls.Add(this.uxInsertRdButton);
             this.Controls.Add(this.uxInsertVehiclesLIButton);
             this.Controls.Add(this.uxInsertButton);
@@ -163,5 +190,7 @@
         private Button uxSearchLIButton;
         private Button uxSearchVehiclesButton;
         private Label uxWelcomeLabel;
+        private Button uxAggregatedButton;
+        private Label label1;
     }
 }
