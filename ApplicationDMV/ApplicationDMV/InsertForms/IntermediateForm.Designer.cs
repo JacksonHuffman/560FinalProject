@@ -77,7 +77,7 @@
             uxLIButton.Location = new Point(317, 186);
             uxLIButton.Margin = new Padding(2);
             uxLIButton.Name = "uxLIButton";
-            uxLIButton.Size = new Size(99, 37);
+            uxLIButton.Size = new Size(99, 42);
             uxLIButton.TabIndex = 4;
             uxLIButton.Text = "Add License Information";
             uxLIButton.UseVisualStyleBackColor = false;

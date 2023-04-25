@@ -9,9 +9,9 @@ using ApplicationDMV.Models;
 
 namespace ApplicationDMV.SqlRepos
 {
-    public class LicenseInformationSearchRepository : ILicenseInformationSearchRepository
+    public class SqlLicenseInformationSearchRepository : ILicenseInformationSearchRepository
     {
-        public LicenseInformationSearchRepository()
+        public SqlLicenseInformationSearchRepository()
         {
 
         }

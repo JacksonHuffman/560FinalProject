@@ -1,4 +1,5 @@
-﻿using ApplicationDMV.SqlRepos;
+﻿using ApplicationDMV.Models;
+using ApplicationDMV.SqlRepos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +45,10 @@ namespace ApplicationDMV.InsertForms
         /// <param name="e"></param>
         private void uxNavigateToRegDriverInsertFormBT_Click(object sender, EventArgs e)
         {
-            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, _mainForm, true, _interForm, _fn, _mn, _ln, _dateOfBirth);
+            List<CompleteDriver> completeDriversList = new List<CompleteDriver>();
+            RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
+            QueryResultForm resultsForm = new QueryResultForm(completeDriversList, regDriverSearchForm);
+            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, _mainForm, true, _interForm, _fn, _mn, _ln, _dateOfBirth, "", true, false, resultsForm);
             v.Show();
             this.Close();
         }

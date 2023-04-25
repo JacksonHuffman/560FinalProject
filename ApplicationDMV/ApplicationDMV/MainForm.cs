@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ApplicationDMV.Search_Forms;
 using ApplicationDMV.InsertForms;
 using ApplicationDMV.SqlRepos;
+using ApplicationDMV.Models;
 
 namespace ApplicationDMV
 {
@@ -52,8 +53,11 @@ namespace ApplicationDMV
 
         private void uxInsertRdButton_Click(object sender, EventArgs e)
         {
+            List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
             IntermediateForm interForm = new IntermediateForm(_driverRepo);
-            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, this, false, interForm, "", "", "", "");
+            RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
+            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, regDriverSearchForm);
+            RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, this, false, interForm, "", "", "", "", "", true, false, resultsForm);
             v.Show();
             this.Hide();
         }

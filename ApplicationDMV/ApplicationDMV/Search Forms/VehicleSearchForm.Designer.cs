@@ -233,7 +233,7 @@
             this.uxSearchButton.TabIndex = 41;
             this.uxSearchButton.Text = "Search";
             this.uxSearchButton.UseVisualStyleBackColor = false;
-            this.uxSearchButton.Click += new System.EventHandler(this.uxSearchButton_Click);
+            //this.uxSearchButton.Click += new System.EventHandler(this.uxSearchButton_Click);
             // 
             // VehicleSearchForm
             // 

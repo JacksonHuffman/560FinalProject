@@ -47,7 +47,7 @@
             this.uxQuery1Button.TabIndex = 4;
             this.uxQuery1Button.Text = "Query 1";
             this.uxQuery1Button.UseVisualStyleBackColor = false;
-            this.uxQuery1Button.Click += new System.EventHandler(this.uxQuery1Button_Click);
+            //this.uxQuery1Button.Click += new System.EventHandler(this.uxQuery1Button_Click);
             // 
             // uxQuery4Button
             // 
@@ -58,7 +58,7 @@
             this.uxQuery4Button.TabIndex = 5;
             this.uxQuery4Button.Text = "Query 4";
             this.uxQuery4Button.UseVisualStyleBackColor = false;
-            this.uxQuery4Button.Click += new System.EventHandler(this.uxQuery4Button_Click);
+            //this.uxQuery4Button.Click += new System.EventHandler(this.uxQuery4Button_Click);
             // 
             // uxQuery3Button
             // 
@@ -69,7 +69,7 @@
             this.uxQuery3Button.TabIndex = 6;
             this.uxQuery3Button.Text = "Query 3";
             this.uxQuery3Button.UseVisualStyleBackColor = false;
-            this.uxQuery3Button.Click += new System.EventHandler(this.uxQuery3Button_Click);
+            //this.uxQuery3Button.Click += new System.EventHandler(this.uxQuery3Button_Click);
             // 
             // uxQuery2Button
             // 
@@ -80,7 +80,7 @@
             this.uxQuery2Button.TabIndex = 7;
             this.uxQuery2Button.Text = "Query 2";
             this.uxQuery2Button.UseVisualStyleBackColor = false;
-            this.uxQuery2Button.Click += new System.EventHandler(this.uxQuery2Button_Click);
+            //this.uxQuery2Button.Click += new System.EventHandler(this.uxQuery2Button_Click);
             // 
             // label1
             // 

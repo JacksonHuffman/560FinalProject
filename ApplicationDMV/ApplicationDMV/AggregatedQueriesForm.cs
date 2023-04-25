@@ -17,6 +17,7 @@ namespace ApplicationDMV
             InitializeComponent();
         }
 
+        /*
         private void uxQuery1Button_Click(object sender, EventArgs e)
         {
             QueryResultForm q = new QueryResultForm();
@@ -44,5 +45,6 @@ namespace ApplicationDMV
             this.Hide();
             q.Show();
         }
+        */
     }
 }
