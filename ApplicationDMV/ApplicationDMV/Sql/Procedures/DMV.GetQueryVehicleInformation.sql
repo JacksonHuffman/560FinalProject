@@ -9,15 +9,6 @@
 	@Year INT
 AS
 
-DECLARE @VIN NVARCHAR(32) = NULL
-DECLARE @Color NVARCHAR(32) = NULL
-DECLARE @PlateNumber NVARCHAR(6) = NULL
-DECLARE @PolicyNumber NVARCHAR(32) = NULL
-DECLARE @InsuranceProvider NVARCHAR(32) = NULL
-DECLARE @MakeName NVARCHAR(32) = N'Toyota'
-DECLARE @ModelName NVARCHAR(32) = NULL
-DECLARE @Year INT = NULL;
-
 WITH Cte(VehicleID, VIN, RegisteredDriverID, ModelID, Color, PlateNumber, PolicyNumber, PlateExpDate, PolicyExpDate, InsuranceProvider) AS
 	(
 		SELECT V.VehicleID,
@@ -56,4 +47,4 @@ FROM Cte C
 	INNER JOIN DMV.RegisteredDrivers RD ON RD.RegisteredDriverID = C.RegisteredDriverID
 WHERE VMF.[Name] LIKE IIF(@MakeName IS NULL, '%', @MakeName)
 	AND VM.[Name] LIKE IIF(@ModelName IS NULL, '%', @ModelName)
-	AND CONVERT(NVARCHAR(4) ,VM.[Year]) LIKE IIF(CONVERT(NVARCHAR(4) ,VM.[Year]) IS NULL, '%', CONVERT(NVARCHAR(4) ,VM.[Year]))
+	AND VM.[Year] LIKE IIF(CONVERT(NVARCHAR(10) ,@Year) IS NULL, '%', CONVERT(NVARCHAR(10) , @Year))

@@ -45,19 +45,21 @@ namespace ApplicationDMV
             _getBackToVehicleSearchForm = getBackToVehicleSearchForm;
             _completeVehicleList = completeVehicleList;
 
-            if(_getBackToRegDriverSearchForm)
+            if (_getBackToRegDriverSearchForm)
             {
                 foreach (var driver in completeDriverList)
                 {
                     uxResultsListBox.Items.Add(driver.FirstName.ToString() + " " + driver.MiddleName.ToString() + " " + driver.LastName.ToString() + ", " + driver.Sex.ToString() + ", " + driver.DateOfBirth.ToShortDateString() + ", " + driver.StateCode.ToString() + ", " + driver.DLNumber.ToString());
                 }
+                uxNumResultsLB.Text = "A total of " + _completeDriverList.Count.ToString() + " driver(s) were found.";
             }
-            else if(_getBackToVehicleSearchForm)
+            else if (_getBackToVehicleSearchForm)
             {
                 foreach (var vehicle in completeVehicleList)
                 {
-                    uxResultsListBox.Items.Add("Legal Owner: " + vehicle.FirstName + " " + vehicle.MiddleName + " " + vehicle.LastName + ", " + vehicle.Year.ToString() + ", "+ vehicle.Color + ", " + vehicle.Manufacturer + ", " + vehicle.Model + ", " + vehicle.VIN + ", " + vehicle.PlateNumber + ", " + vehicle.PolicyNumber + ", " + vehicle.PlateExpDate.ToShortDateString() + ", " + vehicle.PolicyExpDate.ToShortDateString() + ", " + vehicle.InsuranceProvider);
+                    uxResultsListBox.Items.Add("Legal Owner: " + vehicle.FirstName + " " + vehicle.MiddleName + " " + vehicle.LastName + ", " + vehicle.Year.ToString() + ", " + vehicle.Color + ", " + vehicle.Manufacturer + ", " + vehicle.Model + ", " + vehicle.VIN + ", " + vehicle.PlateNumber + ", " + vehicle.PolicyNumber + ", " + vehicle.PlateExpDate.ToShortDateString() + ", " + vehicle.PolicyExpDate.ToShortDateString() + ", " + vehicle.InsuranceProvider);
                 }
+                uxNumResultsLB.Text = "A total of " + _completeVehicleList.Count.ToString() + " vehicles(s) were found.";
             }
 
             /*
@@ -67,7 +69,7 @@ namespace ApplicationDMV
             }
             */
 
-            uxNumResultsLB.Text = "A total of " + _completeDriverList.Count.ToString() + "(s) drivers were found.";
+            //uxNumResultsLB.Text = "A total of " + _completeDriverList.Count.ToString() + " driver(s) were found.";
         }
 
         private void uxBackBT_Click(object sender, EventArgs e)
@@ -76,7 +78,7 @@ namespace ApplicationDMV
             {
                 _regDriverSearchForm.Show();
             }
-            else if(_getBackToVehicleSearchForm)
+            else if (_getBackToVehicleSearchForm)
             {
                 _vehicleSearchForm.Show();
             }
@@ -91,7 +93,7 @@ namespace ApplicationDMV
 
         private void uxUpdateBT_Click(object sender, EventArgs e)
         {
-            if(uxResultsListBox.SelectedItems.Count == 0)
+            if (uxResultsListBox.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Please select an entry to update.");
             }

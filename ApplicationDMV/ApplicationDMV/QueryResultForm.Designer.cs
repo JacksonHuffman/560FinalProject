@@ -42,7 +42,7 @@
             uxResultsListBox.Location = new Point(11, 38);
             uxResultsListBox.Margin = new Padding(2);
             uxResultsListBox.Name = "uxResultsListBox";
-            uxResultsListBox.Size = new Size(538, 169);
+            uxResultsListBox.Size = new Size(950, 154);
             uxResultsListBox.TabIndex = 0;
             // 
             // uxUpdateBT
@@ -95,7 +95,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(560, 322);
+            ClientSize = new Size(972, 322);
             Controls.Add(uxHomeBT);
             Controls.Add(uxNumResultsLB);
             Controls.Add(uxBackBT);
