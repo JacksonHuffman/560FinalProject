@@ -24,6 +24,8 @@ namespace ApplicationDMV
 
         private MainForm _mf = new MainForm();
 
+        public RegisteredDrivers driverToUpdate;
+
         public QueryResultForm(List<CompleteDriver> completeDriverList, RegDriverSearchForm regDriverSearchForm)
         {
             InitializeComponent();
@@ -68,6 +70,8 @@ namespace ApplicationDMV
                 CompleteDriver completeDriver = _completeDriverList[uxResultsListBox.SelectedIndex];
 
                 RegisteredDrivers regDriverToUpdate = new RegisteredDrivers(completeDriver.RegisteredDriverID, completeDriver.FirstName, completeDriver.MiddleName, completeDriver.LastName, completeDriver.DateOfBirth, completeDriver.Sex);
+
+                driverToUpdate = regDriverToUpdate;
 
                 IntermediateForm interForm = new IntermediateForm(_regDriverRepository);
 

@@ -8,17 +8,17 @@ namespace ApplicationDMV.Models
 {
     public class RegisteredDrivers
     {
-        public int DriverID { get; }
+        public int DriverID { get; set; }
 
-        public string FirstName { get; }
+        public string FirstName { get; set; }
 
-        public string MiddleName { get; }
+        public string MiddleName { get; set; }
 
-        public string LastName { get; }
+        public string LastName { get; set; }
 
-        public DateTime DateOfBirth { get; }
+        public DateTime DateOfBirth { get; set; }
 
-        public char Sex { get; }
+        public char Sex { get; set; }
 
         public RegisteredDrivers(int dID, string fn, string mn, string ln, DateTime dob, char s)
         {

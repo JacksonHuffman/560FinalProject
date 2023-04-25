@@ -34,6 +34,8 @@ namespace ApplicationDMV.InsertForms
 
         private QueryResultForm _resultsForm;
 
+        private SqlRegisteredDriverUpdateRepository _updateRepo = new SqlRegisteredDriverUpdateRepository("Server=(localdb)\\MSSQLLocalDb;Database=master;Integrated Security=SSPI;");
+
         /// <summary>
         /// a flag that signifies whether the user has enetered valid information
         /// </summary>
@@ -145,7 +147,53 @@ namespace ApplicationDMV.InsertForms
             }
             else
             {
+                flag = true;
 
+                if (string.IsNullOrWhiteSpace(uxFNTB.Text) || string.IsNullOrWhiteSpace(uxLNTB.Text) || string.IsNullOrWhiteSpace(uxMNTB.Text) || string.IsNullOrWhiteSpace(uxDOBTB.Text) || string.IsNullOrWhiteSpace(uxSexTB.Text))
+                {
+                    MessageBox.Show("Please fill all fields.");
+                    flag = false;
+                }
+
+                else
+                {
+                    try
+                    {
+                        _dateOfBirth = Convert.ToDateTime(uxDOBTB.Text);
+                    }
+                    catch
+                    {
+                        flag = false;
+                        MessageBox.Show("Please enter the correct format for Date of Birth (MM/DD/YYYY).");
+                    }
+
+                    try
+                    {
+                        if (uxSexTB.Text == "M" || uxSexTB.Text == "m" || uxSexTB.Text == "F" || uxSexTB.Text == "f")
+                        {
+                            _sex = Convert.ToChar(uxSexTB.Text);
+                        }
+                        else
+                        {
+                            flag = false;
+                            MessageBox.Show("Please enter M for 'Male' or F for 'Female'.");
+                        }
+                    }
+                    catch
+                    {
+                        flag = false;
+                        MessageBox.Show("Please enter M for 'Male' or F for 'Female'.");
+                    }
+                }
+
+                if(flag)
+                {
+                    _updateRepo.UpdateRegisteredDriver(_resultsForm.driverToUpdate, _resultsForm.driverToUpdate.DriverID, uxFNTB.Text, uxMNTB.Text, uxLNTB.Text, Convert.ToDateTime(uxDOBTB.Text), Convert.ToChar(uxSexTB.Text));
+                    _m.Show();
+                    this.Close();
+                    MessageBox.Show("Updated!");
+                }
+                
             }
         }
     }
