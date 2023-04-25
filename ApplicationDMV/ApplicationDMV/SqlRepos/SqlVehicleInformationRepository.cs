@@ -41,7 +41,7 @@ namespace ApplicationDMV.SqlRepos
         /// <param name="plateExp"></param>
         /// <param name="inProvider"></param>
         /// <returns></returns>
-        public VehicleInfomation AddVehicleInformation(string vin, int registeredDriverID, int modelID, string color, string plateNumber, string policyNumber, DateTime policyExp, DateTime plateExp, string inProvider)
+        public VehicleInformation AddVehicleInformation(string vin, int registeredDriverID, int modelID, string color, string plateNumber, string policyNumber, DateTime policyExp, DateTime plateExp, string inProvider)
         {
             using (var transaction = new TransactionScope())
             {
@@ -72,7 +72,7 @@ namespace ApplicationDMV.SqlRepos
 
                         var vehicleID = (int)command.Parameters["VehicleID"].Value;
 
-                        return new VehicleInfomation(vehicleID, vin, registeredDriverID, modelID, color, plateNumber, policyNumber, policyExp, plateExp, inProvider);
+                        return new VehicleInformation(vehicleID, vin, registeredDriverID, modelID, color, plateNumber, policyNumber, policyExp, plateExp, inProvider);
                     }
                 }
             }

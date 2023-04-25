@@ -29,11 +29,17 @@ namespace ApplicationDMV
 
         private VehicleSearchForm _vehicleSearchForm;
 
+        private CompleteVehicle _completeVehicle;
+
         private bool _getBackToRegDriverSearchForm;
 
         private bool _getBackToVehicleSearchForm;
 
         private List<CompleteVehicle> _completeVehicleList;
+
+        public VehicleInformation vehicleToUpdate;
+
+        public VehicleModel vehicleModelToUpdate;
 
         public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm)
         {
@@ -61,15 +67,6 @@ namespace ApplicationDMV
                 }
                 uxNumResultsLB.Text = "A total of " + _completeVehicleList.Count.ToString() + " vehicles(s) were found.";
             }
-
-            /*
-            if( _completeDriverList.Count == 0)
-            {
-                MessageBox.Show("No records were found. Please click the )
-            }
-            */
-
-            //uxNumResultsLB.Text = "A total of " + _completeDriverList.Count.ToString() + " driver(s) were found.";
         }
 
         private void uxBackBT_Click(object sender, EventArgs e)
@@ -99,18 +96,38 @@ namespace ApplicationDMV
             }
             else
             {
-                CompleteDriver completeDriver = _completeDriverList[uxResultsListBox.SelectedIndex];
-
-                RegisteredDrivers regDriverToUpdate = new RegisteredDrivers(completeDriver.RegisteredDriverID, completeDriver.FirstName, completeDriver.MiddleName, completeDriver.LastName, completeDriver.DateOfBirth, completeDriver.Sex);
-
-                driverToUpdate = regDriverToUpdate;
-
                 IntermediateForm interForm = new IntermediateForm(_regDriverRepository);
 
-                RegDriverInsertForm regDriverForm = new RegDriverInsertForm(_regDriverRepository, _mf, false, interForm, regDriverToUpdate.FirstName, regDriverToUpdate.MiddleName, regDriverToUpdate.LastName, regDriverToUpdate.DateOfBirth.ToShortDateString(), regDriverToUpdate.Sex.ToString(), false, true, this);
+                if (_getBackToRegDriverSearchForm)
+                {
+                    CompleteDriver completeDriver = _completeDriverList[uxResultsListBox.SelectedIndex];
 
-                regDriverForm.Show();
-                this.Hide();
+                    RegisteredDrivers regDriverToUpdate = new RegisteredDrivers(completeDriver.RegisteredDriverID, completeDriver.FirstName, completeDriver.MiddleName, completeDriver.LastName, completeDriver.DateOfBirth, completeDriver.Sex);
+
+                    driverToUpdate = regDriverToUpdate;
+
+                    RegDriverInsertForm regDriverForm = new RegDriverInsertForm(_regDriverRepository, _mf, false, interForm, regDriverToUpdate.FirstName, regDriverToUpdate.MiddleName, regDriverToUpdate.LastName, regDriverToUpdate.DateOfBirth.ToShortDateString(), regDriverToUpdate.Sex.ToString(), false, true, this);
+
+                    regDriverForm.Show();
+                    this.Hide();
+
+                }
+                else if(_getBackToVehicleSearchForm)
+                {
+                    CompleteVehicle completeVehicle = _completeVehicleList[uxResultsListBox.SelectedIndex];
+
+                    VehicleInformation vToUpdate = new VehicleInformation(completeVehicle.VehicleID, completeVehicle.VIN, completeVehicle.RegisteredDriverID, completeVehicle.ModelID, completeVehicle.Color, completeVehicle.PlateNumber, completeVehicle.PolicyNumber, completeVehicle.PolicyExpDate, completeVehicle.PlateExpDate, completeVehicle.InsuranceProvider);
+
+                    VehicleModel vModelToUpdate = new VehicleModel(completeVehicle.ModelID, completeVehicle.MakeID, completeVehicle.Model, completeVehicle.Year);
+
+                    vehicleToUpdate = vToUpdate;
+                    vehicleModelToUpdate = vModelToUpdate;
+
+                    InsertVehicleInformation vInfoForm = new InsertVehicleInformation(interForm, vehicleToUpdate.DriverID, vehicleToUpdate.VIN, vehicleToUpdate.Color, vehicleToUpdate.PlateNumber, vehicleToUpdate.PolicyNumber, vehicleToUpdate.PlateExpDate.ToShortDateString(), vehicleToUpdate.PolicyExpDate.ToShortDateString(), vehicleToUpdate.InsuranceProvider, completeVehicle.Manufacturer, vehicleModelToUpdate.Name, vehicleModelToUpdate.Year.ToString(), true, this);
+
+                    vInfoForm.Show();
+                    this.Hide();
+                }
             }
         }
     }

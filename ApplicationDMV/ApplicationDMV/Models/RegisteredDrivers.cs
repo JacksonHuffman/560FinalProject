@@ -8,7 +8,7 @@ namespace ApplicationDMV.Models
 {
     public class RegisteredDrivers
     {
-        public int DriverID { get; set; }
+        public int DriverID { get; }
 
         public string FirstName { get; set; }
 

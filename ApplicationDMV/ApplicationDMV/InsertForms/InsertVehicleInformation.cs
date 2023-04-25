@@ -22,71 +22,165 @@ namespace ApplicationDMV.InsertForms
 
         private SqlVehicleInformationRepository _infoRepo = new SqlVehicleInformationRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
 
+        private SqlVehicleInformationUpdateRepository _updateRepo = new SqlVehicleInformationUpdateRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+
         private DateTime _plateExpDate;
 
         private DateTime _policyExpDate;
 
         private int _derivedDriverID;
 
-        public InsertVehicleInformation(IntermediateForm interForm, int derivedDriverID)
+        private bool _getBackToQueryForm;
+
+        private QueryResultForm _queryForm;
+
+        private int _year;
+
+        public InsertVehicleInformation(IntermediateForm interForm, int derivedDriverID, string vin, string color, string plateNum, string policyNum, string plateExp, string poicyExp, string insurance, string make, string model, string year, bool getbackToQueryForm, QueryResultForm queryForm)
         {
             InitializeComponent();
             _interForm = interForm;
             _derivedDriverID = derivedDriverID;
+            _getBackToQueryForm = getbackToQueryForm;
+            _queryForm = queryForm;
+
+            uxVINTB.Text = vin;
+            uxColorTB.Text = color;
+            uxPlateTB.Text = plateNum;
+            uxPolicyTB.Text = policyNum;
+            uxPlateExpTB.Text = plateExp;
+            uxPolicyExpTB.Text = poicyExp;
+            uxInsuranceTB.Text = insurance;
+            uxMakeTB.Text = make;
+            uxModelTB.Text = model;
+            uxYearTB.Text = year;
+
+            if(_getBackToQueryForm)
+            {
+                uxInsertBT.Text = "Update";
+                uxMakeTB.Enabled = false;
+            }
         }
 
         private void uxBackButton_Click(object sender, EventArgs e)
         {
-            _interForm.Show();
-            this.Close();
+            if(_getBackToQueryForm)
+            {
+                _queryForm.Show();
+                this.Close();
+            }
+            else
+            {
+                _interForm.Show();
+                this.Close();
+            }
         }
 
         private void uxInsertBT_Click(object sender, EventArgs e)
         {
-            bool flag = true;
+            if(!_getBackToQueryForm)
+            {
+                bool flag = true;
 
-            if (string.IsNullOrWhiteSpace(uxVINTB.Text) || string.IsNullOrWhiteSpace(uxColorTB.Text) || string.IsNullOrWhiteSpace(uxPlateTB.Text)
+                if (string.IsNullOrWhiteSpace(uxVINTB.Text) || string.IsNullOrWhiteSpace(uxColorTB.Text) || string.IsNullOrWhiteSpace(uxPlateTB.Text)
                 || string.IsNullOrWhiteSpace(uxPolicyTB.Text) || string.IsNullOrWhiteSpace(uxPolicyExpTB.Text) || string.IsNullOrWhiteSpace(uxPlateExpTB.Text)
                 || string.IsNullOrWhiteSpace(uxInsuranceTB.Text) || string.IsNullOrWhiteSpace(uxMakeTB.Text) || string.IsNullOrWhiteSpace(uxModelTB.Text) || string.IsNullOrWhiteSpace(uxYearTB.Text))
-            {
-                MessageBox.Show("Please fill all fields.");
-            }
-
-            try
-            {
-                _plateExpDate = Convert.ToDateTime(uxPlateExpTB.Text);
-                _policyExpDate = Convert.ToDateTime(uxPolicyExpTB.Text);
-            }
-            catch
-            {
-                flag = false;
-                MessageBox.Show("Please enter a valid date (MM/DD/YYYY).");
-            }
-
-            if (Convert.ToInt32(uxYearTB.Text) < 1000 || Convert.ToInt32(uxYearTB.Text) > 9999)
-            {
-                flag = false;
-                MessageBox.Show("Please enter a valid year for the vehicle (YYYY).");
-            }
-
-            if (flag)
-            {
-                int makeID = _makeRepo.GetMakeID(uxMakeTB.Text);
-                if (!(_makeRepo.FetchMakeIDToBool(makeID)))
                 {
-                    _makeRepo.AddManufacturer(uxMakeTB.Text);
+                    MessageBox.Show("Please fill all fields.");
                 }
 
-                int correctMakeID = _makeRepo.GetMakeID(uxMakeTB.Text);
+                try
+                {
+                    _plateExpDate = Convert.ToDateTime(uxPlateExpTB.Text);
+                    _policyExpDate = Convert.ToDateTime(uxPolicyExpTB.Text);
+                }
+                catch
+                {
+                    flag = false;
+                    MessageBox.Show("Please enter a valid date (MM/DD/YYYY).");
+                }
 
-                VehicleModel model = _modelRepo.AddVehicleModel(correctMakeID, uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+                try
+                {
+                    _year = Convert.ToInt32(uxYearTB.Text);
+                    if (Convert.ToInt32(uxYearTB.Text) < 1000 || Convert.ToInt32(uxYearTB.Text) > 9999)
+                    {
+                        flag = false;
+                        MessageBox.Show("Please enter a valid year for the vehicle (YYYY).");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter a valid year for the vehicle (YYYY).");
+                    flag = false;
+                }
 
-                _infoRepo.AddVehicleInformation(uxVINTB.Text, _derivedDriverID, model.ModelID, uxColorTB.Text, uxPlateTB.Text, uxPolicyTB.Text, _policyExpDate, _plateExpDate, uxInsuranceTB.Text);
+                if (flag)
+                {
+                    int makeID = _makeRepo.GetMakeID(uxMakeTB.Text);
+                    if (!(_makeRepo.FetchMakeIDToBool(makeID)))
+                    {
+                        _makeRepo.AddManufacturer(uxMakeTB.Text);
+                    }
 
-                MainForm m = new MainForm();
-                m.Show();
-                this.Close();
-                MessageBox.Show("Success!");
+                    int correctMakeID = _makeRepo.GetMakeID(uxMakeTB.Text);
+
+                    VehicleModel model = _modelRepo.AddVehicleModel(correctMakeID, uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+
+                    _infoRepo.AddVehicleInformation(uxVINTB.Text, _derivedDriverID, model.ModelID, uxColorTB.Text, uxPlateTB.Text, uxPolicyTB.Text, _policyExpDate, _plateExpDate, uxInsuranceTB.Text);
+
+                    MainForm m = new MainForm();
+                    m.Show();
+                    this.Close();
+                    MessageBox.Show("Success!");
+                }
+            }
+            else
+            {
+                bool flag = true;
+
+                if (string.IsNullOrWhiteSpace(uxVINTB.Text) || string.IsNullOrWhiteSpace(uxColorTB.Text) || string.IsNullOrWhiteSpace(uxPlateTB.Text)
+                || string.IsNullOrWhiteSpace(uxPolicyTB.Text) || string.IsNullOrWhiteSpace(uxPolicyExpTB.Text) || string.IsNullOrWhiteSpace(uxPlateExpTB.Text)
+                || string.IsNullOrWhiteSpace(uxInsuranceTB.Text) || string.IsNullOrWhiteSpace(uxMakeTB.Text) || string.IsNullOrWhiteSpace(uxModelTB.Text) || string.IsNullOrWhiteSpace(uxYearTB.Text))
+                {
+                    MessageBox.Show("Please fill all fields.");
+                }
+
+                try
+                {
+                    _plateExpDate = Convert.ToDateTime(uxPlateExpTB.Text);
+                    _policyExpDate = Convert.ToDateTime(uxPolicyExpTB.Text);
+                }
+                catch
+                {
+                    flag = false;
+                    MessageBox.Show("Please enter a valid date (MM/DD/YYYY).");
+                }
+
+                try
+                {
+                    _year = Convert.ToInt32(uxYearTB.Text);
+                    if (Convert.ToInt32(uxYearTB.Text) < 1000 || Convert.ToInt32(uxYearTB.Text) > 9999)
+                    {
+                        flag = false;
+                        MessageBox.Show("Please enter a valid year for the vehicle (YYYY).");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter a valid year for the vehicle (YYYY).");
+                    flag = false;
+                }
+
+                if (flag)
+                {
+                    _updateRepo.UpdateVehicleInformation(_queryForm.vehicleToUpdate, _queryForm.vehicleModelToUpdate, _queryForm.vehicleToUpdate.VehicleID, _queryForm.vehicleToUpdate.ModelID, uxVINTB.Text, uxColorTB.Text, uxPlateTB.Text, uxPolicyTB.Text, Convert.ToDateTime(uxPlateExpTB.Text), Convert.ToDateTime(uxPolicyExpTB.Text), uxInsuranceTB.Text, uxMakeTB.Text, uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+
+                    MainForm m = new MainForm();
+                    m.Show();
+                    this.Close();
+                    MessageBox.Show("Updated!");
+                }
             }
         }
     }

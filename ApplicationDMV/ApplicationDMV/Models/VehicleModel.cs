@@ -12,9 +12,9 @@ namespace ApplicationDMV.Models
 
         public int MakeID { get; }
 
-        public string Name { get; }
+        public string Name { get; set; }
 
-        public int Year { get; }
+        public int Year { get; set; }
 
         public VehicleModel(int moid, int maid, string n, int y)
         {

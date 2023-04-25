@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationDMV.InsertForms;
+using ApplicationDMV.Models;
+using ApplicationDMV.Search_Forms;
 using ApplicationDMV.SqlRepos;
 
 namespace ApplicationDMV.InsertForms
@@ -56,7 +58,12 @@ namespace ApplicationDMV.InsertForms
                 bool realDriver = _driverRepo.FetchDriverToBool(driverID);
                 if (realDriver)
                 {
-                    InsertVehicleInformation v = new InsertVehicleInformation(this, driverID);
+                    List<CompleteDriver> c = new List<CompleteDriver>();
+                    List<CompleteVehicle> vl = new List<CompleteVehicle>();
+                    RegDriverSearchForm regSForm = new RegDriverSearchForm();
+                    VehicleSearchForm vSForm = new VehicleSearchForm();
+                    QueryResultForm resultForm = new QueryResultForm(c, vl, regSForm, vSForm, false, false);
+                    InsertVehicleInformation v = new InsertVehicleInformation(this, driverID, "", "", "", "", "", "", "", "", "", "", false, resultForm);
                     v.Show();
                     this.Hide();
                 }

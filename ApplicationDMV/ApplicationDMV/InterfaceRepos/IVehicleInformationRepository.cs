@@ -22,6 +22,6 @@ namespace ApplicationDMV.InterfaceRepos
         /// <param name="plateExp"></param>
         /// <param name="inProvider"></param>
         /// <returns></returns>
-        public VehicleInfomation AddVehicleInformation(string vin, int registeredDriverID, int modelID, string color, string plateNumber, string policyNumber, DateTime policyExp, DateTime plateExp, string inProvider);
+        public VehicleInformation AddVehicleInformation(string vin, int registeredDriverID, int modelID, string color, string plateNumber, string policyNumber, DateTime policyExp, DateTime plateExp, string inProvider);
     }
 }
