@@ -42,6 +42,14 @@ namespace ApplicationDMV.SqlRepos
 
         private DateTime _policyExpDate;
 
+        private int _vehicleID;
+
+        private int _regDriverID;
+
+        private int _modelID;
+
+        private int _makeID;
+
         public SqlVehicleInformationSearchRepository(string connectionString)
         {
             _connectionString = connectionString;
@@ -135,6 +143,10 @@ namespace ApplicationDMV.SqlRepos
                     {
                         while (reader.Read())
                         {
+                            _vehicleID = Convert.ToInt32(reader["VehicleID"]);
+                            _regDriverID = Convert.ToInt32(reader["RegisteredDriverID"]);
+                            _modelID = Convert.ToInt32(reader["ModelID"]);
+                            _makeID = Convert.ToInt32(reader["MakeID"]);
                             _firstName = Convert.ToString(reader["FirstName"]);
                             _middleName = Convert.ToString(reader["MiddleName"]);
                             _lastName = Convert.ToString(reader["LastName"]);
@@ -149,7 +161,7 @@ namespace ApplicationDMV.SqlRepos
                             _policyExpDate = Convert.ToDateTime(reader["PolicyExpDate"]);
                             _insurance = Convert.ToString(reader["InsuranceProvider"]);
 
-                            CompleteVehicle cv = new CompleteVehicle(_firstName, _middleName, _lastName, _year, _color, _makeName, _modelName, _vin, _plateNum, _policyNum, _plateExpDate, _policyExpDate, _insurance);
+                            CompleteVehicle cv = new CompleteVehicle(_vehicleID, _regDriverID, _modelID, _makeID, _firstName, _middleName, _lastName, _year, _color, _makeName, _modelName, _vin, _plateNum, _policyNum, _plateExpDate, _policyExpDate, _insurance);
                             completeVehicleList.Add(cv);
                         }
 

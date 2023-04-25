@@ -28,7 +28,11 @@ WITH Cte(VehicleID, VIN, RegisteredDriverID, ModelID, Color, PlateNumber, Policy
 			AND V.PolicyNumber LIKE IIF(@PolicyNumber IS NULL, '%', @PolicyNumber)
 			and V.InsuranceProvider LIKE IIF(@InsuranceProvider IS NULL, '%', @InsuranceProvider)
 		)
-SELECT RD.FirstName,
+SELECT C.VehicleID,
+	C.RegisteredDriverID,
+	C.ModelID,
+	VMF.MakeID,
+	RD.FirstName,
 	RD.MiddleName,
 	RD.LastName,
 	VM.[Year],
