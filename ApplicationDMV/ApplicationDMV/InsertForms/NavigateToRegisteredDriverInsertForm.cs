@@ -1,4 +1,5 @@
 ﻿using ApplicationDMV.Models;
+using ApplicationDMV.Search_Forms;
 using ApplicationDMV.SqlRepos;
 using System;
 using System.Collections.Generic;
@@ -46,8 +47,10 @@ namespace ApplicationDMV.InsertForms
         private void uxNavigateToRegDriverInsertFormBT_Click(object sender, EventArgs e)
         {
             List<CompleteDriver> completeDriversList = new List<CompleteDriver>();
+            List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
+            VehicleSearchForm vsForm = new VehicleSearchForm();
             RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
-            QueryResultForm resultsForm = new QueryResultForm(completeDriversList, regDriverSearchForm);
+            QueryResultForm resultsForm = new QueryResultForm(completeDriversList, completeVehicleList, regDriverSearchForm, vsForm, false, false);
             RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, _mainForm, true, _interForm, _fn, _mn, _ln, _dateOfBirth, "", true, false, resultsForm);
             v.Show();
             this.Close();

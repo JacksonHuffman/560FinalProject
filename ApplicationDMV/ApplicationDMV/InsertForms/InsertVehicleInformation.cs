@@ -46,7 +46,7 @@ namespace ApplicationDMV.InsertForms
             bool flag = true;
 
             if (string.IsNullOrWhiteSpace(uxVINTB.Text) || string.IsNullOrWhiteSpace(uxColorTB.Text) || string.IsNullOrWhiteSpace(uxPlateTB.Text)
-                || string.IsNullOrWhiteSpace(uxPolicyTB.Text) || string.IsNullOrWhiteSpace(uxPolicyExTB.Text) || string.IsNullOrWhiteSpace(uxPlateExTB.Text)
+                || string.IsNullOrWhiteSpace(uxPolicyTB.Text) || string.IsNullOrWhiteSpace(uxPolicyExpTB.Text) || string.IsNullOrWhiteSpace(uxPlateExpTB.Text)
                 || string.IsNullOrWhiteSpace(uxInsuranceTB.Text) || string.IsNullOrWhiteSpace(uxMakeTB.Text) || string.IsNullOrWhiteSpace(uxModelTB.Text) || string.IsNullOrWhiteSpace(uxYearTB.Text))
             {
                 MessageBox.Show("Please fill all fields.");
@@ -54,8 +54,8 @@ namespace ApplicationDMV.InsertForms
 
             try
             {
-                _plateExpDate = Convert.ToDateTime(uxPlateExTB.Text);
-                _policyExpDate = Convert.ToDateTime(uxPolicyExTB.Text);
+                _plateExpDate = Convert.ToDateTime(uxPlateExpTB.Text);
+                _policyExpDate = Convert.ToDateTime(uxPolicyExpTB.Text);
             }
             catch
             {

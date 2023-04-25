@@ -11,6 +11,7 @@ using ApplicationDMV.Models;
 using ApplicationDMV.InsertForms;
 using ApplicationDMV.SqlRepos;
 using Accessibility;
+using ApplicationDMV.Search_Forms;
 
 namespace ApplicationDMV
 {
@@ -26,15 +27,37 @@ namespace ApplicationDMV
 
         public RegisteredDrivers driverToUpdate;
 
-        public QueryResultForm(List<CompleteDriver> completeDriverList, RegDriverSearchForm regDriverSearchForm)
+        private VehicleSearchForm _vehicleSearchForm;
+
+        private bool _getBackToRegDriverSearchForm;
+
+        private bool _getBackToVehicleSearchForm;
+
+        private List<CompleteVehicle> _completeVehicleList;
+
+        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm)
         {
             InitializeComponent();
             _completeDriverList = completeDriverList;
             _regDriverSearchForm = regDriverSearchForm;
+            _vehicleSearchForm = vehicleSearchForm;
+            _getBackToRegDriverSearchForm = getBackToRegDriverSearchForm;
+            _getBackToVehicleSearchForm = getBackToVehicleSearchForm;
+            _completeVehicleList = completeVehicleList;
 
-            foreach (var driver in completeDriverList)
+            if(_getBackToRegDriverSearchForm)
             {
-                uxResultsListBox.Items.Add(driver.FirstName.ToString() + " " + driver.MiddleName.ToString() + " " + driver.LastName.ToString() + ", " + driver.Sex.ToString() + ", " + driver.DateOfBirth.ToShortDateString() + ", " + driver.StateCode.ToString() + ", " + driver.DLNumber.ToString());
+                foreach (var driver in completeDriverList)
+                {
+                    uxResultsListBox.Items.Add(driver.FirstName.ToString() + " " + driver.MiddleName.ToString() + " " + driver.LastName.ToString() + ", " + driver.Sex.ToString() + ", " + driver.DateOfBirth.ToShortDateString() + ", " + driver.StateCode.ToString() + ", " + driver.DLNumber.ToString());
+                }
+            }
+            else if(_getBackToVehicleSearchForm)
+            {
+                foreach (var vehicle in completeVehicleList)
+                {
+                    uxResultsListBox.Items.Add("Legal Owner: " + vehicle.FirstName + " " + vehicle.MiddleName + " " + vehicle.LastName + ", " + vehicle.Year.ToString() + ", "+ vehicle.Color + ", " + vehicle.Manufacturer + ", " + vehicle.Model + ", " + vehicle.VIN + ", " + vehicle.PlateNumber + ", " + vehicle.PolicyNumber + ", " + vehicle.PlateExpDate.ToShortDateString() + ", " + vehicle.PolicyExpDate.ToShortDateString() + ", " + vehicle.InsuranceProvider);
+                }
             }
 
             /*
@@ -49,7 +72,14 @@ namespace ApplicationDMV
 
         private void uxBackBT_Click(object sender, EventArgs e)
         {
-            _regDriverSearchForm.Show();
+            if (_getBackToRegDriverSearchForm)
+            {
+                _regDriverSearchForm.Show();
+            }
+            else if(_getBackToVehicleSearchForm)
+            {
+                _vehicleSearchForm.Show();
+            }
             this.Close();
         }
 

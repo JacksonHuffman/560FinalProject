@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationDMV.SqlRepos;
 using ApplicationDMV.Models;
+using ApplicationDMV.Search_Forms;
 
 namespace ApplicationDMV
 {
@@ -123,11 +124,14 @@ namespace ApplicationDMV
                     _s = true;
                 }
             }
+
             if (formFlag && fieldFlag)
             {
+                VehicleSearchForm vsForm = new VehicleSearchForm();
                 List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
+                List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
                 completeDriverList = _repository.GetQueryRegisteredDrivers(0, 0, _firstName, _middleName, _lastName, DateTime.Now, _sex, _stateCode, "", _fn, _mn, _ln, _s, _stCode);
-                QueryResultForm q = new QueryResultForm(completeDriverList, this);
+                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, this, vsForm, true, false);
                 q.Show();
                 this.Hide();
             }

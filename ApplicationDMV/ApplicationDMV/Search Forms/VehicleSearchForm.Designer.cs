@@ -28,265 +28,222 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uxColorTB = new System.Windows.Forms.TextBox();
-            this.uxPlateTB = new System.Windows.Forms.TextBox();
-            this.uxPolicyTB = new System.Windows.Forms.TextBox();
-            this.uxPlateExTB = new System.Windows.Forms.TextBox();
-            this.uxYearTB = new System.Windows.Forms.TextBox();
-            this.uxModelTB = new System.Windows.Forms.TextBox();
-            this.uxMakeTB = new System.Windows.Forms.TextBox();
-            this.uxPolicyExTB = new System.Windows.Forms.TextBox();
-            this.uxInsuranceTB = new System.Windows.Forms.TextBox();
-            this.uxVINTB = new System.Windows.Forms.TextBox();
-            this.uxColorLabel = new System.Windows.Forms.Label();
-            this.uxPlateLabel = new System.Windows.Forms.Label();
-            this.uxPolicyLabel = new System.Windows.Forms.Label();
-            this.uxPlateexLabel = new System.Windows.Forms.Label();
-            this.uxPolicyexLabel = new System.Windows.Forms.Label();
-            this.uxInsuranceLabel = new System.Windows.Forms.Label();
-            this.uxMakeLabel = new System.Windows.Forms.Label();
-            this.uxModelLabel = new System.Windows.Forms.Label();
-            this.uxYearLabel = new System.Windows.Forms.Label();
-            this.uxVINLabel = new System.Windows.Forms.Label();
-            this.uxBackButton = new System.Windows.Forms.Button();
-            this.uxSearchButton = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // uxColorTB
-            // 
-            this.uxColorTB.Location = new System.Drawing.Point(292, 123);
-            this.uxColorTB.Name = "uxColorTB";
-            this.uxColorTB.Size = new System.Drawing.Size(150, 31);
-            this.uxColorTB.TabIndex = 39;
-            // 
-            // uxPlateTB
-            // 
-            this.uxPlateTB.Location = new System.Drawing.Point(292, 164);
-            this.uxPlateTB.Name = "uxPlateTB";
-            this.uxPlateTB.Size = new System.Drawing.Size(150, 31);
-            this.uxPlateTB.TabIndex = 38;
-            // 
-            // uxPolicyTB
-            // 
-            this.uxPolicyTB.Location = new System.Drawing.Point(292, 205);
-            this.uxPolicyTB.Name = "uxPolicyTB";
-            this.uxPolicyTB.Size = new System.Drawing.Size(150, 31);
-            this.uxPolicyTB.TabIndex = 37;
-            // 
-            // uxPlateExTB
-            // 
-            this.uxPlateExTB.Location = new System.Drawing.Point(292, 247);
-            this.uxPlateExTB.Name = "uxPlateExTB";
-            this.uxPlateExTB.Size = new System.Drawing.Size(150, 31);
-            this.uxPlateExTB.TabIndex = 36;
-            // 
-            // uxYearTB
-            // 
-            this.uxYearTB.Location = new System.Drawing.Point(292, 455);
-            this.uxYearTB.Name = "uxYearTB";
-            this.uxYearTB.Size = new System.Drawing.Size(150, 31);
-            this.uxYearTB.TabIndex = 35;
-            // 
-            // uxModelTB
-            // 
-            this.uxModelTB.Location = new System.Drawing.Point(292, 414);
-            this.uxModelTB.Name = "uxModelTB";
-            this.uxModelTB.Size = new System.Drawing.Size(150, 31);
-            this.uxModelTB.TabIndex = 34;
-            // 
-            // uxMakeTB
-            // 
-            this.uxMakeTB.Location = new System.Drawing.Point(292, 373);
-            this.uxMakeTB.Name = "uxMakeTB";
-            this.uxMakeTB.Size = new System.Drawing.Size(150, 31);
-            this.uxMakeTB.TabIndex = 33;
-            // 
-            // uxPolicyExTB
-            // 
-            this.uxPolicyExTB.Location = new System.Drawing.Point(292, 292);
-            this.uxPolicyExTB.Name = "uxPolicyExTB";
-            this.uxPolicyExTB.Size = new System.Drawing.Size(150, 31);
-            this.uxPolicyExTB.TabIndex = 32;
-            // 
-            // uxInsuranceTB
-            // 
-            this.uxInsuranceTB.Location = new System.Drawing.Point(292, 332);
-            this.uxInsuranceTB.Name = "uxInsuranceTB";
-            this.uxInsuranceTB.Size = new System.Drawing.Size(150, 31);
-            this.uxInsuranceTB.TabIndex = 31;
-            // 
-            // uxVINTB
-            // 
-            this.uxVINTB.Location = new System.Drawing.Point(292, 85);
-            this.uxVINTB.Name = "uxVINTB";
-            this.uxVINTB.Size = new System.Drawing.Size(150, 31);
-            this.uxVINTB.TabIndex = 30;
+            uxColorLabel = new Label();
+            uxPlateLabel = new Label();
+            uxPolicyLabel = new Label();
+            uxInsuranceLabel = new Label();
+            uxMakeLabel = new Label();
+            uxModelLabel = new Label();
+            uxYearLabel = new Label();
+            uxVINLabel = new Label();
+            uxBackButton = new Button();
+            uxSearchButton = new Button();
+            uxVINTB = new TextBox();
+            uxColorTB = new TextBox();
+            uxPlateNumTB = new TextBox();
+            uxPolicyNumTB = new TextBox();
+            uxInsuranceTB = new TextBox();
+            uxMakeTB = new TextBox();
+            uxModelTB = new TextBox();
+            uxYearTB = new TextBox();
+            SuspendLayout();
             // 
             // uxColorLabel
             // 
-            this.uxColorLabel.AutoSize = true;
-            this.uxColorLabel.Location = new System.Drawing.Point(202, 123);
-            this.uxColorLabel.Name = "uxColorLabel";
-            this.uxColorLabel.Size = new System.Drawing.Size(59, 25);
-            this.uxColorLabel.TabIndex = 29;
-            this.uxColorLabel.Text = "Color:";
-            this.uxColorLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            uxColorLabel.AutoSize = true;
+            uxColorLabel.Location = new Point(141, 108);
+            uxColorLabel.Margin = new Padding(2, 0, 2, 0);
+            uxColorLabel.Name = "uxColorLabel";
+            uxColorLabel.Size = new Size(39, 15);
+            uxColorLabel.TabIndex = 29;
+            uxColorLabel.Text = "Color:";
+            uxColorLabel.TextAlign = ContentAlignment.TopCenter;
             // 
             // uxPlateLabel
             // 
-            this.uxPlateLabel.AutoSize = true;
-            this.uxPlateLabel.Location = new System.Drawing.Point(137, 164);
-            this.uxPlateLabel.Name = "uxPlateLabel";
-            this.uxPlateLabel.Size = new System.Drawing.Size(124, 25);
-            this.uxPlateLabel.TabIndex = 28;
-            this.uxPlateLabel.Text = "Plate Number:";
+            uxPlateLabel.AutoSize = true;
+            uxPlateLabel.Location = new Point(97, 136);
+            uxPlateLabel.Margin = new Padding(2, 0, 2, 0);
+            uxPlateLabel.Name = "uxPlateLabel";
+            uxPlateLabel.Size = new Size(83, 15);
+            uxPlateLabel.TabIndex = 28;
+            uxPlateLabel.Text = "Plate Number:";
             // 
             // uxPolicyLabel
             // 
-            this.uxPolicyLabel.AutoSize = true;
-            this.uxPolicyLabel.Location = new System.Drawing.Point(130, 205);
-            this.uxPolicyLabel.Name = "uxPolicyLabel";
-            this.uxPolicyLabel.Size = new System.Drawing.Size(131, 25);
-            this.uxPolicyLabel.TabIndex = 27;
-            this.uxPolicyLabel.Text = "Policy Number:";
-            // 
-            // uxPlateexLabel
-            // 
-            this.uxPlateexLabel.AutoSize = true;
-            this.uxPlateexLabel.Location = new System.Drawing.Point(82, 247);
-            this.uxPlateexLabel.Name = "uxPlateexLabel";
-            this.uxPlateexLabel.Size = new System.Drawing.Size(179, 25);
-            this.uxPlateexLabel.TabIndex = 26;
-            this.uxPlateexLabel.Text = "Plate Expiration Date:";
-            // 
-            // uxPolicyexLabel
-            // 
-            this.uxPolicyexLabel.AutoSize = true;
-            this.uxPolicyexLabel.Location = new System.Drawing.Point(75, 292);
-            this.uxPolicyexLabel.Name = "uxPolicyexLabel";
-            this.uxPolicyexLabel.Size = new System.Drawing.Size(186, 25);
-            this.uxPolicyexLabel.TabIndex = 25;
-            this.uxPolicyexLabel.Text = "Policy Expiration Date:";
+            uxPolicyLabel.AutoSize = true;
+            uxPolicyLabel.Location = new Point(88, 165);
+            uxPolicyLabel.Margin = new Padding(2, 0, 2, 0);
+            uxPolicyLabel.Name = "uxPolicyLabel";
+            uxPolicyLabel.Size = new Size(89, 15);
+            uxPolicyLabel.TabIndex = 27;
+            uxPolicyLabel.Text = "Policy Number:";
             // 
             // uxInsuranceLabel
             // 
-            this.uxInsuranceLabel.AutoSize = true;
-            this.uxInsuranceLabel.Location = new System.Drawing.Point(99, 332);
-            this.uxInsuranceLabel.Name = "uxInsuranceLabel";
-            this.uxInsuranceLabel.Size = new System.Drawing.Size(162, 25);
-            this.uxInsuranceLabel.TabIndex = 24;
-            this.uxInsuranceLabel.Text = "Insurance Provider:";
+            uxInsuranceLabel.AutoSize = true;
+            uxInsuranceLabel.Location = new Point(72, 198);
+            uxInsuranceLabel.Margin = new Padding(2, 0, 2, 0);
+            uxInsuranceLabel.Name = "uxInsuranceLabel";
+            uxInsuranceLabel.Size = new Size(108, 15);
+            uxInsuranceLabel.TabIndex = 24;
+            uxInsuranceLabel.Text = "Insurance Provider:";
             // 
             // uxMakeLabel
             // 
-            this.uxMakeLabel.AutoSize = true;
-            this.uxMakeLabel.Location = new System.Drawing.Point(202, 373);
-            this.uxMakeLabel.Name = "uxMakeLabel";
-            this.uxMakeLabel.Size = new System.Drawing.Size(59, 25);
-            this.uxMakeLabel.TabIndex = 23;
-            this.uxMakeLabel.Text = "Make:";
+            uxMakeLabel.AutoSize = true;
+            uxMakeLabel.Location = new Point(141, 229);
+            uxMakeLabel.Margin = new Padding(2, 0, 2, 0);
+            uxMakeLabel.Name = "uxMakeLabel";
+            uxMakeLabel.Size = new Size(39, 15);
+            uxMakeLabel.TabIndex = 23;
+            uxMakeLabel.Text = "Make:";
             // 
             // uxModelLabel
             // 
-            this.uxModelLabel.AutoSize = true;
-            this.uxModelLabel.Location = new System.Drawing.Point(194, 414);
-            this.uxModelLabel.Name = "uxModelLabel";
-            this.uxModelLabel.Size = new System.Drawing.Size(67, 25);
-            this.uxModelLabel.TabIndex = 22;
-            this.uxModelLabel.Text = "Model:";
+            uxModelLabel.AutoSize = true;
+            uxModelLabel.Location = new Point(136, 259);
+            uxModelLabel.Margin = new Padding(2, 0, 2, 0);
+            uxModelLabel.Name = "uxModelLabel";
+            uxModelLabel.Size = new Size(44, 15);
+            uxModelLabel.TabIndex = 22;
+            uxModelLabel.Text = "Model:";
             // 
             // uxYearLabel
             // 
-            this.uxYearLabel.AutoSize = true;
-            this.uxYearLabel.Location = new System.Drawing.Point(213, 455);
-            this.uxYearLabel.Name = "uxYearLabel";
-            this.uxYearLabel.Size = new System.Drawing.Size(48, 25);
-            this.uxYearLabel.TabIndex = 21;
-            this.uxYearLabel.Text = "Year:";
+            uxYearLabel.AutoSize = true;
+            uxYearLabel.Location = new Point(148, 292);
+            uxYearLabel.Margin = new Padding(2, 0, 2, 0);
+            uxYearLabel.Name = "uxYearLabel";
+            uxYearLabel.Size = new Size(32, 15);
+            uxYearLabel.TabIndex = 21;
+            uxYearLabel.Text = "Year:";
             // 
             // uxVINLabel
             // 
-            this.uxVINLabel.AutoSize = true;
-            this.uxVINLabel.Location = new System.Drawing.Point(216, 85);
-            this.uxVINLabel.Name = "uxVINLabel";
-            this.uxVINLabel.Size = new System.Drawing.Size(45, 25);
-            this.uxVINLabel.TabIndex = 20;
-            this.uxVINLabel.Text = "VIN:";
+            uxVINLabel.AutoSize = true;
+            uxVINLabel.Location = new Point(151, 77);
+            uxVINLabel.Margin = new Padding(2, 0, 2, 0);
+            uxVINLabel.Name = "uxVINLabel";
+            uxVINLabel.Size = new Size(29, 15);
+            uxVINLabel.TabIndex = 20;
+            uxVINLabel.Text = "VIN:";
             // 
             // uxBackButton
             // 
-            this.uxBackButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxBackButton.Location = new System.Drawing.Point(75, 532);
-            this.uxBackButton.Name = "uxBackButton";
-            this.uxBackButton.Size = new System.Drawing.Size(144, 67);
-            this.uxBackButton.TabIndex = 40;
-            this.uxBackButton.Text = "Back";
-            this.uxBackButton.UseVisualStyleBackColor = false;
-            this.uxBackButton.Click += new System.EventHandler(this.uxBackButton_Click);
+            uxBackButton.BackColor = SystemColors.GradientActiveCaption;
+            uxBackButton.Location = new Point(38, 319);
+            uxBackButton.Margin = new Padding(2);
+            uxBackButton.Name = "uxBackButton";
+            uxBackButton.Size = new Size(101, 40);
+            uxBackButton.TabIndex = 40;
+            uxBackButton.Text = "Back";
+            uxBackButton.UseVisualStyleBackColor = false;
+            uxBackButton.Click += uxBackButton_Click;
             // 
             // uxSearchButton
             // 
-            this.uxSearchButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.uxSearchButton.Location = new System.Drawing.Point(298, 532);
-            this.uxSearchButton.Name = "uxSearchButton";
-            this.uxSearchButton.Size = new System.Drawing.Size(144, 67);
-            this.uxSearchButton.TabIndex = 41;
-            this.uxSearchButton.Text = "Search";
-            this.uxSearchButton.UseVisualStyleBackColor = false;
-            //this.uxSearchButton.Click += new System.EventHandler(this.uxSearchButton_Click);
+            uxSearchButton.BackColor = SystemColors.GradientActiveCaption;
+            uxSearchButton.Location = new Point(253, 319);
+            uxSearchButton.Margin = new Padding(2);
+            uxSearchButton.Name = "uxSearchButton";
+            uxSearchButton.Size = new Size(101, 40);
+            uxSearchButton.TabIndex = 41;
+            uxSearchButton.Text = "Search";
+            uxSearchButton.UseVisualStyleBackColor = false;
+            uxSearchButton.Click += uxSearchButton_Click;
+            // 
+            // uxVINTB
+            // 
+            uxVINTB.Location = new Point(201, 74);
+            uxVINTB.Name = "uxVINTB";
+            uxVINTB.Size = new Size(172, 23);
+            uxVINTB.TabIndex = 42;
+            // 
+            // uxColorTB
+            // 
+            uxColorTB.Location = new Point(201, 103);
+            uxColorTB.Name = "uxColorTB";
+            uxColorTB.Size = new Size(172, 23);
+            uxColorTB.TabIndex = 43;
+            // 
+            // uxPlateNumTB
+            // 
+            uxPlateNumTB.Location = new Point(201, 132);
+            uxPlateNumTB.Name = "uxPlateNumTB";
+            uxPlateNumTB.Size = new Size(172, 23);
+            uxPlateNumTB.TabIndex = 44;
+            // 
+            // uxPolicyNumTB
+            // 
+            uxPolicyNumTB.Location = new Point(201, 161);
+            uxPolicyNumTB.Name = "uxPolicyNumTB";
+            uxPolicyNumTB.Size = new Size(172, 23);
+            uxPolicyNumTB.TabIndex = 45;
+            // 
+            // uxInsuranceTB
+            // 
+            uxInsuranceTB.Location = new Point(201, 195);
+            uxInsuranceTB.Name = "uxInsuranceTB";
+            uxInsuranceTB.Size = new Size(172, 23);
+            uxInsuranceTB.TabIndex = 46;
+            // 
+            // uxMakeTB
+            // 
+            uxMakeTB.Location = new Point(201, 226);
+            uxMakeTB.Name = "uxMakeTB";
+            uxMakeTB.Size = new Size(172, 23);
+            uxMakeTB.TabIndex = 47;
+            // 
+            // uxModelTB
+            // 
+            uxModelTB.Location = new Point(201, 256);
+            uxModelTB.Name = "uxModelTB";
+            uxModelTB.Size = new Size(172, 23);
+            uxModelTB.TabIndex = 48;
+            // 
+            // uxYearTB
+            // 
+            uxYearTB.Location = new Point(201, 285);
+            uxYearTB.Name = "uxYearTB";
+            uxYearTB.Size = new Size(44, 23);
+            uxYearTB.TabIndex = 49;
             // 
             // VehicleSearchForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(550, 634);
-            this.Controls.Add(this.uxSearchButton);
-            this.Controls.Add(this.uxBackButton);
-            this.Controls.Add(this.uxColorTB);
-            this.Controls.Add(this.uxPlateTB);
-            this.Controls.Add(this.uxPolicyTB);
-            this.Controls.Add(this.uxPlateExTB);
-            this.Controls.Add(this.uxYearTB);
-            this.Controls.Add(this.uxModelTB);
-            this.Controls.Add(this.uxMakeTB);
-            this.Controls.Add(this.uxPolicyExTB);
-            this.Controls.Add(this.uxInsuranceTB);
-            this.Controls.Add(this.uxVINTB);
-            this.Controls.Add(this.uxColorLabel);
-            this.Controls.Add(this.uxPlateLabel);
-            this.Controls.Add(this.uxPolicyLabel);
-            this.Controls.Add(this.uxPlateexLabel);
-            this.Controls.Add(this.uxPolicyexLabel);
-            this.Controls.Add(this.uxInsuranceLabel);
-            this.Controls.Add(this.uxMakeLabel);
-            this.Controls.Add(this.uxModelLabel);
-            this.Controls.Add(this.uxYearLabel);
-            this.Controls.Add(this.uxVINLabel);
-            this.Name = "VehicleSearchForm";
-            this.Text = "VehicleSearchForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(385, 380);
+            Controls.Add(uxYearTB);
+            Controls.Add(uxModelTB);
+            Controls.Add(uxMakeTB);
+            Controls.Add(uxInsuranceTB);
+            Controls.Add(uxPolicyNumTB);
+            Controls.Add(uxPlateNumTB);
+            Controls.Add(uxColorTB);
+            Controls.Add(uxVINTB);
+            Controls.Add(uxSearchButton);
+            Controls.Add(uxBackButton);
+            Controls.Add(uxColorLabel);
+            Controls.Add(uxPlateLabel);
+            Controls.Add(uxPolicyLabel);
+            Controls.Add(uxInsuranceLabel);
+            Controls.Add(uxMakeLabel);
+            Controls.Add(uxModelLabel);
+            Controls.Add(uxYearLabel);
+            Controls.Add(uxVINLabel);
+            Margin = new Padding(2);
+            Name = "VehicleSearchForm";
+            Text = "VehicleSearchForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private TextBox uxColorTB;
-        private TextBox uxPlateTB;
-        private TextBox uxPolicyTB;
-        private TextBox uxPlateExTB;
-        private TextBox uxYearTB;
-        private TextBox uxModelTB;
-        private TextBox uxMakeTB;
-        private TextBox uxPolicyExTB;
-        private TextBox uxInsuranceTB;
-        private TextBox uxVINTB;
         private Label uxColorLabel;
         private Label uxPlateLabel;
         private Label uxPolicyLabel;
-        private Label uxPlateexLabel;
-        private Label uxPolicyexLabel;
         private Label uxInsuranceLabel;
         private Label uxMakeLabel;
         private Label uxModelLabel;
@@ -294,5 +251,13 @@
         private Label uxVINLabel;
         private Button uxBackButton;
         private Button uxSearchButton;
+        private TextBox uxVINTB;
+        private TextBox uxColorTB;
+        private TextBox uxPlateNumTB;
+        private TextBox uxPolicyNumTB;
+        private TextBox uxInsuranceTB;
+        private TextBox uxMakeTB;
+        private TextBox uxModelTB;
+        private TextBox uxYearTB;
     }
 }

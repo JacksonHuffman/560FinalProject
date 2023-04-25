@@ -54,9 +54,11 @@ namespace ApplicationDMV
         private void uxInsertRdButton_Click(object sender, EventArgs e)
         {
             List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
+            List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
+            VehicleSearchForm vsForm = new VehicleSearchForm();
             IntermediateForm interForm = new IntermediateForm(_driverRepo);
             RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
-            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, regDriverSearchForm);
+            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, completeVehicleList, regDriverSearchForm, vsForm, false, false);
             RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, this, false, interForm, "", "", "", "", "", true, false, resultsForm);
             v.Show();
             this.Hide();
