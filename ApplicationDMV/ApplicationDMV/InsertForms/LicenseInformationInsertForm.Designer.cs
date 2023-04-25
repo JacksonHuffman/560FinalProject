@@ -54,7 +54,7 @@
             // uxExpDateLabel
             // 
             uxExpDateLabel.AutoSize = true;
-            uxExpDateLabel.Location = new Point(96, 329);
+            uxExpDateLabel.Location = new Point(96, 336);
             uxExpDateLabel.Margin = new Padding(2, 0, 2, 0);
             uxExpDateLabel.Name = "uxExpDateLabel";
             uxExpDateLabel.Size = new Size(90, 15);
@@ -116,7 +116,7 @@
             // uxAddress1Label
             // 
             uxAddress1Label.AutoSize = true;
-            uxAddress1Label.Location = new Point(99, 186);
+            uxAddress1Label.Location = new Point(100, 183);
             uxAddress1Label.Margin = new Padding(2, 0, 2, 0);
             uxAddress1Label.Name = "uxAddress1Label";
             uxAddress1Label.Size = new Size(86, 15);
@@ -146,7 +146,7 @@
             // uxHeightInchesLabel
             // 
             uxHeightInchesLabel.AutoSize = true;
-            uxHeightInchesLabel.Location = new Point(102, 268);
+            uxHeightInchesLabel.Location = new Point(102, 275);
             uxHeightInchesLabel.Margin = new Padding(2, 0, 2, 0);
             uxHeightInchesLabel.Name = "uxHeightInchesLabel";
             uxHeightInchesLabel.Size = new Size(88, 15);
@@ -175,65 +175,65 @@
             // 
             // uxCityTB
             // 
-            uxCityTB.Location = new Point(213, 120);
+            uxCityTB.Location = new Point(202, 120);
             uxCityTB.Name = "uxCityTB";
-            uxCityTB.Size = new Size(136, 23);
+            uxCityTB.Size = new Size(159, 23);
             uxCityTB.TabIndex = 98;
             // 
             // uxZIPTB
             // 
-            uxZIPTB.Location = new Point(213, 149);
+            uxZIPTB.Location = new Point(202, 149);
             uxZIPTB.Name = "uxZIPTB";
-            uxZIPTB.Size = new Size(136, 23);
+            uxZIPTB.Size = new Size(159, 23);
             uxZIPTB.TabIndex = 99;
             // 
             // uxADL1TB
             // 
-            uxADL1TB.Location = new Point(213, 178);
+            uxADL1TB.Location = new Point(202, 180);
             uxADL1TB.Name = "uxADL1TB";
-            uxADL1TB.Size = new Size(136, 23);
+            uxADL1TB.Size = new Size(159, 23);
             uxADL1TB.TabIndex = 100;
             // 
             // uxADL2TB
             // 
-            uxADL2TB.Location = new Point(213, 207);
+            uxADL2TB.Location = new Point(202, 210);
             uxADL2TB.Name = "uxADL2TB";
-            uxADL2TB.Size = new Size(136, 23);
+            uxADL2TB.Size = new Size(159, 23);
             uxADL2TB.TabIndex = 101;
             // 
             // uxHeightFeetTB
             // 
-            uxHeightFeetTB.Location = new Point(213, 236);
+            uxHeightFeetTB.Location = new Point(202, 239);
             uxHeightFeetTB.Name = "uxHeightFeetTB";
-            uxHeightFeetTB.Size = new Size(136, 23);
+            uxHeightFeetTB.Size = new Size(159, 23);
             uxHeightFeetTB.TabIndex = 102;
             // 
             // uxHeightInchesTB
             // 
-            uxHeightInchesTB.Location = new Point(213, 268);
+            uxHeightInchesTB.Location = new Point(202, 268);
             uxHeightInchesTB.Name = "uxHeightInchesTB";
-            uxHeightInchesTB.Size = new Size(136, 23);
+            uxHeightInchesTB.Size = new Size(159, 23);
             uxHeightInchesTB.TabIndex = 103;
             // 
             // uxWeightTB
             // 
-            uxWeightTB.Location = new Point(213, 297);
+            uxWeightTB.Location = new Point(202, 305);
             uxWeightTB.Name = "uxWeightTB";
-            uxWeightTB.Size = new Size(136, 23);
+            uxWeightTB.Size = new Size(159, 23);
             uxWeightTB.TabIndex = 104;
             // 
             // uxExpDateTB
             // 
-            uxExpDateTB.Location = new Point(213, 326);
+            uxExpDateTB.Location = new Point(202, 333);
             uxExpDateTB.Name = "uxExpDateTB";
-            uxExpDateTB.Size = new Size(136, 23);
+            uxExpDateTB.Size = new Size(159, 23);
             uxExpDateTB.TabIndex = 105;
             // 
             // uxClassTB
             // 
-            uxClassTB.Location = new Point(213, 357);
+            uxClassTB.Location = new Point(202, 362);
             uxClassTB.Name = "uxClassTB";
-            uxClassTB.Size = new Size(136, 23);
+            uxClassTB.Size = new Size(159, 23);
             uxClassTB.TabIndex = 106;
             // 
             // LicenseInformationInsertForm

@@ -15,9 +15,11 @@ namespace ApplicationDMV.SqlRepos
             
         }
 
+        /*
         public List<RegisteredDrivers> SearchRegisteredDrivers(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex)
         {
-
+            
         }
+        */
     }
 }

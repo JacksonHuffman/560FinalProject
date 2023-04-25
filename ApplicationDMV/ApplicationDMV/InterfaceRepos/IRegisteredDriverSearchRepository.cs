@@ -9,6 +9,6 @@ namespace ApplicationDMV.InterfaceRepos
 {
     public interface IRegisteredDriverSearchRepository
     {
-        public List<RegisteredDrivers> SearchRegisteredDrivers(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex);
+        //public List<RegisteredDrivers> SearchRegisteredDrivers(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex);
     }
 }

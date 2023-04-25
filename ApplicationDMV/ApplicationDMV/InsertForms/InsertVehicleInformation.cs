@@ -45,7 +45,7 @@ namespace ApplicationDMV.InsertForms
         {
             bool flag = true;
 
-            if(string.IsNullOrWhiteSpace(uxVINTB.Text) || string.IsNullOrWhiteSpace(uxColorTB.Text) || string.IsNullOrWhiteSpace(uxPlateTB.Text)
+            if (string.IsNullOrWhiteSpace(uxVINTB.Text) || string.IsNullOrWhiteSpace(uxColorTB.Text) || string.IsNullOrWhiteSpace(uxPlateTB.Text)
                 || string.IsNullOrWhiteSpace(uxPolicyTB.Text) || string.IsNullOrWhiteSpace(uxPolicyExTB.Text) || string.IsNullOrWhiteSpace(uxPlateExTB.Text)
                 || string.IsNullOrWhiteSpace(uxInsuranceTB.Text) || string.IsNullOrWhiteSpace(uxMakeTB.Text) || string.IsNullOrWhiteSpace(uxModelTB.Text) || string.IsNullOrWhiteSpace(uxYearTB.Text))
             {
@@ -63,21 +63,23 @@ namespace ApplicationDMV.InsertForms
                 MessageBox.Show("Please enter a valid date (MM/DD/YYYY).");
             }
 
-            if(Convert.ToInt32(uxYearTB.Text) < 1000 || Convert.ToInt32(uxYearTB.Text) > 9999)
+            if (Convert.ToInt32(uxYearTB.Text) < 1000 || Convert.ToInt32(uxYearTB.Text) > 9999)
             {
                 flag = false;
                 MessageBox.Show("Please enter a valid year for the vehicle (YYYY).");
             }
 
-            if(flag)
+            if (flag)
             {
                 int makeID = _makeRepo.GetMakeID(uxMakeTB.Text);
                 if (!(_makeRepo.FetchMakeIDToBool(makeID)))
                 {
-                    InsertNewManufacturer v = new InsertNewManufacturer(_makeRepo, uxMakeTB.Text);
+                    _makeRepo.AddManufacturer(uxMakeTB.Text);
                 }
 
-                VehicleModel model = _modelRepo.AddVehicleModel(makeID, uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+                int correctMakeID = _makeRepo.GetMakeID(uxMakeTB.Text);
+
+                VehicleModel model = _modelRepo.AddVehicleModel(correctMakeID, uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
 
                 _infoRepo.AddVehicleInformation(uxVINTB.Text, _derivedDriverID, model.ModelID, uxColorTB.Text, uxPlateTB.Text, uxPolicyTB.Text, _policyExpDate, _plateExpDate, uxInsuranceTB.Text);
 

@@ -6,7 +6,7 @@
 AS
 
 INSERT DMV.VehicleModel(MakeID, [Name], [Year])
-SELECT VMF.MakeID, M.[Name], M.[Year]
+SELECT M.MakeID, M.[Name], M.[Year]
 FROM
 	(
 		VALUES(@MakeID, @Name, @Year)
