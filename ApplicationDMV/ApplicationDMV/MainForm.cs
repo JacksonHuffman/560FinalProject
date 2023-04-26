@@ -55,10 +55,12 @@ namespace ApplicationDMV
         {
             List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
             List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
+            List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
+            LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
             VehicleSearchForm vsForm = new VehicleSearchForm();
             IntermediateForm interForm = new IntermediateForm(_driverRepo);
             RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
-            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, completeVehicleList, regDriverSearchForm, vsForm, false, false);
+            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, regDriverSearchForm, vsForm, licenseInformationSearchForm, false, false);
             RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, this, false, interForm, "", "", "", "", "", true, false, resultsForm);
             v.Show();
             this.Hide();

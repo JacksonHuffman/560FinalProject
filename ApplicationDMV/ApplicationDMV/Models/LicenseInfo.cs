@@ -12,27 +12,27 @@ namespace ApplicationDMV.Models
 
         public int RegisteredDriverStateID { get; }
 
-        public string City { get; }
+        public string City { get; set; }
 
-        public string ZIP { get; }
+        public string ZIP { get; set;  }
 
-        public string AddressLine1 { get; }
+        public string AddressLine1 { get; set; }
 
-        public string AddressLine2 { get; }
+        public string AddressLine2 { get; set; }
 
-        public int FeetHeight { get; }
+        public int FeetHeight { get; set; }
 
-        public int InchesHeight { get; }
+        public int InchesHeight { get; set; }
 
-        public int Weight { get; }
+        public int Weight { get; set; }
 
-        public DateTime IssueDate { get; }
+        public DateTime IssueDate { get; set; }
 
-        public DateTime ExpDate { get; }
+        public DateTime ExpDate { get; set; }
+            
+        public char Class { get; set; }
 
-        public char Class { get; }
-
-        public bool IsDonor { get; }
+        public bool IsDonor { get; set; }
 
         public LicenseInfo(int lid, int rdsid, string c, string zip, string al1, string al2,
             int fh, int ih, int w, DateTime id, DateTime ed, char cl, bool isDonor)

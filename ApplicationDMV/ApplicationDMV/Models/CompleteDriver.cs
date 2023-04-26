@@ -10,8 +10,6 @@ namespace ApplicationDMV.Models
     {
         public int RegisteredDriverID { get; }
 
-        public int RegisteredDriversStateID { get; }
-
         public string FirstName { get; }
 
         public string MiddleName { get; }
@@ -22,21 +20,14 @@ namespace ApplicationDMV.Models
 
         public DateTime DateOfBirth { get; }
 
-        public string StateCode { get; }
-
-        public string DLNumber { get; }
-
-        public CompleteDriver(int registeredDriverID, int registeredDriversStateID, string firstName, string middleName, string lastName, char sex, DateTime dateOfBirth, string stateCode, string dLNumber)
+        public CompleteDriver(int registeredDriverID, string firstName, string middleName, string lastName, char sex, DateTime dateOfBirth)
         {
             RegisteredDriverID = registeredDriverID;
-            RegisteredDriversStateID = registeredDriversStateID;
             FirstName = firstName;
             MiddleName = middleName;
             LastName = lastName;
             Sex = sex;
             DateOfBirth = dateOfBirth;
-            StateCode = stateCode;
-            DLNumber = dLNumber;
         }
     }
 }

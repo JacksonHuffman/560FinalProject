@@ -179,11 +179,13 @@ namespace ApplicationDMV.Search_Forms
             if (formFlag && fieldFlag)
             {
                 List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
+                List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
+                LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
                 List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
                 completeVehicleList = _vehicleSearchRepo.GetQueryVehicleInformation(_vin, _color, _plateNum, _policyNum, _insurance, _makeName, _modelName, _year, _vinBool, _colorBool, _plateBool, _policyBool, _insuracneBool, _makeBool, _modelBool, _yearBool);
                 RegDriverSearchForm rdsForm = new RegDriverSearchForm();
 
-                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, rdsForm, this, false, true);
+                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, rdsForm, this, licenseInformationSearchForm, false, true);
                 q.Show();
                 this.Hide();
             }

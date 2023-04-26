@@ -9,10 +9,6 @@ namespace ApplicationDMV.InsertForms
 {
     public interface ILicenseInformationSearchRepository
     {
-        /*
-        LicenseInfo SearchLicenseInformation(int registeredDriversStateID, string city, string zip,
-            string ad1, string ad2, int feetHeight, int inchesHeight, int weight, DateTime issDate,
-            DateTime expDate, char liClass, bool isDonor);
-        */
+        public List<CompleteLicense> GetQueryLicenseInformation(string dlNumber, string stateCode, string city, string zip, string adLine1, string adLine2, int feetHeight, int inchesHeight, int weight, char cl, bool donor, bool dlNumBool, bool stCodeBool, bool cityBool, bool zipBool, bool adl1Bool, bool adl2Bool, bool feetBool, bool inchesBool, bool weightBool, bool classBool);
     }
 }

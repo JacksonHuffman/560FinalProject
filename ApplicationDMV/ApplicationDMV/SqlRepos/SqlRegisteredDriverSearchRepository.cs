@@ -16,8 +16,6 @@ namespace ApplicationDMV.SqlRepos
     {
         private int _registeredDriverID;
 
-        private int _registeredDriversStateID;
-
         private string _firstName;
 
         private string _middleName;
@@ -27,10 +25,6 @@ namespace ApplicationDMV.SqlRepos
         private DateTime _dateOfBirth;
 
         private char _sex;
-
-        private string _stateCode;
-
-        private string _dlNumber;
 
         /// <summary>
         /// Connection string
@@ -42,7 +36,7 @@ namespace ApplicationDMV.SqlRepos
             _connectionString = connectionString;
         }
 
-        public List<CompleteDriver> GetQueryRegisteredDrivers(int registeredDriverID, int registeredDriversStateID, string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex, string stateCode, string dlNumber, bool fn, bool mn, bool ln, bool s, bool stCode)
+        public List<CompleteDriver> GetQueryRegisteredDrivers(int registeredDriverID, string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex,  bool fn, bool mn, bool ln, bool s)
         {
             List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
 
@@ -88,15 +82,6 @@ namespace ApplicationDMV.SqlRepos
                         command.Parameters.AddWithValue("Sex", sex);
                     }
 
-                    if(stCode)
-                    {
-                        command.Parameters.AddWithValue("StateCode", DBNull.Value);
-                    }
-                    else
-                    {
-                        command.Parameters.AddWithValue("StateCode", stateCode);
-                    }
-
                     connection.Open();
 
                     using (var reader = command.ExecuteReader()) 
@@ -104,16 +89,13 @@ namespace ApplicationDMV.SqlRepos
                         while(reader.Read())
                         {
                             _registeredDriverID = Convert.ToInt32(reader["RegisteredDriverID"]);
-                            _registeredDriversStateID = Convert.ToInt32(reader["RegisteredDriversStateID"]);
                             _firstName = Convert.ToString(reader["FirstName"]);
                             _middleName = Convert.ToString(reader["MiddleName"]);
                             _lastName = Convert.ToString(reader["LastName"]);
                             _sex = Convert.ToChar(reader["Sex"]);
                             _dateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]);
-                            _stateCode = Convert.ToString(reader["StateCode"]);
-                            _dlNumber = Convert.ToString(reader["DLNumber"]);
 
-                            CompleteDriver cd = new CompleteDriver(_registeredDriverID, _registeredDriversStateID, _firstName, _middleName, _lastName, _sex, _dateOfBirth, _stateCode, _dlNumber);
+                            CompleteDriver cd = new CompleteDriver(_registeredDriverID, _firstName, _middleName, _lastName, _sex, _dateOfBirth);
                             completeDriverList.Add(cd);
                         }
 

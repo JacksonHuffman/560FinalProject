@@ -23,8 +23,6 @@ namespace ApplicationDMV
 
         private char _sex;
 
-        private string _stateCode;
-
         private bool _fn;
 
         private bool _mn;
@@ -32,8 +30,6 @@ namespace ApplicationDMV
         private bool _ln;
 
         private bool _s;
-
-        private bool _stCode;
 
         private SqlRegisteredDriverSearchRepository _repository = new SqlRegisteredDriverSearchRepository("Server = (localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
 
@@ -91,16 +87,6 @@ namespace ApplicationDMV
                     _ln = true;
                 }
 
-                if (!string.IsNullOrWhiteSpace(uxStateCodeTB.Text))
-                {
-                    _stateCode = uxStateCodeTB.Text;
-                    _stCode = false;
-                }
-                else
-                {
-                    _stCode = true;
-                }
-
                 if (!string.IsNullOrWhiteSpace(uxSexTB.Text))
                 {
                     try
@@ -128,10 +114,12 @@ namespace ApplicationDMV
             if (formFlag && fieldFlag)
             {
                 VehicleSearchForm vsForm = new VehicleSearchForm();
+                LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
+                List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
                 List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
                 List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
-                completeDriverList = _repository.GetQueryRegisteredDrivers(0, 0, _firstName, _middleName, _lastName, DateTime.Now, _sex, _stateCode, "", _fn, _mn, _ln, _s, _stCode);
-                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, this, vsForm, true, false);
+                completeDriverList = _repository.GetQueryRegisteredDrivers(0, _firstName, _middleName, _lastName, DateTime.Now, _sex, _fn, _mn, _ln, _s);
+                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, this, vsForm, licenseInformationSearchForm, true, false);
                 q.Show();
                 this.Hide();
             }

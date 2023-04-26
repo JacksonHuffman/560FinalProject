@@ -60,9 +60,11 @@ namespace ApplicationDMV.InsertForms
                 {
                     List<CompleteDriver> c = new List<CompleteDriver>();
                     List<CompleteVehicle> vl = new List<CompleteVehicle>();
+                    List<CompleteLicense> cl = new List<CompleteLicense>();
+                    LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
                     RegDriverSearchForm regSForm = new RegDriverSearchForm();
                     VehicleSearchForm vSForm = new VehicleSearchForm();
-                    QueryResultForm resultForm = new QueryResultForm(c, vl, regSForm, vSForm, false, false);
+                    QueryResultForm resultForm = new QueryResultForm(c, vl, cl, regSForm, vSForm, licenseInformationSearchForm, false, false);
                     InsertVehicleInformation v = new InsertVehicleInformation(this, driverID, "", "", "", "", "", "", "", "", "", "", false, resultForm);
                     v.Show();
                     this.Hide();

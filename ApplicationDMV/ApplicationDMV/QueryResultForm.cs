@@ -29,6 +29,8 @@ namespace ApplicationDMV
 
         private VehicleSearchForm _vehicleSearchForm;
 
+        private LicenseInformationSearchForm _liSForm;
+
         private CompleteVehicle _completeVehicle;
 
         private bool _getBackToRegDriverSearchForm;
@@ -41,7 +43,9 @@ namespace ApplicationDMV
 
         public VehicleModel vehicleModelToUpdate;
 
-        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm)
+        private List<CompleteLicense> _completeLicenseList;
+
+        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, List<CompleteLicense> completeLicenseList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, LicenseInformationSearchForm liSForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm)
         {
             InitializeComponent();
             _completeDriverList = completeDriverList;
@@ -50,12 +54,14 @@ namespace ApplicationDMV
             _getBackToRegDriverSearchForm = getBackToRegDriverSearchForm;
             _getBackToVehicleSearchForm = getBackToVehicleSearchForm;
             _completeVehicleList = completeVehicleList;
+            _completeLicenseList = completeLicenseList;
+            _liSForm = liSForm;
 
             if (_getBackToRegDriverSearchForm)
             {
                 foreach (var driver in completeDriverList)
                 {
-                    uxResultsListBox.Items.Add(driver.FirstName.ToString() + " " + driver.MiddleName.ToString() + " " + driver.LastName.ToString() + ", " + driver.Sex.ToString() + ", DOB: " + driver.DateOfBirth.ToShortDateString() + ", DL STATE: " + driver.StateCode.ToString() + ", DL NUMBER: " + driver.DLNumber.ToString());
+                    uxResultsListBox.Items.Add(driver.FirstName.ToString() + " " + driver.MiddleName.ToString() + " " + driver.LastName.ToString() + ", " + driver.Sex.ToString() + ", DOB: " + driver.DateOfBirth.ToShortDateString());
                 }
                 uxNumResultsLB.Text = "A total of " + _completeDriverList.Count.ToString() + " driver(s) were found.";
             }
@@ -66,6 +72,14 @@ namespace ApplicationDMV
                     uxResultsListBox.Items.Add("LEGAL OWNER: " + vehicle.FirstName + " " + vehicle.MiddleName + " " + vehicle.LastName + ", YEAR: " + vehicle.Year.ToString() + ", COLOR: " + vehicle.Color + ", MANUFACTURER: " + vehicle.Manufacturer + ", MODEL: " + vehicle.Model + ", VIN:" + vehicle.VIN);
                 }
                 uxNumResultsLB.Text = "A total of " + _completeVehicleList.Count.ToString() + " vehicles(s) were found.";
+            }
+            else
+            {
+                foreach(var license in completeLicenseList)
+                {
+                    uxResultsListBox.Items.Add("NAME: " + license.FirstName.ToString() + " " + license.MiddleName.ToString() + " " + license.LastName.ToString() + ", STATE: " + license.StateCode.ToString() + ", DLNUMBER: " + license.DLNumber.ToString());
+                }
+                uxNumResultsLB.Text = "A total of " + _completeLicenseList.Count.ToString() + " license(s) were found.";
             }
         }
 
@@ -78,6 +92,10 @@ namespace ApplicationDMV
             else if (_getBackToVehicleSearchForm)
             {
                 _vehicleSearchForm.Show();
+            }
+            else
+            {
+                _liSForm.Show();
             }
             this.Close();
         }
