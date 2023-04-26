@@ -5,5 +5,5 @@
       WHERE s.[name] = N'DMV'
    )
 BEGIN
-   EXEC(N'CREATE SCHEMA [DMV]');
+   EXEC(N'CREATE SCHEMA [DMV] AUTHORIZATION [dbo]');
 END;

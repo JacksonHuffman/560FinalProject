@@ -93,7 +93,7 @@ namespace ApplicationDMV.SqlRepos
         /// <param name="sex"></param>
         /// <returns></returns>
         public RegisteredDrivers AddRegisteredDriverID(string firstName, string middleName, string lastName, DateTime dateOfBirth, char sex)
-        {
+        { 
             // Save to database.
             using (var transaction = new TransactionScope())
             {
@@ -124,6 +124,7 @@ namespace ApplicationDMV.SqlRepos
                     }
                 }
             }
+            
         }
 
         /// <summary>
