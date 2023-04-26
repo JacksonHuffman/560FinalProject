@@ -20,7 +20,7 @@ namespace ApplicationDMV.InsertForms
 
         private IntermediateForm _interForm;
 
-        private SqlLicenseInformationRepository _licenseRepo = new SqlLicenseInformationRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+        private SqlLicenseInformationRepository _licenseRepo = new SqlLicenseInformationRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
         public InsertDLNumberStateCode(SqlRegisteredDriversStateRepository driversStateRepo, int derivedDriverID, IntermediateForm interForm)
         {

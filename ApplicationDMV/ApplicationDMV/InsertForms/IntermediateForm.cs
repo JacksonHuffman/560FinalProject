@@ -18,7 +18,7 @@ namespace ApplicationDMV.InsertForms
     {
         private SqlRegisteredDriverRepository _driverRepo;
 
-        private SqlRegisteredDriversStateRepository _driverStateRepo = new SqlRegisteredDriversStateRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+        private SqlRegisteredDriversStateRepository _driverStateRepo = new SqlRegisteredDriversStateRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
         /// <summary>
         /// a flag that signifies whether the user has enetered valid information

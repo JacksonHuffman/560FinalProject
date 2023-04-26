@@ -65,5 +65,44 @@ namespace ApplicationDMV.SqlRepos
                 }
             }
         }
+
+        public int GetModelID(string name, int year)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("DMV.GetModelID", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("Name", name);
+                    command.Parameters.AddWithValue("Year", year);
+
+                    connection.Open();
+
+                    int modelID = 0;
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            modelID = Convert.ToInt32(reader["ModelID"]);
+                        }
+                    }
+
+                    return modelID;
+                }
+            }
+        }
+
+        public bool FetchModelIDToBool(int modelID)
+        {
+            bool flag = false;
+            if (modelID > 0)
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
     }
 }

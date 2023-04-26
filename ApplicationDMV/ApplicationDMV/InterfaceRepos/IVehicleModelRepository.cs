@@ -17,5 +17,15 @@ namespace ApplicationDMV.InterfaceRepos
         /// <param name="year"></param>
         /// <returns></returns>
         public VehicleModel AddVehicleModel(int makeID, string name, int year);
+
+        /// <summary>
+        /// Gets the correct model ID
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public int GetModelID(string name, int year);
+
+        public bool FetchModelIDToBool(int modelID);
     }
 }

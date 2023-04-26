@@ -7,4 +7,3 @@
 BEGIN
    EXEC(N'CREATE SCHEMA [DMV]');
 END;
-

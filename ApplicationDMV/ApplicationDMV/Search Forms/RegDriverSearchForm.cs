@@ -31,7 +31,7 @@ namespace ApplicationDMV
 
         private bool _s;
 
-        private SqlRegisteredDriverSearchRepository _repository = new SqlRegisteredDriverSearchRepository("Server = (localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+        private SqlRegisteredDriverSearchRepository _repository = new SqlRegisteredDriverSearchRepository("Server = (localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
         public RegDriverSearchForm()
         {

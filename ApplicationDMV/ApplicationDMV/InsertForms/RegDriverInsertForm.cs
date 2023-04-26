@@ -34,7 +34,7 @@ namespace ApplicationDMV.InsertForms
 
         private QueryResultForm _resultsForm;
 
-        private SqlRegisteredDriverUpdateRepository _updateRepo = new SqlRegisteredDriverUpdateRepository("Server=(localdb)\\MSSQLLocalDb;Database=master;Integrated Security=SSPI;");
+        private SqlRegisteredDriverUpdateRepository _updateRepo = new SqlRegisteredDriverUpdateRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
 
         /// <summary>
         /// a flag that signifies whether the user has enetered valid information

@@ -22,6 +22,3 @@ WHERE RD.FirstName LIKE IIF(@FirstName IS NULL, '%', @FirstName)
 	AND RD.LastName LIKE IIF(@LastName IS NULL, '%', @LastName)
 	AND RD.Sex LIKE IIF(@Sex IS NULL, '%', @Sex)
 	--AND RDS.StateCode LIKE IIF(@StateCode IS NULL, '%', @StateCode)
-
-SELECT *
-FROM DMV.LicenseInformation

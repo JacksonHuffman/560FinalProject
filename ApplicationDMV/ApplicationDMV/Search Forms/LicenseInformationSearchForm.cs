@@ -14,7 +14,7 @@ namespace ApplicationDMV.Search_Forms
 {
     public partial class LicenseInformationSearchForm : Form
     {
-        private SqlLicenseInformationSearchRepository _repository = new SqlLicenseInformationSearchRepository("Server = (localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+        private SqlLicenseInformationSearchRepository _repository = new SqlLicenseInformationSearchRepository("Server = (localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
         private string _city;
         private bool _c;

@@ -17,7 +17,7 @@ namespace ApplicationDMV.InsertForms
     {
         private IntermediateForm _interForm;
 
-        private SqlRegisteredDriverRepository _driverRepo = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=master;Integrated Security=SSPI;");
+        private SqlRegisteredDriverRepository _driverRepo = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
 
         private MainForm _mainForm = new MainForm();
 

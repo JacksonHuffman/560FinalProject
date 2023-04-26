@@ -5,7 +5,13 @@ BEGIN
 		ModelID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 		MakeID INT NOT NULL FOREIGN KEY REFERENCES DMV.VehicleManufacturer(MakeID),
 		[Name] NVARCHAR(32) NOT NULL CHECK([Name] > N''),
-		[Year] SMALLINT NOT NULL
+		[Year] INT NOT NULL
+
+		UNIQUE
+		(
+			[Name], 
+			[Year]
+		)
 	);
 END;
 	

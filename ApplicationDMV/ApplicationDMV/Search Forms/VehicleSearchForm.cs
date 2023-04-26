@@ -57,7 +57,7 @@ namespace ApplicationDMV.Search_Forms
 
         private bool _yearBool;
 
-        private SqlVehicleInformationSearchRepository _vehicleSearchRepo = new SqlVehicleInformationSearchRepository("Server = (localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+        private SqlVehicleInformationSearchRepository _vehicleSearchRepo = new SqlVehicleInformationSearchRepository("Server = (localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
         public VehicleSearchForm()
         {

@@ -15,6 +15,3 @@ SET
 	DateOfBirth = @DateOfBirth,
 	Sex = @Sex
 WHERE RegisteredDriverID = @RegisteredDriverID
-
-	
-

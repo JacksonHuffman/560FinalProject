@@ -21,7 +21,7 @@ namespace ApplicationDMV
 
         private RegDriverSearchForm _regDriverSearchForm;
 
-        private SqlRegisteredDriverRepository _regDriverRepository = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=master;Integrated Security=SSPI;");
+        private SqlRegisteredDriverRepository _regDriverRepository = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
 
         private MainForm _mf = new MainForm();
 

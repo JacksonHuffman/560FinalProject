@@ -16,14 +16,13 @@ namespace ApplicationDMV.InsertForms
     {
         private IntermediateForm _interForm;
 
-        private SqlVehicleManufacturerRepository _makeRepo = new SqlVehicleManufacturerRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+        private SqlVehicleManufacturerRepository _makeRepo = new SqlVehicleManufacturerRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
-        private SqlVehicleModelRepository _modelRepo = new SqlVehicleModelRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+        private SqlVehicleModelRepository _modelRepo = new SqlVehicleModelRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
-        private SqlVehicleInformationRepository _infoRepo = new SqlVehicleInformationRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
+        private SqlVehicleInformationRepository _infoRepo = new SqlVehicleInformationRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
-        private SqlVehicleInformationUpdateRepository _updateRepo = new SqlVehicleInformationUpdateRepository("Server=(localdb)\\MSSQLLocalDb; Database=master;Integrated Security = SSPI;");
-
+        private SqlVehicleInformationUpdateRepository _updateRepo = new SqlVehicleInformationUpdateRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
         private DateTime _plateExpDate;
 
         private DateTime _policyExpDate;
@@ -125,9 +124,17 @@ namespace ApplicationDMV.InsertForms
 
                     int correctMakeID = _makeRepo.GetMakeID(uxMakeTB.Text);
 
-                    VehicleModel model = _modelRepo.AddVehicleModel(correctMakeID, uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+                    int modelID = _modelRepo.GetModelID(uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+                    if (!(_modelRepo.FetchModelIDToBool(modelID)))
+                    {
+                        VehicleModel model = _modelRepo.AddVehicleModel(correctMakeID, uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+                    }
 
-                    _infoRepo.AddVehicleInformation(uxVINTB.Text, _derivedDriverID, model.ModelID, uxColorTB.Text, uxPlateTB.Text, uxPolicyTB.Text, _policyExpDate, _plateExpDate, uxInsuranceTB.Text);
+                    int correctModelID = _modelRepo.GetModelID(uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+
+                    //VehicleModel model = _modelRepo.AddVehicleModel(correctMakeID, uxModelTB.Text, Convert.ToInt32(uxYearTB.Text));
+
+                    _infoRepo.AddVehicleInformation(uxVINTB.Text, _derivedDriverID, correctModelID, uxColorTB.Text, uxPlateTB.Text, uxPolicyTB.Text, _policyExpDate, _plateExpDate, uxInsuranceTB.Text);
 
                     MainForm m = new MainForm();
                     m.Show();
