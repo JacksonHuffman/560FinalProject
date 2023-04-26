@@ -55,7 +55,7 @@ namespace ApplicationDMV
             {
                 foreach (var driver in completeDriverList)
                 {
-                    uxResultsListBox.Items.Add(driver.FirstName.ToString() + " " + driver.MiddleName.ToString() + " " + driver.LastName.ToString() + ", " + driver.Sex.ToString() + ", " + driver.DateOfBirth.ToShortDateString() + ", " + driver.StateCode.ToString() + ", " + driver.DLNumber.ToString());
+                    uxResultsListBox.Items.Add(driver.FirstName.ToString() + " " + driver.MiddleName.ToString() + " " + driver.LastName.ToString() + ", " + driver.Sex.ToString() + ", DOB: " + driver.DateOfBirth.ToShortDateString() + ", DL STATE: " + driver.StateCode.ToString() + ", DL NUMBER: " + driver.DLNumber.ToString());
                 }
                 uxNumResultsLB.Text = "A total of " + _completeDriverList.Count.ToString() + " driver(s) were found.";
             }
@@ -63,7 +63,7 @@ namespace ApplicationDMV
             {
                 foreach (var vehicle in completeVehicleList)
                 {
-                    uxResultsListBox.Items.Add("Legal Owner: " + vehicle.FirstName + " " + vehicle.MiddleName + " " + vehicle.LastName + ", " + vehicle.Year.ToString() + ", " + vehicle.Color + ", " + vehicle.Manufacturer + ", " + vehicle.Model + ", " + vehicle.VIN + ", " + vehicle.PlateNumber + ", " + vehicle.PolicyNumber + ", " + vehicle.PlateExpDate.ToShortDateString() + ", " + vehicle.PolicyExpDate.ToShortDateString() + ", " + vehicle.InsuranceProvider);
+                    uxResultsListBox.Items.Add("LEGAL OWNER: " + vehicle.FirstName + " " + vehicle.MiddleName + " " + vehicle.LastName + ", YEAR: " + vehicle.Year.ToString() + ", COLOR: " + vehicle.Color + ", MANUFACTURER: " + vehicle.Manufacturer + ", MODEL: " + vehicle.Model + ", VIN:" + vehicle.VIN);
                 }
                 uxNumResultsLB.Text = "A total of " + _completeVehicleList.Count.ToString() + " vehicles(s) were found.";
             }
@@ -112,7 +112,7 @@ namespace ApplicationDMV
                     this.Hide();
 
                 }
-                else if(_getBackToVehicleSearchForm)
+                else if (_getBackToVehicleSearchForm)
                 {
                     CompleteVehicle completeVehicle = _completeVehicleList[uxResultsListBox.SelectedIndex];
 

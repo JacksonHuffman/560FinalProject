@@ -39,10 +39,10 @@
             // 
             uxResultsListBox.FormattingEnabled = true;
             uxResultsListBox.ItemHeight = 15;
-            uxResultsListBox.Location = new Point(11, 38);
+            uxResultsListBox.Location = new Point(12, 27);
             uxResultsListBox.Margin = new Padding(2);
             uxResultsListBox.Name = "uxResultsListBox";
-            uxResultsListBox.Size = new Size(950, 154);
+            uxResultsListBox.Size = new Size(714, 139);
             uxResultsListBox.TabIndex = 0;
             // 
             // uxUpdateBT
@@ -95,7 +95,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(972, 322);
+            ClientSize = new Size(746, 308);
             Controls.Add(uxHomeBT);
             Controls.Add(uxNumResultsLB);
             Controls.Add(uxBackBT);
