@@ -16,6 +16,7 @@ namespace ApplicationDMV
             Application.EnableVisualStyles();
             MainForm mainWindow = new MainForm();
             Application.Run(mainWindow);
+
         }
     }
 }

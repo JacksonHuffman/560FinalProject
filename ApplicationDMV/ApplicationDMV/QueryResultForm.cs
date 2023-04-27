@@ -23,6 +23,8 @@ namespace ApplicationDMV
 
         private SqlRegisteredDriverRepository _regDriverRepository = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
 
+        private SqlLicenseInformationRepository _licenseInfoRepo = new SqlLicenseInformationRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
+        
         private MainForm _mf = new MainForm();
 
         public RegisteredDrivers driverToUpdate;
@@ -44,6 +46,8 @@ namespace ApplicationDMV
         public VehicleModel vehicleModelToUpdate;
 
         private List<CompleteLicense> _completeLicenseList;
+
+        public LicenseInfo licenseToUpdate;
 
         public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, List<CompleteLicense> completeLicenseList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, LicenseInformationSearchForm liSForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm)
         {
@@ -144,6 +148,27 @@ namespace ApplicationDMV
                     InsertVehicleInformation vInfoForm = new InsertVehicleInformation(interForm, vehicleToUpdate.DriverID, vehicleToUpdate.VIN, vehicleToUpdate.Color, vehicleToUpdate.PlateNumber, vehicleToUpdate.PolicyNumber, vehicleToUpdate.PlateExpDate.ToShortDateString(), vehicleToUpdate.PolicyExpDate.ToShortDateString(), vehicleToUpdate.InsuranceProvider, completeVehicle.Manufacturer, vehicleModelToUpdate.Name, vehicleModelToUpdate.Year.ToString(), true, this);
 
                     vInfoForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    CompleteLicense completeLicense = _completeLicenseList[uxResultsListBox.SelectedIndex];
+
+                    bool isDonor = false;
+
+                    if(completeLicense.Donor == 1)
+                    {
+                        isDonor = true;
+                    }
+
+
+                    LicenseInfo liToUpdate = new LicenseInfo(completeLicense.LicenseID, completeLicense.RegisteredDriverID, completeLicense.City, completeLicense.ZIP, completeLicense.AddressLine1, completeLicense.AddressLine2, completeLicense.FeetHeight, completeLicense.InchesHeight, completeLicense.Weight, DateTime.Now, completeLicense.ExpDate, completeLicense.Class, isDonor);
+
+                    licenseToUpdate = liToUpdate;
+
+                    LicenseInformationInsertForm liInsertForm = new LicenseInformationInsertForm(licenseToUpdate.RegisteredDriverStateID, _licenseInfoRepo, true, this, licenseToUpdate.City, licenseToUpdate.ZIP, licenseToUpdate.AddressLine1, licenseToUpdate.AddressLine2, licenseToUpdate.FeetHeight.ToString(), licenseToUpdate.InchesHeight.ToString(), licenseToUpdate.Weight.ToString(), licenseToUpdate.ExpDate.ToShortDateString(), licenseToUpdate.Class.ToString(), licenseToUpdate.IsDonor);
+
+                    liInsertForm.Show();
                     this.Hide();
                 }
             }

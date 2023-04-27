@@ -43,9 +43,9 @@ namespace ApplicationDMV.Models
             ZIP = zip;
             AddressLine1 = al1;
             AddressLine2 = al2;
-            FeetHeight = w;
+            FeetHeight = fh;
             InchesHeight = ih;
-            Weight = fh;
+            Weight = w;
             IssueDate = id;
             ExpDate = ed;
             Class = cl;

@@ -41,7 +41,7 @@ SELECT L.LicenseID,
 	RD.MiddleName,
 	RD.LastName,
 	RDS.DLNumber
-FROM dbo.[DMV.RegisteredDrivers] RD
+FROM DMV.RegisteredDrivers RD
 	INNER JOIN DMV.RegisteredDriversState RDS ON RDS.RegisteredDriverID = RD.RegisteredDriverID
 	INNER JOIN DMV.LicenseInformation L ON L.RegisteredDriversStateID = RDS.RegisteredDriversStateID
 WHERE RDS.DLNumber LIKE IIF(@DLNumber IS NULL, '%', @DLNumber)

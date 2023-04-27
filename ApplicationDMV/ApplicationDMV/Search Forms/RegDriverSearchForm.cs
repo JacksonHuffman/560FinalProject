@@ -47,13 +47,16 @@ namespace ApplicationDMV
 
         private void uxSearchButton_Click(object sender, EventArgs e)
         {
+            List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
+
             bool fieldFlag = true;
             bool formFlag = true;
 
             if (string.IsNullOrWhiteSpace(uxFNTB.Text) && string.IsNullOrWhiteSpace(uxMNTB.Text) && string.IsNullOrWhiteSpace(uxLNTB.Text) && string.IsNullOrWhiteSpace(uxSexTB.Text) && string.IsNullOrEmpty(uxStateCodeTB.Text))
             {
-                MessageBox.Show("Please fill at least one field");
-                formFlag = false;
+                completeDriverList = _repository.GetQueryRegisteredDrivers(0, _firstName, _middleName, _lastName, DateTime.Now, _sex, true, true, true,true);
+                //MessageBox.Show("Please fill at least one field");
+                //formFlag = false;
             }
             else
             {
@@ -116,9 +119,9 @@ namespace ApplicationDMV
                 VehicleSearchForm vsForm = new VehicleSearchForm();
                 LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
                 List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
-                List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
+                //List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
                 List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
-                completeDriverList = _repository.GetQueryRegisteredDrivers(0, _firstName, _middleName, _lastName, DateTime.Now, _sex, _fn, _mn, _ln, _s);
+                //completeDriverList = _repository.GetQueryRegisteredDrivers(0, _firstName, _middleName, _lastName, DateTime.Now, _sex, _fn, _mn, _ln, _s);
                 QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, this, vsForm, licenseInformationSearchForm, true, false);
                 q.Show();
                 this.Hide();

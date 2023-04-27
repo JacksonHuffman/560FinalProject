@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApplicationDMV.Models;
+using ApplicationDMV.Search_Forms;
 using ApplicationDMV.SqlRepos;
 
 namespace ApplicationDMV.InsertForms
@@ -62,8 +63,16 @@ namespace ApplicationDMV.InsertForms
                 }
                 else
                 {
+                    List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
+                    List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
+                    List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
+                    RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
+                    VehicleSearchForm vehicleSearchForm = new VehicleSearchForm();
+                    LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
+
+                    QueryResultForm queryResultForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, regDriverSearchForm, vehicleSearchForm, licenseInformationSearchForm, false, false);
                     RegisteredDriversState rgs = _driverStateRepo.AddRegisteredDriversState(_derivedDriverID, uxDLNumberTB.Text, uxStateCodeTB.Text);
-                    LicenseInformationInsertForm v = new LicenseInformationInsertForm(rgs.RegisteredDriversStateID, _licenseRepo);
+                    LicenseInformationInsertForm v = new LicenseInformationInsertForm(rgs.RegisteredDriversStateID, _licenseRepo, false, queryResultForm, "", "", "", "", "", "", "", "", "", false);
                     v.Show();
                     this.Close();
                     MessageBox.Show("Success!");

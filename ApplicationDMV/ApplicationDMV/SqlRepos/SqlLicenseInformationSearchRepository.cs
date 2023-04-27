@@ -183,8 +183,9 @@ namespace ApplicationDMV.SqlRepos
                             _fn = Convert.ToString(reader["FirstName"]);
                             _mn = Convert.ToString(reader["MiddleName"]);
                             _ln = Convert.ToString(reader["LastName"]);
+                            _donor = Convert.ToInt32(reader["IsDonor"]);
 
-                            CompleteLicense completeLicense = new CompleteLicense(_liID, _regDriverID, _regDriversStateID, _stateCode, _city, _zip, _address1, _address2, _feet, _inches, _weight, _issDate, _expDate, _class, _fn, _mn, _ln, _dlNum);
+                            CompleteLicense completeLicense = new CompleteLicense(_liID, _regDriverID, _regDriversStateID, _stateCode, _city, _zip, _address1, _address2, _feet, _inches, _weight, _issDate, _expDate, _class, _fn, _mn, _ln, _dlNum, _donor);
                             completeLicenseList.Add(completeLicense);
                         }
 

@@ -45,7 +45,9 @@ namespace ApplicationDMV.Models
 
         public string DLNumber { get; set; }
 
-        public CompleteLicense(int licenseID, int registeredDriverID, int registeredDriverStateID, string stateCode, string city, string zIP, string addressLine1, string addressLine2, int feetHeight, int inchesHeight, int weight, DateTime issueDate, DateTime expDate, char @class, string firstName, string middleName, string lastName, string dLNumber)
+        public int Donor { get; set; }
+
+        public CompleteLicense(int licenseID, int registeredDriverID, int registeredDriverStateID, string stateCode, string city, string zIP, string addressLine1, string addressLine2, int feetHeight, int inchesHeight, int weight, DateTime issueDate, DateTime expDate, char @class, string firstName, string middleName, string lastName, string dLNumber, int isDonor)
         {
             LicenseID = licenseID;
             RegisteredDriverID = registeredDriverID;
@@ -65,6 +67,7 @@ namespace ApplicationDMV.Models
             MiddleName = middleName;
             LastName = lastName;
             DLNumber = dLNumber;
+            Donor = isDonor;
         }
     }
 }
