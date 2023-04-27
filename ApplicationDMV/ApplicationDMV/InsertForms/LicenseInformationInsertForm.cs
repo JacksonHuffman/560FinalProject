@@ -34,8 +34,11 @@ namespace ApplicationDMV.InsertForms
 
         private SqlLicenseInformationUpdateRepository _licenseUpdateRepo = new SqlLicenseInformationUpdateRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
 
+        private GoToUpdateLicenseForm _goToUpdateForm;
 
-        public LicenseInformationInsertForm(int regDriverStateID, SqlLicenseInformationRepository licenseRepo, bool getBackToQueryForm, QueryResultForm queryResultForm, string city, string zip, string adl1, string adl2, string feet, string inches, string weight, string expDate, string cl, bool donor)
+        private bool _getBackToGoToForm;
+
+        public LicenseInformationInsertForm(int regDriverStateID, SqlLicenseInformationRepository licenseRepo, bool getBackToQueryForm, QueryResultForm queryResultForm, string city, string zip, string adl1, string adl2, string feet, string inches, string weight, string expDate, string cl, bool donor, GoToUpdateLicenseForm goToUpdateForm, bool getBackToGoToForm)
         {
             _regDriverStateID = regDriverStateID;
             _licenseRepo = licenseRepo;
@@ -52,18 +55,24 @@ namespace ApplicationDMV.InsertForms
             uxWeightTB.Text = weight;
             uxExpDateTB.Text = expDate;
             uxClassTB.Text = cl;
+            _goToUpdateForm = goToUpdateForm;
+            _getBackToGoToForm = getBackToGoToForm;
 
             uxDonorCB.Checked = donor;
 
-            if(_getBackToQueryForm )
+            if (_getBackToQueryForm || _getBackToGoToForm)
             {
                 uxInsertBT.Text = "Update";
+            }
+            else
+            {
+                uxBackBT.Visible = false;
             }
         }
 
         private void uxInsertBT_Click(object sender, EventArgs e)
         {
-            if(!_getBackToQueryForm)
+            if (!_getBackToQueryForm && !_getBackToGoToForm)
             {
                 bool flag = true;
 
@@ -169,6 +178,37 @@ namespace ApplicationDMV.InsertForms
 
                 if (flag)
                 {
+                    if(_getBackToGoToForm)
+                    {
+                        if(string.IsNullOrEmpty(uxADL2TB.Text))
+                        {
+                            _licenseUpdateRepo.UpdateLicenseInformation(_goToUpdateForm.licenseToUpdate, _goToUpdateForm.licenseToUpdate.LicenseID, uxCityTB.Text, uxZIPTB.Text, uxADL1TB.Text, "", Convert.ToInt32(uxHeightFeetTB.Text), Convert.ToInt32(uxHeightInchesTB.Text), Convert.ToInt32(uxWeightTB.Text), DateTime.Now, Convert.ToDateTime(uxExpDateTB.Text), Convert.ToChar(uxClassTB.Text), uxDonorCB.Checked);
+                        }
+                        else
+                        {
+                            _licenseUpdateRepo.UpdateLicenseInformation(_goToUpdateForm.licenseToUpdate, _goToUpdateForm.licenseToUpdate.LicenseID, uxCityTB.Text, uxZIPTB.Text, uxADL1TB.Text, uxADL2TB.Text, Convert.ToInt32(uxHeightFeetTB.Text), Convert.ToInt32(uxHeightInchesTB.Text), Convert.ToInt32(uxWeightTB.Text), DateTime.Now, Convert.ToDateTime(uxExpDateTB.Text), Convert.ToChar(uxClassTB.Text), uxDonorCB.Checked);
+                        }
+                        this.Hide();
+                        MainForm m = new MainForm();
+                        m.Show();
+                        MessageBox.Show("Updated!");
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(uxADL2TB.Text))
+                        {
+                            _licenseUpdateRepo.UpdateLicenseInformation(_queryResultForm.licenseToUpdate, _queryResultForm.licenseToUpdate.LicenseID, uxCityTB.Text, uxZIPTB.Text, uxADL1TB.Text, "", Convert.ToInt32(uxHeightFeetTB.Text), Convert.ToInt32(uxHeightInchesTB.Text), Convert.ToInt32(uxWeightTB.Text), DateTime.Now, Convert.ToDateTime(uxExpDateTB.Text), Convert.ToChar(uxClassTB.Text), uxDonorCB.Checked);
+                        }
+                        else
+                        {
+                            _licenseUpdateRepo.UpdateLicenseInformation(_queryResultForm.licenseToUpdate, _queryResultForm.licenseToUpdate.LicenseID, uxCityTB.Text, uxZIPTB.Text, uxADL1TB.Text, uxADL2TB.Text, Convert.ToInt32(uxHeightFeetTB.Text), Convert.ToInt32(uxHeightInchesTB.Text), Convert.ToInt32(uxWeightTB.Text), DateTime.Now, Convert.ToDateTime(uxExpDateTB.Text), Convert.ToChar(uxClassTB.Text), uxDonorCB.Checked);
+                        }
+                        this.Hide();
+                        MainForm m = new MainForm();
+                        m.Show();
+                        MessageBox.Show("Updated!");
+                    }
+                    /*
                     if (string.IsNullOrWhiteSpace(uxADL2TB.Text))
                     {
                         _licenseUpdateRepo.UpdateLicenseInformation(_queryResultForm.licenseToUpdate, _queryResultForm.licenseToUpdate.LicenseID, uxCityTB.Text, uxZIPTB.Text, uxADL1TB.Text, "", Convert.ToInt32(uxHeightFeetTB.Text), Convert.ToInt32(uxHeightInchesTB.Text), Convert.ToInt32(uxWeightTB.Text), DateTime.Now, Convert.ToDateTime(uxExpDateTB.Text), Convert.ToChar(uxClassTB.Text), uxDonorCB.Checked);
@@ -181,7 +221,22 @@ namespace ApplicationDMV.InsertForms
                     MainForm m = new MainForm();
                     m.Show();
                     MessageBox.Show("Updated!");
+                    */
                 }
+            }
+        }
+
+        private void uxBackBT_Click(object sender, EventArgs e)
+        {
+            if(_getBackToQueryForm)
+            {
+                _queryResultForm.Show();
+                this.Close();
+            }
+            else if(_getBackToGoToForm)
+            {
+                _goToUpdateForm.Show();
+                this.Close();
             }
         }
     }

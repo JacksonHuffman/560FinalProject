@@ -21,6 +21,8 @@ namespace ApplicationDMV
 
         private RegDriverSearchForm _regDriverSearchForm;
 
+        private SqlRegisteredDriversStateRepository _regDriverStateRepo = new SqlRegisteredDriversStateRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
+
         private SqlRegisteredDriverRepository _regDriverRepository = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
 
         private SqlLicenseInformationRepository _licenseInfoRepo = new SqlLicenseInformationRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
@@ -166,7 +168,10 @@ namespace ApplicationDMV
 
                     licenseToUpdate = liToUpdate;
 
-                    LicenseInformationInsertForm liInsertForm = new LicenseInformationInsertForm(licenseToUpdate.RegisteredDriverStateID, _licenseInfoRepo, true, this, licenseToUpdate.City, licenseToUpdate.ZIP, licenseToUpdate.AddressLine1, licenseToUpdate.AddressLine2, licenseToUpdate.FeetHeight.ToString(), licenseToUpdate.InchesHeight.ToString(), licenseToUpdate.Weight.ToString(), licenseToUpdate.ExpDate.ToShortDateString(), licenseToUpdate.Class.ToString(), licenseToUpdate.IsDonor);
+                    IntermediateForm intermediateForm = new IntermediateForm(_regDriverRepository);
+                    InsertDLNumberStateCode insertDLNumForm = new InsertDLNumberStateCode(_regDriverStateRepo, 0, intermediateForm);
+                    GoToUpdateLicenseForm updateLiForm = new GoToUpdateLicenseForm(insertDLNumForm, 0, "", "");
+                    LicenseInformationInsertForm liInsertForm = new LicenseInformationInsertForm(licenseToUpdate.RegisteredDriverStateID, _licenseInfoRepo, true, this, licenseToUpdate.City, licenseToUpdate.ZIP, licenseToUpdate.AddressLine1, licenseToUpdate.AddressLine2, licenseToUpdate.FeetHeight.ToString(), licenseToUpdate.InchesHeight.ToString(), licenseToUpdate.Weight.ToString(), licenseToUpdate.ExpDate.ToShortDateString(), licenseToUpdate.Class.ToString(), licenseToUpdate.IsDonor, updateLiForm, false);
 
                     liInsertForm.Show();
                     this.Hide();

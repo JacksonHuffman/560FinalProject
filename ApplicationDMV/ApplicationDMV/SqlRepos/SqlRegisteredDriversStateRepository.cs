@@ -116,6 +116,45 @@ namespace ApplicationDMV.SqlRepos
 
             return flag;
         }
+
+        public string GetDLNumber(int registeredDriverID, string stateCode)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("DMV.GetDLNumber", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("RegisteredDriverID", registeredDriverID);
+                    command.Parameters.AddWithValue("StateCode", stateCode);
+
+                    connection.Open();
+
+                    string dlNumber = null;
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dlNumber = Convert.ToString(reader["DLNumber"]);
+                        }
+                    }
+
+                    return dlNumber;
+                }
+            }
+        }
+
+        public bool FetchDLNumberToBool(string dlNumber)
+        {
+            bool flag = false;
+            if(dlNumber != null)
+            {
+                flag = true;
+            }
+
+            return flag;
+        }
     }
 }
 

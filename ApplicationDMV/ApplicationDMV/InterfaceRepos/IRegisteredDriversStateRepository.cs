@@ -32,5 +32,9 @@ namespace ApplicationDMV.InterfaceRepos
         /// <param name="registeredDriversStateID"></param>
         /// <returns></returns>
         public bool FetchDriverStateIDToBool(int registeredDriversStateID);
+
+        public string GetDLNumber(int registeredDriverID, string stateCode);
+
+        public bool FetchDLNumberToBool(string dlNumber);
     }
 }

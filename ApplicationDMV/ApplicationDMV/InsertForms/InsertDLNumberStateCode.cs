@@ -23,6 +23,7 @@ namespace ApplicationDMV.InsertForms
 
         private SqlLicenseInformationRepository _licenseRepo = new SqlLicenseInformationRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
 
+        private SqlRegisteredDriverRepository _driverRepo = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb; Database=ApplicationDMV;Integrated Security = SSPI;");
         public InsertDLNumberStateCode(SqlRegisteredDriversStateRepository driversStateRepo, int derivedDriverID, IntermediateForm interForm)
         {
             _interForm = interForm; 
@@ -57,9 +58,21 @@ namespace ApplicationDMV.InsertForms
 
             if (statesFlag && generalFlag)
             {
-                if (_driverStateRepo.FetchDriverStateIDToBool(_driverStateRepo.GetRegisteredDriversStateID(_derivedDriverID, uxStateCodeTB.Text)))
+                int regDriversStateID = _driverStateRepo.GetRegisteredDriversStateID(_derivedDriverID, uxStateCodeTB.Text);
+                if (_driverStateRepo.FetchDriverStateIDToBool(regDriversStateID))
                 {
-                    MessageBox.Show("A registered driver in this state already exists! THIS SHOULD BE FILLED IN W/ A FORM TO GO TO UPDATE!");
+                    string correctDLNumber = _driverStateRepo.GetDLNumber(_derivedDriverID, uxStateCodeTB.Text);
+                    if (!(uxDLNumberTB.Text.Equals(correctDLNumber)))
+                    {
+                        MessageBox.Show("The driver has a license in the provided state, yet the corresponding DLNumber is incorrect. {Autofilling with correct DLNumber - Try again}.");
+                        uxDLNumberTB.Text = _driverStateRepo.GetDLNumber(_derivedDriverID, uxStateCodeTB.Text);
+                    }
+                    else
+                    {
+                        GoToUpdateLicenseForm goToUpdateForm = new GoToUpdateLicenseForm(this, regDriversStateID, uxDLNumberTB.Text, uxStateCodeTB.Text);
+                        goToUpdateForm.Show();
+                        this.Hide();
+                    }
                 }
                 else
                 {
@@ -71,8 +84,11 @@ namespace ApplicationDMV.InsertForms
                     LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
 
                     QueryResultForm queryResultForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, regDriverSearchForm, vehicleSearchForm, licenseInformationSearchForm, false, false);
+                    IntermediateForm interForm = new IntermediateForm(_driverRepo);
+                    InsertDLNumberStateCode insertDLNumForm = new InsertDLNumberStateCode(_driverStateRepo, 0, interForm);
+                    GoToUpdateLicenseForm goToUpdateForm = new GoToUpdateLicenseForm(insertDLNumForm, 0, "", "");
                     RegisteredDriversState rgs = _driverStateRepo.AddRegisteredDriversState(_derivedDriverID, uxDLNumberTB.Text, uxStateCodeTB.Text);
-                    LicenseInformationInsertForm v = new LicenseInformationInsertForm(rgs.RegisteredDriversStateID, _licenseRepo, false, queryResultForm, "", "", "", "", "", "", "", "", "", false);
+                    LicenseInformationInsertForm v = new LicenseInformationInsertForm(rgs.RegisteredDriversStateID, _licenseRepo, false, queryResultForm, "", "", "", "", "", "", "", "", "", false, goToUpdateForm, false);
                     v.Show();
                     this.Close();
                     MessageBox.Show("Success!");

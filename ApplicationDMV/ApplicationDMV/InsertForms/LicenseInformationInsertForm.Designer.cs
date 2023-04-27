@@ -49,6 +49,7 @@
             uxWeightTB = new TextBox();
             uxExpDateTB = new TextBox();
             uxClassTB = new TextBox();
+            uxBackBT = new Button();
             SuspendLayout();
             // 
             // uxExpDateLabel
@@ -84,7 +85,7 @@
             // uxInsertBT
             // 
             uxInsertBT.BackColor = SystemColors.GradientActiveCaption;
-            uxInsertBT.Location = new Point(141, 427);
+            uxInsertBT.Location = new Point(260, 430);
             uxInsertBT.Margin = new Padding(2);
             uxInsertBT.Name = "uxInsertBT";
             uxInsertBT.Size = new Size(101, 40);
@@ -236,12 +237,25 @@
             uxClassTB.Size = new Size(29, 23);
             uxClassTB.TabIndex = 106;
             // 
+            // uxBackBT
+            // 
+            uxBackBT.BackColor = SystemColors.GradientActiveCaption;
+            uxBackBT.Location = new Point(41, 430);
+            uxBackBT.Margin = new Padding(2);
+            uxBackBT.Name = "uxBackBT";
+            uxBackBT.Size = new Size(101, 40);
+            uxBackBT.TabIndex = 107;
+            uxBackBT.Text = "Back";
+            uxBackBT.UseVisualStyleBackColor = false;
+            uxBackBT.Click += uxBackBT_Click;
+            // 
             // LicenseInformationInsertForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(402, 492);
+            Controls.Add(uxBackBT);
             Controls.Add(uxClassTB);
             Controls.Add(uxExpDateTB);
             Controls.Add(uxWeightTB);
@@ -292,5 +306,6 @@
         private TextBox uxWeightTB;
         private TextBox uxExpDateTB;
         private TextBox uxClassTB;
+        private Button uxBackBT;
     }
 }
