@@ -69,7 +69,7 @@ namespace ApplicationDMV.Search_Forms
                 string.IsNullOrWhiteSpace(uxADL1TB.Text) && string.IsNullOrWhiteSpace(uxADL2TB.Text) && string.IsNullOrWhiteSpace(uxFeetTB.Text) && string.IsNullOrWhiteSpace(uxInchesTB.Text) &&
                 string.IsNullOrWhiteSpace(uxWeightTB.Text) && string.IsNullOrWhiteSpace(uxClassTB.Text))
             {
-                MessageBox.Show("Please fill at least one field");
+                //MessageBox.Show("Please fill at least one field");
                 formFlag = false;
             }
             else
@@ -207,14 +207,22 @@ namespace ApplicationDMV.Search_Forms
                 }
             }
 
-            if (fieldFlag && formFlag)
+            if (fieldFlag)
             {
                 List<CompleteDriver> cd = new List<CompleteDriver>();
                 List<CompleteVehicle> cv = new List<CompleteVehicle>();
                 List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
                 RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
                 VehicleSearchForm vehicleSearchForm = new VehicleSearchForm();
-                completeLicenseList = _repository.GetQueryLicenseInformation(_dlNumber, _state, _city, _zip, _address1, _address2, _feet, _inches, _weight, _class, _donor, _dln, _st, _c, _z, _a1, _a2, _f, _i, _w, _cl);
+                if(!formFlag)
+                {
+                    completeLicenseList = _repository.GetQueryLicenseInformation(_dlNumber, _state, _city, _zip, _address1, _address2, _feet, _inches, _weight, _class, _donor, true, true, true, true, true, true, true, true, true, true);
+                }
+                else
+                {
+                    completeLicenseList = _repository.GetQueryLicenseInformation(_dlNumber, _state, _city, _zip, _address1, _address2, _feet, _inches, _weight, _class, _donor, _dln, _st, _c, _z, _a1, _a2, _f, _i, _w, _cl);
+                }
+                //completeLicenseList = _repository.GetQueryLicenseInformation(_dlNumber, _state, _city, _zip, _address1, _address2, _feet, _inches, _weight, _class, _donor, _dln, _st, _c, _z, _a1, _a2, _f, _i, _w, _cl);
                 QueryResultForm q = new QueryResultForm(cd, cv, completeLicenseList, regDriverSearchForm, vehicleSearchForm, this, false, false);
                 q.Show();
                 this.Hide();
