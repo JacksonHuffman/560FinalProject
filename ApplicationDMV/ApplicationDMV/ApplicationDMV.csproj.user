@@ -48,6 +48,15 @@
     <None Update="Sql\Procedures\DMV.AddVehicleModel.sql">
       <SubType>Form</SubType>
     </None>
+    <None Update="Sql\Procedures\DMV.AggQueryLicenseToExpForEachMonthIn2022.sql">
+      <SubType>Form</SubType>
+    </None>
+    <None Update="Sql\Procedures\DMV.AggQueryPercentageOfExpLicensePerState.sql">
+      <SubType>Form</SubType>
+    </None>
+    <None Update="Sql\Procedures\DMV.AggQueryInsuranceProvidersForMenInKansas.sql">
+      <SubType>Form</SubType>
+    </None>
     <None Update="Sql\Procedures\DMV.GetDLNumber.sql">
       <SubType>Form</SubType>
     </None>

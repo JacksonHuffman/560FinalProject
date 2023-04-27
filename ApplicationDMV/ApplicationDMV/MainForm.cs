@@ -18,6 +18,9 @@ namespace ApplicationDMV
     {
         private SqlRegisteredDriverRepository _driverRepo = new SqlRegisteredDriverRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
 
+        private SqlAggQueryRepository _aggQueryRepo = new SqlAggQueryRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -66,9 +69,10 @@ namespace ApplicationDMV
             this.Hide();
         }
 
-        private void uxAggregatedButton_Click(object sender, EventArgs e)
+        private void uxMenInsuredInKansasBT_Click(object sender, EventArgs e)
         {
-
+            List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
+            menInsuredList = _aggQueryRepo.AggQueryInsuranceProviderForMenInKansas('M', "KS");
         }
     }
 }

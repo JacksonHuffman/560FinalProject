@@ -81,7 +81,7 @@ namespace ApplicationDMV.Search_Forms
                 && string.IsNullOrEmpty(uxPolicyNumTB.Text) && string.IsNullOrEmpty(uxInsuranceTB.Text) && string.IsNullOrEmpty(uxMakeTB.Text)
                 && string.IsNullOrEmpty(uxModelTB.Text) && string.IsNullOrEmpty(uxYearTB.Text))
             {
-                MessageBox.Show("Please enter at least one field.");
+                //MessageBox.Show("Please enter at least one field.");
                 formFlag = false;
             }
             else
@@ -176,13 +176,22 @@ namespace ApplicationDMV.Search_Forms
                 }
             }
 
-            if (formFlag && fieldFlag)
+            if (fieldFlag)
             {
                 List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
                 List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
                 LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
                 List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
-                completeVehicleList = _vehicleSearchRepo.GetQueryVehicleInformation(_vin, _color, _plateNum, _policyNum, _insurance, _makeName, _modelName, _year, _vinBool, _colorBool, _plateBool, _policyBool, _insuracneBool, _makeBool, _modelBool, _yearBool);
+                if (!formFlag)
+                {
+                    completeVehicleList = _vehicleSearchRepo.GetQueryVehicleInformation(_vin, _color, _plateNum, _policyNum, _insurance, _makeName, _modelName, _year, true, true, true, true, true, true, true, true);
+                    //completeVehicleList = _vehicleSearchRepo.GetQueryVehicleInformation(_vin, _color, _plateNum, _policyNum, _insurance, _makeName, _modelName, _year, _vinBool, _colorBool, _plateBool, _policyBool, _insuracneBool, _makeBool, _modelBool, _yearBool);
+                }
+                else
+                {
+                    completeVehicleList = _vehicleSearchRepo.GetQueryVehicleInformation(_vin, _color, _plateNum, _policyNum, _insurance, _makeName, _modelName, _year, _vinBool, _colorBool, _plateBool, _policyBool, _insuracneBool, _makeBool, _modelBool, _yearBool);
+                }
+                //completeVehicleList = _vehicleSearchRepo.GetQueryVehicleInformation(_vin, _color, _plateNum, _policyNum, _insurance, _makeName, _modelName, _year, _vinBool, _colorBool, _plateBool, _policyBool, _insuracneBool, _makeBool, _modelBool, _yearBool);
                 RegDriverSearchForm rdsForm = new RegDriverSearchForm();
 
                 QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, rdsForm, this, licenseInformationSearchForm, false, true);

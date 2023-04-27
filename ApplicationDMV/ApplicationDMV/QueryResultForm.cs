@@ -51,7 +51,9 @@ namespace ApplicationDMV
 
         public LicenseInfo licenseToUpdate;
 
-        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, List<CompleteLicense> completeLicenseList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, LicenseInformationSearchForm liSForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm)
+        private bool _aggQuery;
+
+        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, List<CompleteLicense> completeLicenseList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, LicenseInformationSearchForm liSForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm, bool aggQuery)
         {
             InitializeComponent();
             _completeDriverList = completeDriverList;
