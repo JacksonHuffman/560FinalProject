@@ -123,7 +123,9 @@ namespace ApplicationDMV
                 List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
                 //List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
                 List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
-                if(!formFlag)
+                List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
+                List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
+                if (!formFlag)
                 {
                     completeDriverList = _repository.GetQueryRegisteredDrivers(0, _firstName, _middleName, _lastName, DateTime.Now, _sex, true, true, true, true);
                 }
@@ -132,7 +134,7 @@ namespace ApplicationDMV
                     completeDriverList = _repository.GetQueryRegisteredDrivers(0, _firstName, _middleName, _lastName, DateTime.Now, _sex, _fn, _mn, _ln, _s);
                 }
                 //completeDriverList = _repository.GetQueryRegisteredDrivers(0, _firstName, _middleName, _lastName, DateTime.Now, _sex, _fn, _mn, _ln, _s);
-                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, this, vsForm, licenseInformationSearchForm, true, false);
+                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, menInsuredList, expList, this, vsForm, licenseInformationSearchForm, true, false, false, false);
                 q.Show();
                 this.Hide();
             }

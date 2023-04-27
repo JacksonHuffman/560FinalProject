@@ -38,6 +38,7 @@
             uxWelcomeLabel = new Label();
             uxMenInsuredInKansasBT = new Button();
             uxStatsLB = new Label();
+            uxExpLicensePerMonthForEachStateBT = new Button();
             SuspendLayout();
             // 
             // uxInsertRdButton
@@ -45,7 +46,7 @@
             uxInsertRdButton.BackColor = SystemColors.GradientActiveCaption;
             uxInsertRdButton.ImeMode = ImeMode.NoControl;
             uxInsertRdButton.Location = new Point(94, 191);
-            uxInsertRdButton.Margin = new Padding(2, 2, 2, 2);
+            uxInsertRdButton.Margin = new Padding(2);
             uxInsertRdButton.Name = "uxInsertRdButton";
             uxInsertRdButton.Size = new Size(102, 50);
             uxInsertRdButton.TabIndex = 18;
@@ -58,7 +59,7 @@
             uxInsertVehiclesLIButton.BackColor = SystemColors.GradientActiveCaption;
             uxInsertVehiclesLIButton.ImeMode = ImeMode.NoControl;
             uxInsertVehiclesLIButton.Location = new Point(228, 191);
-            uxInsertVehiclesLIButton.Margin = new Padding(2, 2, 2, 2);
+            uxInsertVehiclesLIButton.Margin = new Padding(2);
             uxInsertVehiclesLIButton.Name = "uxInsertVehiclesLIButton";
             uxInsertVehiclesLIButton.Size = new Size(226, 50);
             uxInsertVehiclesLIButton.TabIndex = 16;
@@ -95,7 +96,7 @@
             uxSearchRDButton.BackColor = SystemColors.GradientActiveCaption;
             uxSearchRDButton.ImeMode = ImeMode.NoControl;
             uxSearchRDButton.Location = new Point(94, 92);
-            uxSearchRDButton.Margin = new Padding(2, 2, 2, 2);
+            uxSearchRDButton.Margin = new Padding(2);
             uxSearchRDButton.Name = "uxSearchRDButton";
             uxSearchRDButton.Size = new Size(102, 50);
             uxSearchRDButton.TabIndex = 13;
@@ -108,7 +109,7 @@
             uxSearchLIButton.BackColor = SystemColors.GradientActiveCaption;
             uxSearchLIButton.ImeMode = ImeMode.NoControl;
             uxSearchLIButton.Location = new Point(355, 92);
-            uxSearchLIButton.Margin = new Padding(2, 2, 2, 2);
+            uxSearchLIButton.Margin = new Padding(2);
             uxSearchLIButton.Name = "uxSearchLIButton";
             uxSearchLIButton.Size = new Size(99, 50);
             uxSearchLIButton.TabIndex = 12;
@@ -121,7 +122,7 @@
             uxSearchVehiclesButton.BackColor = SystemColors.GradientActiveCaption;
             uxSearchVehiclesButton.ImeMode = ImeMode.NoControl;
             uxSearchVehiclesButton.Location = new Point(228, 92);
-            uxSearchVehiclesButton.Margin = new Padding(2, 2, 2, 2);
+            uxSearchVehiclesButton.Margin = new Padding(2);
             uxSearchVehiclesButton.Name = "uxSearchVehiclesButton";
             uxSearchVehiclesButton.Size = new Size(101, 50);
             uxSearchVehiclesButton.TabIndex = 11;
@@ -146,7 +147,7 @@
             uxMenInsuredInKansasBT.BackColor = SystemColors.GradientActiveCaption;
             uxMenInsuredInKansasBT.ImeMode = ImeMode.NoControl;
             uxMenInsuredInKansasBT.Location = new Point(94, 279);
-            uxMenInsuredInKansasBT.Margin = new Padding(2, 2, 2, 2);
+            uxMenInsuredInKansasBT.Margin = new Padding(2);
             uxMenInsuredInKansasBT.Name = "uxMenInsuredInKansasBT";
             uxMenInsuredInKansasBT.Size = new Size(360, 50);
             uxMenInsuredInKansasBT.TabIndex = 20;
@@ -166,12 +167,26 @@
             uxStatsLB.TabIndex = 23;
             uxStatsLB.Text = "Statistics:";
             // 
+            // uxExpLicensePerMonthForEachStateBT
+            // 
+            uxExpLicensePerMonthForEachStateBT.BackColor = SystemColors.GradientActiveCaption;
+            uxExpLicensePerMonthForEachStateBT.ImeMode = ImeMode.NoControl;
+            uxExpLicensePerMonthForEachStateBT.Location = new Point(94, 333);
+            uxExpLicensePerMonthForEachStateBT.Margin = new Padding(2);
+            uxExpLicensePerMonthForEachStateBT.Name = "uxExpLicensePerMonthForEachStateBT";
+            uxExpLicensePerMonthForEachStateBT.Size = new Size(360, 50);
+            uxExpLicensePerMonthForEachStateBT.TabIndex = 24;
+            uxExpLicensePerMonthForEachStateBT.Text = "Show the Number Of Licenses That Will Expire in Each Month of 2024 For Each State that Has a License Expiring in 2024.";
+            uxExpLicensePerMonthForEachStateBT.UseVisualStyleBackColor = false;
+            uxExpLicensePerMonthForEachStateBT.Click += uxExpLicensePerMonthForEachStateBT_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(553, 452);
+            ClientSize = new Size(553, 502);
+            Controls.Add(uxExpLicensePerMonthForEachStateBT);
             Controls.Add(uxStatsLB);
             Controls.Add(uxMenInsuredInKansasBT);
             Controls.Add(uxInsertRdButton);
@@ -182,7 +197,7 @@
             Controls.Add(uxSearchLIButton);
             Controls.Add(uxSearchVehiclesButton);
             Controls.Add(uxWelcomeLabel);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "MainForm";
             Text = "StartForm";
             ResumeLayout(false);
@@ -201,5 +216,6 @@
         private Label uxWelcomeLabel;
         private Button uxMenInsuredInKansasBT;
         private Label uxStatsLB;
+        private Button uxExpLicensePerMonthForEachStateBT;
     }
 }

@@ -10,5 +10,7 @@ namespace ApplicationDMV.InterfaceRepos
     public interface IAggQueryRepository
     {
         public List<MenInsuredQueryObject> AggQueryInsuranceProviderForMenInKansas(char sex, string stateCode);
+
+        public List<ExpLicensePerMonthEachStateObject> AggQueryLicenseToExpForEachMonthForEachStateIn2024(int year);
     }
 }

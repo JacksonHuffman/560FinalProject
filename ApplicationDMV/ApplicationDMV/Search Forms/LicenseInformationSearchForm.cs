@@ -214,7 +214,9 @@ namespace ApplicationDMV.Search_Forms
                 List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
                 RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
                 VehicleSearchForm vehicleSearchForm = new VehicleSearchForm();
-                if(!formFlag)
+                List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
+                List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
+                if (!formFlag)
                 {
                     completeLicenseList = _repository.GetQueryLicenseInformation(_dlNumber, _state, _city, _zip, _address1, _address2, _feet, _inches, _weight, _class, _donor, true, true, true, true, true, true, true, true, true, true);
                 }
@@ -223,7 +225,7 @@ namespace ApplicationDMV.Search_Forms
                     completeLicenseList = _repository.GetQueryLicenseInformation(_dlNumber, _state, _city, _zip, _address1, _address2, _feet, _inches, _weight, _class, _donor, _dln, _st, _c, _z, _a1, _a2, _f, _i, _w, _cl);
                 }
                 //completeLicenseList = _repository.GetQueryLicenseInformation(_dlNumber, _state, _city, _zip, _address1, _address2, _feet, _inches, _weight, _class, _donor, _dln, _st, _c, _z, _a1, _a2, _f, _i, _w, _cl);
-                QueryResultForm q = new QueryResultForm(cd, cv, completeLicenseList, regDriverSearchForm, vehicleSearchForm, this, false, false);
+                QueryResultForm q = new QueryResultForm(cd, cv, completeLicenseList, menInsuredList, expList, regDriverSearchForm, vehicleSearchForm, this, false, false, false, false);
                 q.Show();
                 this.Hide();
             }

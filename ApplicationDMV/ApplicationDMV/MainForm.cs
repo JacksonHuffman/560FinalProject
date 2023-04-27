@@ -20,6 +20,9 @@ namespace ApplicationDMV
 
         private SqlAggQueryRepository _aggQueryRepo = new SqlAggQueryRepository("Server=(localdb)\\MSSQLLocalDb;Database=ApplicationDMV;Integrated Security=SSPI;");
 
+        private List<MenInsuredQueryObject> _menInsured;
+
+        private List<ExpLicensePerMonthEachStateObject> _expLicensePerMonthEachState;
 
         public MainForm()
         {
@@ -63,7 +66,9 @@ namespace ApplicationDMV
             VehicleSearchForm vsForm = new VehicleSearchForm();
             IntermediateForm interForm = new IntermediateForm(_driverRepo);
             RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
-            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, regDriverSearchForm, vsForm, licenseInformationSearchForm, false, false);
+            List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
+            List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
+            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, menInsuredList, expList, regDriverSearchForm, vsForm, licenseInformationSearchForm, false, false, false, false);
             RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, this, false, interForm, "", "", "", "", "", true, false, resultsForm);
             v.Show();
             this.Hide();
@@ -73,6 +78,40 @@ namespace ApplicationDMV
         {
             List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
             menInsuredList = _aggQueryRepo.AggQueryInsuranceProviderForMenInKansas('M', "KS");
+            _menInsured = menInsuredList;
+
+            List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
+            List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
+            List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
+            LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
+            VehicleSearchForm vsForm = new VehicleSearchForm();
+            IntermediateForm interForm = new IntermediateForm(_driverRepo);
+            RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
+            List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
+
+            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, _menInsured, expList, regDriverSearchForm, vsForm, licenseInformationSearchForm, false, false, true, false);
+            resultsForm.Show();
+            this.Hide();
+        }
+
+        private void uxExpLicensePerMonthForEachStateBT_Click(object sender, EventArgs e)
+        {
+            List<ExpLicensePerMonthEachStateObject> expLiPerMonthEachState = new List<ExpLicensePerMonthEachStateObject>();
+            expLiPerMonthEachState = _aggQueryRepo.AggQueryLicenseToExpForEachMonthForEachStateIn2024(2024);
+            _expLicensePerMonthEachState = expLiPerMonthEachState;
+
+            List<CompleteDriver> completeDriverList = new List<CompleteDriver>();
+            List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
+            List<CompleteLicense> completeLicenseList = new List<CompleteLicense>();
+            List<MenInsuredQueryObject> menInsured = new List<MenInsuredQueryObject>();
+            LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
+            VehicleSearchForm vsForm = new VehicleSearchForm();
+            IntermediateForm interForm = new IntermediateForm(_driverRepo);
+            RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
+
+            QueryResultForm resultsForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, menInsured, _expLicensePerMonthEachState, regDriverSearchForm, vsForm, licenseInformationSearchForm, false, false, false, true);
+            resultsForm.Show();
+            this.Hide();
         }
     }
 }

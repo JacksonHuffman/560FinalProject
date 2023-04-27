@@ -51,9 +51,15 @@ namespace ApplicationDMV
 
         public LicenseInfo licenseToUpdate;
 
-        private bool _aggQuery;
+        private bool _aggQuery1;
 
-        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, List<CompleteLicense> completeLicenseList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, LicenseInformationSearchForm liSForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm, bool aggQuery)
+        private List<MenInsuredQueryObject> _menInsuredList;
+
+        private bool _aggQuery2;
+
+        private List<ExpLicensePerMonthEachStateObject> _expLicensePerMonthEachStateList;
+
+        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, List<CompleteLicense> completeLicenseList, List<MenInsuredQueryObject> menInsuredList, List<ExpLicensePerMonthEachStateObject> expLicensePerMonthEachStateObjects, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, LicenseInformationSearchForm liSForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm, bool aggQuery1, bool aggQuery2)
         {
             InitializeComponent();
             _completeDriverList = completeDriverList;
@@ -64,6 +70,10 @@ namespace ApplicationDMV
             _completeVehicleList = completeVehicleList;
             _completeLicenseList = completeLicenseList;
             _liSForm = liSForm;
+            _menInsuredList = menInsuredList;
+            _aggQuery1 = aggQuery1;
+            _expLicensePerMonthEachStateList = expLicensePerMonthEachStateObjects;
+            _aggQuery2 = aggQuery2;
 
             if (_getBackToRegDriverSearchForm)
             {
@@ -81,9 +91,36 @@ namespace ApplicationDMV
                 }
                 uxNumResultsLB.Text = "A total of " + _completeVehicleList.Count.ToString() + " vehicles(s) were found.";
             }
+            else if(_aggQuery1)
+            {
+                foreach(var menInsured in menInsuredList)
+                {
+                    uxResultsListBox.Items.Add("INSURANCE PROVIDER: " + menInsured.InsuranceProvider.ToString() + ", NUMBER OF MEN USING " + menInsured.InsuranceProvider.ToString() + " " + menInsured.MenInsured.ToString());
+                }
+                uxNumResultsLB.Text = "";
+                uxUpdateBT.Visible = false;
+                uxBackBT.Visible = false;
+                /*
+                foreach(var license in completeLicenseList)
+                {
+                    uxResultsListBox.Items.Add("NAME: " + license.FirstName.ToString() + " " + license.MiddleName.ToString() + " " + license.LastName.ToString() + ", STATE: " + license.StateCode.ToString() + ", DLNUMBER: " + license.DLNumber.ToString());
+                }
+                uxNumResultsLB.Text = "A total of " + _completeLicenseList.Count.ToString() + " license(s) were found.";
+                */
+            }
+            else if(_aggQuery2)
+            {
+                foreach(var expLiPerStatePerMonth in expLicensePerMonthEachStateObjects)
+                {
+                    uxResultsListBox.Items.Add("MONTH: " + expLiPerStatePerMonth.Month.ToString() + ", STATE: " + expLiPerStatePerMonth.StateCode + ", NUMBER OF EXPIRING LICENSE(S): " + expLiPerStatePerMonth.NumExpLicensePerStatePerMonth.ToString());
+                }
+                uxNumResultsLB.Text = "";
+                uxUpdateBT.Visible = false;
+                uxBackBT.Visible = false;
+            }
             else
             {
-                foreach(var license in completeLicenseList)
+                foreach (var license in completeLicenseList)
                 {
                     uxResultsListBox.Items.Add("NAME: " + license.FirstName.ToString() + " " + license.MiddleName.ToString() + " " + license.LastName.ToString() + ", STATE: " + license.StateCode.ToString() + ", DLNUMBER: " + license.DLNumber.ToString());
                 }
@@ -100,6 +137,11 @@ namespace ApplicationDMV
             else if (_getBackToVehicleSearchForm)
             {
                 _vehicleSearchForm.Show();
+            }
+            else if(_aggQuery1 || _aggQuery2)
+            {
+                MainForm m = new MainForm();
+                m.Show();
             }
             else
             {

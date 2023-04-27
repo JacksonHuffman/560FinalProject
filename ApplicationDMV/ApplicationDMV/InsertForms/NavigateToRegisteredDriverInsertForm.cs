@@ -52,7 +52,9 @@ namespace ApplicationDMV.InsertForms
             LicenseInformationSearchForm liSearchForm = new LicenseInformationSearchForm();
             VehicleSearchForm vsForm = new VehicleSearchForm();
             RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
-            QueryResultForm resultsForm = new QueryResultForm(completeDriversList, completeVehicleList, completeLicenseList, regDriverSearchForm, vsForm, liSearchForm, false, false);
+            List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
+            List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
+            QueryResultForm resultsForm = new QueryResultForm(completeDriversList, completeVehicleList, completeLicenseList, menInsuredList, expList, regDriverSearchForm, vsForm, liSearchForm, false, false, false, false);
             RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, _mainForm, true, _interForm, _fn, _mn, _ln, _dateOfBirth, "", true, false, resultsForm);
             v.Show();
             this.Close();

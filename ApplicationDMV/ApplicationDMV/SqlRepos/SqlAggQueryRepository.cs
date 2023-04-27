@@ -20,6 +20,12 @@ namespace ApplicationDMV.SqlRepos
 
         private int _menInsured;
 
+        private string _stateCode;
+
+        private int _numExpLicensePerMonthPerState;
+
+        public string _month;
+
         public SqlAggQueryRepository(string connectionString)
         {
             _connectionString = connectionString;
@@ -52,6 +58,80 @@ namespace ApplicationDMV.SqlRepos
                         }
 
                         return menInsuredList;
+                    }
+                }
+            }
+        }
+
+        public List<ExpLicensePerMonthEachStateObject> AggQueryLicenseToExpForEachMonthForEachStateIn2024(int year)
+        {
+            List<ExpLicensePerMonthEachStateObject> expLiPerMPerStateList = new List<ExpLicensePerMonthEachStateObject>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("DMV.AggQueryLicenseToExpForEachMonthForEachStateIn2024", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("Year", year);
+
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        int monthNum = 0;
+
+                        while (reader.Read())
+                        {
+                            monthNum = Convert.ToInt32(reader["MonthOf2024"]);
+                            _stateCode = Convert.ToString(reader["StateCode"]);
+                            _numExpLicensePerMonthPerState = Convert.ToInt32(reader["LicensesToExp"]);
+
+                            switch(monthNum)
+                            {
+                                case 1:
+                                    _month = "January";
+                                    break;
+                                case 2:
+                                    _month = "February";
+                                    break;
+                                case 3:
+                                    _month = "March";
+                                    break;
+                                case 4:
+                                    _month = "April";
+                                    break;
+                                case 5:
+                                    _month = "May";
+                                    break;
+                                case 6:
+                                    _month = "June";
+                                    break;
+                                case 7:
+                                    _month = "July";
+                                    break;
+                                case 8:
+                                    _month = "August";
+                                    break;
+                                case 9:
+                                    _month = "September";
+                                    break;
+                                case 10:
+                                    _month = "October";
+                                    break;
+                                case 11:
+                                    _month = "November";
+                                    break;
+                                case 12:
+                                    _month = "December";
+                                    break;
+                            }
+
+                            ExpLicensePerMonthEachStateObject expLiPerMonthPerState = new ExpLicensePerMonthEachStateObject(_month, _stateCode, _numExpLicensePerMonthPerState);
+                            expLiPerMPerStateList.Add(expLiPerMonthPerState);
+                        }
+
+                        return expLiPerMPerStateList;
                     }
                 }
             }

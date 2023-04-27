@@ -48,7 +48,7 @@
     <None Update="Sql\Procedures\DMV.AddVehicleModel.sql">
       <SubType>Form</SubType>
     </None>
-    <None Update="Sql\Procedures\DMV.AggQueryLicenseToExpForEachMonthIn2022.sql">
+    <None Update="Sql\Procedures\DMV.AggQueryLicenseToExpForEachMonthForEachStateIn2024.sql">
       <SubType>Form</SubType>
     </None>
     <None Update="Sql\Procedures\DMV.AggQueryPercentageOfExpLicensePerState.sql">
