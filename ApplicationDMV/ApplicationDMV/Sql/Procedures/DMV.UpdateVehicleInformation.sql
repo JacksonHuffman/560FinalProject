@@ -12,19 +12,49 @@
 	@Year INT
 AS
 
-UPDATE DMV.VehicleInformation
+WITH MergeInformationCte(VehicleID, VIN, Color, PlateNumber, PolicyNumber, PlateExpDate, PolicyExpDate, InsuranceProvider) AS
+	(
+		SELECT M.VehicleID,
+			M.VIN,
+			M.Color,
+			M.PlateNumber,
+			M.PolicyNumber,
+			M.PlateExpDate,
+			M.PolicyExpDate,
+			M.InsuranceProvider
+		FROM
+			(
+				VALUES(@VehicleID, @VIN, @Color, @PlateNumber, @PolicyNumber, @PlateExpDate, @PolicyExpDate, @InsuranceProvider)
+			) M(VehicleID, VIN, Color, PlateNumber, PolicyNumber, PlateExpDate, PolicyExpDate, InsuranceProvider)
+	)
+MERGE DMV.VehicleInformation V
+USING MergeInformationCte S ON S.VehicleID = V.VehicleID
+WHEN MATCHED THEN
+UPDATE
 SET
-	VIN = @VIN,
-	Color = @Color,
-	PlateNumber = @PlateNumber,
-	PolicyNumber = @PolicyNumber,
-	PlateExpDate = @PlateExpDate,
-	PolicyExpDate = @PolicyExpDate,
-	InsuranceProvider = @InsuranceProvider
-WHERE VehicleID = @VehicleID
+	VIN = S.VIN,
+	Color = S.Color,
+	PlateNumber = S.PlateNumber,
+	PolicyNumber = S.PolicyNumber,
+	PlateExpDate = S.PlateExpDate,
+	PolicyExpDate = S.PolicyExpDate,
+	InsuranceProvider = S.InsuranceProvider;
 
-UPDATE DMV.VehicleModel
+WITH MergeModelCte(Model, [Year], ModelID) AS
+	(
+		SELECT M.Model,
+			M.[Year],
+			M.ModelID
+		FROM
+			(
+				VALUES(@Model, @Year, @ModelID)
+			) M(Model, [Year], ModelID)
+	)
+MERGE DMV.VehicleModel VM
+USING MergeModelCte SM ON SM.ModelID = VM.ModelID
+WHEN MATCHED THEN
+UPDATE
 SET
-	[Name] = @Model,
-	[Year] = @Year
-WHERE ModelID = @ModelID
+	[Name] = SM.Model,
+	[Year] = SM.[Year];
+

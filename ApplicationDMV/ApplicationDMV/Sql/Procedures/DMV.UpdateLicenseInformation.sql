@@ -13,17 +13,38 @@
 	@IsDonor BIT
 AS
 
-UPDATE DMV.LicenseInformation
+WITH MergeCte(LicenseID, City, ZIP, AddressLine1, AddressLine2, FeetHeight, InchesHeight, [Weight], IssueDate, ExpDate, Class, IsDonor) AS
+	(
+		SELECT M.LicenseID,
+			M.City,
+			M.ZIP,
+			M.AddressLine1,
+			M.AddressLine2,
+			M.FeetHeight,
+			M.InchesHeight,
+			M.[Weight],
+			M.IssueDate,
+			M.ExpDate,
+			M.Class,
+			M.IsDonor
+		FROM
+			(
+				VALUES(@LicenseID, @City, @ZIP, @AddressLine1, @AddressLine2, @FeetHeight, @InchesHeight, @Weight, @IssueDate, @ExpDate, @Class, @IsDonor)
+			) M(LicenseID, City, ZIP, AddressLine1, AddressLine2, FeetHeight, InchesHeight, [Weight], IssueDate, ExpDate, Class, IsDonor)
+	)
+MERGE DMV.LicenseInformation L
+USING MergeCte S ON S.LicenseID = L.LicenseID
+WHEN MATCHED THEN
+UPDATE 
 SET
-	City = @City,
-	ZIP = @ZIP,
-	AddressLine1 = @AddressLine1,
-	AddressLine2 = AddressLine2,
-	FeetHeight = @FeetHeight,
-	InchesHeight = @InchesHeight,
-	[Weight] = @Weight,
-	IssueDate = @IssueDate,
-	ExpDate = @ExpDate,
-	Class = @Class,
-	IsDonor = @IsDonor
-WHERE LicenseID = @LicenseID
+	City = S.City,
+	ZIP = S.ZIP,
+	AddressLine1 = S.AddressLine1,
+	AddressLine2 = S.AddressLine2,
+	FeetHeight = S.FeetHeight,
+	InchesHeight = S.InchesHeight,
+	[Weight] = S.[Weight],
+	IssueDate = S.IssueDate,
+	ExpDate = S.ExpDate,
+	Class = S.Class,
+	IsDonor = S.IsDonor;
