@@ -2,8 +2,6 @@
 	@Year INT
 AS
 
-DECLARE @Year INT = 2024
-
 SELECT MONTH(L.ExpDate) AS MonthOf2024,
 	RDS.StateCode,
 	COUNT(L.LicenseID) AS LicensesToExp
