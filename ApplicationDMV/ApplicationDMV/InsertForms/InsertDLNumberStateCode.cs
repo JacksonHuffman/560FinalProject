@@ -84,7 +84,9 @@ namespace ApplicationDMV.InsertForms
                     LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
                     List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
                     List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
-                    QueryResultForm queryResultForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, menInsuredList, expList, regDriverSearchForm, vehicleSearchForm, licenseInformationSearchForm, false, false, false, false);
+                    List<VehicleOwnedByFemales> vOnByF = new List<VehicleOwnedByFemales>();
+                    List<ExpLicensePercentageInfo> expLiPercInfoList = new List<ExpLicensePercentageInfo>();
+                    QueryResultForm queryResultForm = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, menInsuredList, expList, vOnByF, expLiPercInfoList, regDriverSearchForm, vehicleSearchForm, licenseInformationSearchForm, false, false, false, false, false, false);
                     IntermediateForm interForm = new IntermediateForm(_driverRepo);
                     InsertDLNumberStateCode insertDLNumForm = new InsertDLNumberStateCode(_driverStateRepo, 0, interForm);
                     GoToUpdateLicenseForm goToUpdateForm = new GoToUpdateLicenseForm(insertDLNumForm, 0, "", "");

@@ -39,6 +39,8 @@
             uxMenInsuredInKansasBT = new Button();
             uxStatsLB = new Label();
             uxExpLicensePerMonthForEachStateBT = new Button();
+            uxTopFiveVehiclesFemales = new Button();
+            uxPercentageOfExpLicensesPerState = new Button();
             SuspendLayout();
             // 
             // uxInsertRdButton
@@ -135,7 +137,7 @@
             uxWelcomeLabel.AutoSize = true;
             uxWelcomeLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             uxWelcomeLabel.ImeMode = ImeMode.NoControl;
-            uxWelcomeLabel.Location = new Point(11, 28);
+            uxWelcomeLabel.Location = new Point(28, 28);
             uxWelcomeLabel.Margin = new Padding(2, 0, 2, 0);
             uxWelcomeLabel.Name = "uxWelcomeLabel";
             uxWelcomeLabel.Size = new Size(497, 15);
@@ -151,7 +153,7 @@
             uxMenInsuredInKansasBT.Name = "uxMenInsuredInKansasBT";
             uxMenInsuredInKansasBT.Size = new Size(360, 50);
             uxMenInsuredInKansasBT.TabIndex = 20;
-            uxMenInsuredInKansasBT.Text = "Show Which Insurance is Most Popular Among Men in Kansas";
+            uxMenInsuredInKansasBT.Text = "Show Most Popular Insurance Providers Among Men in Kansas";
             uxMenInsuredInKansasBT.UseVisualStyleBackColor = false;
             uxMenInsuredInKansasBT.Click += uxMenInsuredInKansasBT_Click;
             // 
@@ -176,9 +178,35 @@
             uxExpLicensePerMonthForEachStateBT.Name = "uxExpLicensePerMonthForEachStateBT";
             uxExpLicensePerMonthForEachStateBT.Size = new Size(360, 50);
             uxExpLicensePerMonthForEachStateBT.TabIndex = 24;
-            uxExpLicensePerMonthForEachStateBT.Text = "Show the Number Of Licenses That Will Expire in Each Month of 2024 For Each State that Has a License Expiring in 2024.";
+            uxExpLicensePerMonthForEachStateBT.Text = "Show the Number Of Licenses That Will Expire in Each Month of 2024";
             uxExpLicensePerMonthForEachStateBT.UseVisualStyleBackColor = false;
             uxExpLicensePerMonthForEachStateBT.Click += uxExpLicensePerMonthForEachStateBT_Click;
+            // 
+            // uxTopFiveVehiclesFemales
+            // 
+            uxTopFiveVehiclesFemales.BackColor = SystemColors.GradientActiveCaption;
+            uxTopFiveVehiclesFemales.ImeMode = ImeMode.NoControl;
+            uxTopFiveVehiclesFemales.Location = new Point(92, 387);
+            uxTopFiveVehiclesFemales.Margin = new Padding(2);
+            uxTopFiveVehiclesFemales.Name = "uxTopFiveVehiclesFemales";
+            uxTopFiveVehiclesFemales.Size = new Size(360, 50);
+            uxTopFiveVehiclesFemales.TabIndex = 25;
+            uxTopFiveVehiclesFemales.Text = "Show to Top 5 Vehicles Owned by Females";
+            uxTopFiveVehiclesFemales.UseVisualStyleBackColor = false;
+            uxTopFiveVehiclesFemales.Click += uxTopFiveVehiclesFemales_Click;
+            // 
+            // uxPercentageOfExpLicensesPerState
+            // 
+            uxPercentageOfExpLicensesPerState.BackColor = SystemColors.GradientActiveCaption;
+            uxPercentageOfExpLicensesPerState.ImeMode = ImeMode.NoControl;
+            uxPercentageOfExpLicensesPerState.Location = new Point(94, 441);
+            uxPercentageOfExpLicensesPerState.Margin = new Padding(2);
+            uxPercentageOfExpLicensesPerState.Name = "uxPercentageOfExpLicensesPerState";
+            uxPercentageOfExpLicensesPerState.Size = new Size(360, 50);
+            uxPercentageOfExpLicensesPerState.TabIndex = 26;
+            uxPercentageOfExpLicensesPerState.Text = "Show the Total Number of Licenses, Total Number of Expiring Licenses, and Percentage of Expiring Licenses for Each State.";
+            uxPercentageOfExpLicensesPerState.UseVisualStyleBackColor = false;
+            uxPercentageOfExpLicensesPerState.Click += uxPercentageOfExpLicensesPerState_Click;
             // 
             // MainForm
             // 
@@ -186,6 +214,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(553, 502);
+            Controls.Add(uxPercentageOfExpLicensesPerState);
+            Controls.Add(uxTopFiveVehiclesFemales);
             Controls.Add(uxExpLicensePerMonthForEachStateBT);
             Controls.Add(uxStatsLB);
             Controls.Add(uxMenInsuredInKansasBT);
@@ -217,5 +247,7 @@
         private Button uxMenInsuredInKansasBT;
         private Label uxStatsLB;
         private Button uxExpLicensePerMonthForEachStateBT;
+        private Button uxTopFiveVehiclesFemales;
+        private Button uxPercentageOfExpLicensesPerState;
     }
 }

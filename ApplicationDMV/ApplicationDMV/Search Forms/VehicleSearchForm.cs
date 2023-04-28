@@ -184,6 +184,8 @@ namespace ApplicationDMV.Search_Forms
                 List<CompleteVehicle> completeVehicleList = new List<CompleteVehicle>();
                 List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
                 List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
+                List<VehicleOwnedByFemales> vOnByF = new List<VehicleOwnedByFemales>();
+                List<ExpLicensePercentageInfo> expLiPercInfoList = new List<ExpLicensePercentageInfo>();
                 if (!formFlag)
                 {
                     completeVehicleList = _vehicleSearchRepo.GetQueryVehicleInformation(_vin, _color, _plateNum, _policyNum, _insurance, _makeName, _modelName, _year, true, true, true, true, true, true, true, true);
@@ -196,7 +198,7 @@ namespace ApplicationDMV.Search_Forms
                 //completeVehicleList = _vehicleSearchRepo.GetQueryVehicleInformation(_vin, _color, _plateNum, _policyNum, _insurance, _makeName, _modelName, _year, _vinBool, _colorBool, _plateBool, _policyBool, _insuracneBool, _makeBool, _modelBool, _yearBool);
                 RegDriverSearchForm rdsForm = new RegDriverSearchForm();
 
-                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, menInsuredList, expList, rdsForm, this, licenseInformationSearchForm, false, true, false, false);
+                QueryResultForm q = new QueryResultForm(completeDriverList, completeVehicleList, completeLicenseList, menInsuredList, expList, vOnByF, expLiPercInfoList, rdsForm, this, licenseInformationSearchForm, false, true, false, false, false, false);
                 q.Show();
                 this.Hide();
             }

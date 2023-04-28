@@ -59,7 +59,15 @@ namespace ApplicationDMV
 
         private List<ExpLicensePerMonthEachStateObject> _expLicensePerMonthEachStateList;
 
-        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, List<CompleteLicense> completeLicenseList, List<MenInsuredQueryObject> menInsuredList, List<ExpLicensePerMonthEachStateObject> expLicensePerMonthEachStateObjects, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, LicenseInformationSearchForm liSForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm, bool aggQuery1, bool aggQuery2)
+        private bool _aggQuery3;
+
+        private bool _aggQuery4;
+
+        private List<ExpLicensePercentageInfo> _expLicensePercentageInfoList;
+
+        private List<VehicleOwnedByFemales> _vehicleOwnedByFemalesList;
+
+        public QueryResultForm(List<CompleteDriver> completeDriverList, List<CompleteVehicle> completeVehicleList, List<CompleteLicense> completeLicenseList, List<MenInsuredQueryObject> menInsuredList, List<ExpLicensePerMonthEachStateObject> expLicensePerMonthEachStateObjects, List<VehicleOwnedByFemales> vOwnedByFemalesList, List<ExpLicensePercentageInfo> expPercInfoList, RegDriverSearchForm regDriverSearchForm, VehicleSearchForm vehicleSearchForm, LicenseInformationSearchForm liSForm, bool getBackToRegDriverSearchForm, bool getBackToVehicleSearchForm, bool aggQuery1, bool aggQuery2, bool aggQuery3, bool aggQuery4)
         {
             InitializeComponent();
             _completeDriverList = completeDriverList;
@@ -74,6 +82,10 @@ namespace ApplicationDMV
             _aggQuery1 = aggQuery1;
             _expLicensePerMonthEachStateList = expLicensePerMonthEachStateObjects;
             _aggQuery2 = aggQuery2;
+            _vehicleOwnedByFemalesList = vOwnedByFemalesList;
+            _aggQuery3 = aggQuery3;
+            _aggQuery4 = aggQuery4;
+            _expLicensePercentageInfoList = expPercInfoList;
 
             if (_getBackToRegDriverSearchForm)
             {
@@ -113,6 +125,25 @@ namespace ApplicationDMV
                 foreach(var expLiPerStatePerMonth in expLicensePerMonthEachStateObjects)
                 {
                     uxResultsListBox.Items.Add("MONTH: " + expLiPerStatePerMonth.Month.ToString() + ", STATE: " + expLiPerStatePerMonth.StateCode + ", NUMBER OF EXPIRING LICENSE(S): " + expLiPerStatePerMonth.NumExpLicensePerStatePerMonth.ToString());
+                }
+                uxNumResultsLB.Text = "";
+                uxUpdateBT.Visible = false;
+                uxBackBT.Visible = false;
+            }
+            else if(_aggQuery3)
+            {
+                foreach (var vehicleOwnedByFemale in vOwnedByFemalesList) {
+                    uxResultsListBox.Items.Add("YEAR: " + vehicleOwnedByFemale.Year.ToString() + ", MANUFACTURER: " + vehicleOwnedByFemale.Manufacturer.ToString() + ", MODEL: " + vehicleOwnedByFemale.Model.ToString() + ", NUMBER OF FEMALE OWNERS: " + vehicleOwnedByFemale.NumOfFemaleOnwers.ToString());
+                }
+                uxNumResultsLB.Text = "";
+                uxUpdateBT.Visible = false;
+                uxBackBT.Visible = false;
+            }
+            else if(_aggQuery4)
+            {
+                foreach(var expStateInfo in expPercInfoList)
+                {
+                    uxResultsListBox.Items.Add("STATE: " + expStateInfo.StateCode.ToString() + ", TOTAL LICENSE(S): " + expStateInfo.TotalLicenseCount.ToString() + ", TOTAL EXPIRED LICENSE(S): " + expStateInfo.TotalExpLicenseCount.ToString() + ", PERCENTAGE EXPIRED: " + expStateInfo.PercentageExp.ToString());
                 }
                 uxNumResultsLB.Text = "";
                 uxUpdateBT.Visible = false;

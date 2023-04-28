@@ -77,9 +77,34 @@ namespace ApplicationDMV.InsertForms
             VehicleSearchForm vehicleSearchForm = new VehicleSearchForm();
             LicenseInformationSearchForm licenseInformationSearchForm = new LicenseInformationSearchForm();
             List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
-            QueryResultForm resultForm = new QueryResultForm(completeDrivers, completeVehicles, completeLiList, menInsuredList, expList, regDriverSearchForm, vehicleSearchForm, licenseInformationSearchForm, false, false, false, false);
-            CompleteLicense completeLicense = new CompleteLicense(completeLiList[0].LicenseID, completeLiList[0].RegisteredDriverID, completeLiList[0].RegisteredDriverStateID, completeLiList[0].StateCode, completeLiList[0].City, completeLiList[0].ZIP, completeLiList[0].AddressLine1, completeLiList[0].AddressLine2, completeLiList[0].FeetHeight, completeLiList[0].InchesHeight, completeLiList[0].Weight, completeLiList[0].IssueDate, completeLiList[0].ExpDate, completeLiList[0].Class, completeLiList[0].FirstName, completeLiList[0].MiddleName, completeLiList[0].LastName, completeLiList[0].DLNumber, completeLiList[0].Donor);
+            List<VehicleOwnedByFemales> vOnByF = new List<VehicleOwnedByFemales>();
+            List<ExpLicensePercentageInfo> expLiPercInfoList = new List<ExpLicensePercentageInfo>();
+            QueryResultForm resultForm = new QueryResultForm(completeDrivers, completeVehicles, completeLiList, menInsuredList, expList, vOnByF, expLiPercInfoList, regDriverSearchForm, vehicleSearchForm, licenseInformationSearchForm, false, false, false, false, false, false);
+
+            if(completeLiList.Count == 0)
+            {
+                //CompleteLicense completeLicense = new CompleteLicense(completeLiList[0].LicenseID, completeLiList[0].RegisteredDriverID, completeLiList[0].RegisteredDriverStateID, completeLiList[0].StateCode, completeLiList[0].City, completeLiList[0].ZIP, completeLiList[0].AddressLine1, completeLiList[0].AddressLine2, completeLiList[0].FeetHeight, completeLiList[0].InchesHeight, completeLiList[0].Weight, completeLiList[0].IssueDate, completeLiList[0].ExpDate, completeLiList[0].Class, completeLiList[0].FirstName, completeLiList[0].MiddleName, completeLiList[0].LastName, completeLiList[0].DLNumber, completeLiList[0].Donor);
+                LicenseInformationInsertForm v = new LicenseInformationInsertForm(_regDriversStateID, _licenseRepo, false, resultForm, "", "", "", "", "", "", "", "", "", false, this, false);
+                v.Show();
+                this.Hide();
+            }
+            else
+            {
+                CompleteLicense completeLicense = new CompleteLicense(completeLiList[0].LicenseID, completeLiList[0].RegisteredDriverID, completeLiList[0].RegisteredDriverStateID, completeLiList[0].StateCode, completeLiList[0].City, completeLiList[0].ZIP, completeLiList[0].AddressLine1, completeLiList[0].AddressLine2, completeLiList[0].FeetHeight, completeLiList[0].InchesHeight, completeLiList[0].Weight, completeLiList[0].IssueDate, completeLiList[0].ExpDate, completeLiList[0].Class, completeLiList[0].FirstName, completeLiList[0].MiddleName, completeLiList[0].LastName, completeLiList[0].DLNumber, completeLiList[0].Donor);
+                bool isDonor = false;
+                if (completeLicense.Donor == 1)
+                {
+                    isDonor = true;
+                }
+                LicenseInfo liToUpdate = new LicenseInfo(completeLicense.LicenseID, completeLicense.RegisteredDriverStateID, completeLicense.City, completeLicense.ZIP, completeLicense.AddressLine1, completeLicense.AddressLine2, completeLicense.FeetHeight, completeLicense.InchesHeight, completeLicense.Weight, completeLicense.IssueDate, completeLicense.ExpDate, completeLicense.Class, isDonor);
+                licenseToUpdate = liToUpdate;
+                LicenseInformationInsertForm v = new LicenseInformationInsertForm(_regDriversStateID, _licenseRepo, false, resultForm, completeLicense.City, completeLicense.ZIP, completeLicense.AddressLine1, completeLicense.AddressLine2, completeLicense.FeetHeight.ToString(), completeLicense.InchesHeight.ToString(), completeLicense.Weight.ToString(), completeLicense.ExpDate.ToShortDateString(), completeLicense.Class.ToString(), isDonor, this, true);
+                v.Show();
+                this.Hide();
+            }
+            //CompleteLicense completeLicense = new CompleteLicense(completeLiList[0].LicenseID, completeLiList[0].RegisteredDriverID, completeLiList[0].RegisteredDriverStateID, completeLiList[0].StateCode, completeLiList[0].City, completeLiList[0].ZIP, completeLiList[0].AddressLine1, completeLiList[0].AddressLine2, completeLiList[0].FeetHeight, completeLiList[0].InchesHeight, completeLiList[0].Weight, completeLiList[0].IssueDate, completeLiList[0].ExpDate, completeLiList[0].Class, completeLiList[0].FirstName, completeLiList[0].MiddleName, completeLiList[0].LastName, completeLiList[0].DLNumber, completeLiList[0].Donor);
             
+            /*
             bool isDonor = false;
             if(completeLicense.Donor == 1)
             {
@@ -90,6 +115,7 @@ namespace ApplicationDMV.InsertForms
             LicenseInformationInsertForm v = new LicenseInformationInsertForm(_regDriversStateID, _licenseRepo, false, resultForm, completeLicense.City, completeLicense.ZIP, completeLicense.AddressLine1, completeLicense.AddressLine2, completeLicense.FeetHeight.ToString(), completeLicense.InchesHeight.ToString(), completeLicense.Weight.ToString(), completeLicense.ExpDate.ToShortDateString(), completeLicense.Class.ToString(), isDonor, this, true);
             v.Show();
             this.Hide();
+            */
         }
     }
 }

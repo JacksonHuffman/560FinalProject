@@ -26,6 +26,20 @@ namespace ApplicationDMV.SqlRepos
 
         public string _month;
 
+        public int _year;
+
+        public string _manufacturer;
+
+        public string _model;
+
+        public int _numOfFemaleOwners;
+
+        public int _totalLicenseCount;
+
+        public int _totalExpCount;
+
+        public decimal _perExp;
+
         public SqlAggQueryRepository(string connectionString)
         {
             _connectionString = connectionString;
@@ -132,6 +146,73 @@ namespace ApplicationDMV.SqlRepos
                         }
 
                         return expLiPerMPerStateList;
+                    }
+                }
+            }
+        }
+
+        
+        public List<VehicleOwnedByFemales> AggQueryTopFiveMostPopularVehiclesAmongstFemales(char sex)
+        {
+            List<VehicleOwnedByFemales> vOwnedFemaleList = new List<VehicleOwnedByFemales>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("DMV.AggQueryTopFiveMostPopularVehiclesAmongstFemales", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("Sex", sex);
+
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            _year = Convert.ToInt32(reader["Year"]);
+                            _manufacturer = Convert.ToString(reader["Manufacturer"]);
+                            _model = Convert.ToString(reader["Name"]);
+                            _numExpLicensePerMonthPerState = Convert.ToInt32(reader["NumberOfFemaleOwners"]);
+
+                            VehicleOwnedByFemales vOwnedByF = new VehicleOwnedByFemales(_year, _manufacturer, _model, _numExpLicensePerMonthPerState);
+                            vOwnedFemaleList.Add(vOwnedByF);
+                        }
+
+                        return vOwnedFemaleList;
+                    }
+                }
+            }
+        }
+
+        public List<ExpLicensePercentageInfo> AggQueryPercentageOfExpLicensePerState(DateTime today)
+        {
+            List<ExpLicensePercentageInfo> expList = new List<ExpLicensePercentageInfo>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("DMV.AggQueryPercentageOfExpLicensePerState", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("TodayDate", today);
+
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read()) 
+                        {
+                            _stateCode = Convert.ToString(reader["StateCode"]);
+                            _totalLicenseCount = Convert.ToInt32(reader["LicenseCount"]);
+                            _totalExpCount = Convert.ToInt32(reader["ExpLicenseCount"]);
+                            _perExp = Convert.ToDecimal(reader["PercentageExpired"]);
+
+                            ExpLicensePercentageInfo expLiPerInfo = new ExpLicensePercentageInfo(_stateCode, _totalLicenseCount, _totalExpCount, _perExp);
+                            expList.Add(expLiPerInfo);
+                        }
+
+                        return expList;
                     }
                 }
             }

@@ -34,18 +34,16 @@
             uxLNLabel = new Label();
             uxFNLabel = new Label();
             uxBackButton = new Button();
-            uxStateCodeLB = new Label();
             uxFNTB = new TextBox();
             uxMNTB = new TextBox();
             uxLNTB = new TextBox();
             uxSexTB = new TextBox();
-            uxStateCodeTB = new TextBox();
             SuspendLayout();
             // 
             // uxSearchButton
             // 
             uxSearchButton.BackColor = SystemColors.GradientActiveCaption;
-            uxSearchButton.Location = new Point(260, 285);
+            uxSearchButton.Location = new Point(273, 267);
             uxSearchButton.Margin = new Padding(2);
             uxSearchButton.Name = "uxSearchButton";
             uxSearchButton.Size = new Size(101, 40);
@@ -97,7 +95,7 @@
             // uxBackButton
             // 
             uxBackButton.BackColor = SystemColors.GradientActiveCaption;
-            uxBackButton.Location = new Point(52, 285);
+            uxBackButton.Location = new Point(49, 267);
             uxBackButton.Margin = new Padding(2);
             uxBackButton.Name = "uxBackButton";
             uxBackButton.Size = new Size(101, 40);
@@ -105,15 +103,6 @@
             uxBackButton.Text = "Back";
             uxBackButton.UseVisualStyleBackColor = false;
             uxBackButton.Click += uxBackButton_Click;
-            // 
-            // uxStateCodeLB
-            // 
-            uxStateCodeLB.AutoSize = true;
-            uxStateCodeLB.Location = new Point(113, 212);
-            uxStateCodeLB.Name = "uxStateCodeLB";
-            uxStateCodeLB.Size = new Size(64, 15);
-            uxStateCodeLB.TabIndex = 15;
-            uxStateCodeLB.Text = "StateCode:";
             // 
             // uxFNTB
             // 
@@ -143,25 +132,16 @@
             uxSexTB.Size = new Size(35, 23);
             uxSexTB.TabIndex = 19;
             // 
-            // uxStateCodeTB
-            // 
-            uxStateCodeTB.Location = new Point(213, 209);
-            uxStateCodeTB.Name = "uxStateCodeTB";
-            uxStateCodeTB.Size = new Size(35, 23);
-            uxStateCodeTB.TabIndex = 20;
-            // 
             // RegDriverSearchForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(406, 349);
-            Controls.Add(uxStateCodeTB);
             Controls.Add(uxSexTB);
             Controls.Add(uxLNTB);
             Controls.Add(uxMNTB);
             Controls.Add(uxFNTB);
-            Controls.Add(uxStateCodeLB);
             Controls.Add(uxBackButton);
             Controls.Add(uxFNLabel);
             Controls.Add(uxLNLabel);
@@ -183,11 +163,9 @@
         private Label uxLNLabel;
         private Label uxFNLabel;
         private Button uxBackButton;
-        private Label uxStateCodeLB;
         private TextBox uxFNTB;
         private TextBox uxMNTB;
         private TextBox uxLNTB;
         private TextBox uxSexTB;
-        private TextBox uxStateCodeTB;
     }
 }

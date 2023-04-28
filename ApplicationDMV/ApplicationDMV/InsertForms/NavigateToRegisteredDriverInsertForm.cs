@@ -54,7 +54,9 @@ namespace ApplicationDMV.InsertForms
             RegDriverSearchForm regDriverSearchForm = new RegDriverSearchForm();
             List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
             List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
-            QueryResultForm resultsForm = new QueryResultForm(completeDriversList, completeVehicleList, completeLicenseList, menInsuredList, expList, regDriverSearchForm, vsForm, liSearchForm, false, false, false, false);
+            List<VehicleOwnedByFemales> vOnByF = new List<VehicleOwnedByFemales>();
+            List<ExpLicensePercentageInfo> expLiPercInfoList = new List<ExpLicensePercentageInfo>();
+            QueryResultForm resultsForm = new QueryResultForm(completeDriversList, completeVehicleList, completeLicenseList, menInsuredList, expList, vOnByF, expLiPercInfoList, regDriverSearchForm, vsForm, liSearchForm, false, false, false, false, false, false);
             RegDriverInsertForm v = new RegDriverInsertForm(_driverRepo, _mainForm, true, _interForm, _fn, _mn, _ln, _dateOfBirth, "", true, false, resultsForm);
             v.Show();
             this.Close();

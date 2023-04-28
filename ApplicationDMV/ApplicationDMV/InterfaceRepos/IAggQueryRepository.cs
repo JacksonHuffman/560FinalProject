@@ -12,5 +12,9 @@ namespace ApplicationDMV.InterfaceRepos
         public List<MenInsuredQueryObject> AggQueryInsuranceProviderForMenInKansas(char sex, string stateCode);
 
         public List<ExpLicensePerMonthEachStateObject> AggQueryLicenseToExpForEachMonthForEachStateIn2024(int year);
+
+        public List<VehicleOwnedByFemales> AggQueryTopFiveMostPopularVehiclesAmongstFemales(char sex);
+
+        public List<ExpLicensePercentageInfo> AggQueryPercentageOfExpLicensePerState(DateTime today);
     }
 }

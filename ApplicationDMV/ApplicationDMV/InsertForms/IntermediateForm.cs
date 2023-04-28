@@ -66,7 +66,9 @@ namespace ApplicationDMV.InsertForms
                     VehicleSearchForm vSForm = new VehicleSearchForm();
                     List<MenInsuredQueryObject> menInsuredList = new List<MenInsuredQueryObject>();
                     List<ExpLicensePerMonthEachStateObject> expList = new List<ExpLicensePerMonthEachStateObject>();
-                    QueryResultForm resultForm = new QueryResultForm(c, vl, cl, menInsuredList, expList, regSForm, vSForm, licenseInformationSearchForm, false, false, false, false);
+                    List<VehicleOwnedByFemales> vOnByF = new List<VehicleOwnedByFemales>();
+                    List<ExpLicensePercentageInfo> expLiPercInfoList = new List<ExpLicensePercentageInfo>();
+                    QueryResultForm resultForm = new QueryResultForm(c, vl, cl, menInsuredList, expList, vOnByF, expLiPercInfoList, regSForm, vSForm, licenseInformationSearchForm, false, false, false, false, false, false);
                     InsertVehicleInformation v = new InsertVehicleInformation(this, driverID, "", "", "", "", "", "", "", "", "", "", false, resultForm);
                     v.Show();
                     this.Hide();
