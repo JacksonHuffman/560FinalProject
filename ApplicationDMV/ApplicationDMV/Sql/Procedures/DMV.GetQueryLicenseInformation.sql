@@ -11,17 +11,6 @@
 	@Class NCHAR(1)
 AS
 
---DECLARE @DLNumber NVARCHAR(32) = NULL
---DECLARE @StateCode NCHAR(2) = NULL
---DECLARE @City NVARCHAR(32) = NULL
---DECLARE @ZIP NCHAR(6) = '64834'
---DECLARE @AddressLine1 NVARCHAR(32) = NULL
---DECLARE @AddressLine2 NVARCHAR(32) = NULL
---DECLARE @FeetHeight INT = NULL
---DECLARE @InchesHeight INT = NULL
---DECLARE @Weight INT = NULL
---DECLARE @Class NCHAR(1) = NULL
-
 SELECT L.LicenseID,
 	RD.RegisteredDriverID,
 	RDS.RegisteredDriversStateID,
